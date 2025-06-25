@@ -1,0 +1,36 @@
+{
+    "orderStatus": "shipped",
+    "lastOrderStatusUpdate": "2022-06-08T22:06:56Z",
+    "customerID": "748451685",
+    "personalEmail": "phewson0@time.com",
+    "orderID": "dd7b887b-1287-4f9a-a30c-7d3796041214",
+    "orderDate": "2022-06-14T18:50:40Z",
+    "orderTotal": 250.02,
+    "paymentType": "debit",
+    "paymentAmount": 341.57,
+    "paymentCurrencyCode": "USD",
+    "paymentTransactionID": "eea404ff-afbe-4945-8bd8-1ccd641c8c67",
+    "storeID": "STORE-62",
+    "shippingStreetAddress": "312 Myrtle Crossing",
+    "shippingCity": "Portland",
+    "shippingState": "Oregon",
+    "shippingZip": "97201",
+    "shippingMethod": "Overnight",
+    "shippingAmount": 9.99,
+    "shippingDestination": "store",
+    "billingState": "Utah",
+    "billingStreetAddress": "756 Northland Court",
+    "billingCity": "Salt Lake City",
+    "billingZip": "84125",
+    "plan": {
+        "ID": "m2"
+    },
+    "Products": [{
+        "productID": "PRODUCT-16",
+        "quantity": 1,
+        "price": 150.23,
+        "currencyCode": "USD",
+        "model": "Google Pixel 6",
+        "make": "Google"
+    }]
+}

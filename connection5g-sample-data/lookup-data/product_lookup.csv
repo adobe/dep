@@ -1,0 +1,15 @@
+﻿product_id,product_type,make,model,release_year,5g_compatible,amount
+1,1,Apple,iPhone 14,2022,TRUE,699.99
+2,1,Apple,iPhone 14 Plus,2022,TRUE,799.99
+3,1,Apple,iPhone 15,2023,TRUE,799.99
+4,1,Apple,iPhone 15 Pro,2023,TRUE,999.99
+5,1,Google,Pixel 7,2022,TRUE,599.99
+6,1,Google,Pixel 7 Pro,2022,TRUE,899.99
+7,1,Google,Pixel 8,2023,TRUE,699.99
+8,1,Google,Pixel 8 Pro,2023,TRUE,999.99
+9,1,Google,Pixel Fold,2023,TRUE,1799.99
+10,1,Samsung,Galaxy S24,2023,TRUE,799.99
+11,1,Samsung,Galaxy S24+,2023,TRUE,999.99
+12,1,Samsung,Galaxy S24 Ultra,2023,TRUE,1299.99
+13,1,Samsung,Z Flip5,2023,TRUE,999.99
+14,1,Samsung,Z Fold5,2023,TRUE,1799.99

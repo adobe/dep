@@ -1,0 +1,2442 @@
+{
+	"info": {
+		"_postman_id": "ff6f4dd4-2a6f-4a74-9cca-9dfbcf905a20",
+		"name": "aep-foundations-bootcamp-health-manual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4873115"
+	},
+	"item": [
+		{
+			"name": "00 - Auth & Prep",
+			"item": [
+				{
+					"name": "Get OAuth Access Token Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"    ",
+									"    //debug mode on/off",
+									"    if (pm.environment.get(\"TEST_MODE\") == \"false\") {",
+									"        postman.setNextRequest(null);",
+									"    }",
+									"",
+									"    pm.response.to.have.status(200);",
+									"        ",
+									"    var data = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"ACCESS_TOKEN\", data.access_token);",
+									"",
+									"    //validate access token saved",
+									"    pm.test(\"Access token saved\", () => {",
+									"        pm.expect(pm.environment.get(\"ACCESS_TOKEN\")).to.not.eql(null);",
+									"    });",
+									"",
+									"    postman.setNextRequest();",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"cleanup()\r",
+									"\r",
+									"function cleanup() {\r",
+									"    const clean = _.keys(pm.collectionVariables.toObject())\r",
+									"    _.each(clean, (arrItem) => {\r",
+									"        pm.collectionVariables.unset(arrItem)\r",
+									"        pm.collectionVariables.set(arrItem,0)\r",
+									"    })\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://{{IMS}}/ims/token/v2?grant_type=client_credentials&client_id={{API_KEY}}&client_secret={{CLIENT_SECRET}}&scope={{SCOPES}}",
+							"protocol": "https",
+							"host": [
+								"{{IMS}}"
+							],
+							"path": [
+								"ims",
+								"token",
+								"v2"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								},
+								{
+									"key": "client_id",
+									"value": "{{API_KEY}}"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{CLIENT_SECRET}}"
+								},
+								{
+									"key": "scope",
+									"value": "{{SCOPES}}"
+								}
+							]
+						},
+						"description": "Generate a Oauth token using the Crypto RS256\nSend to IMS for access_token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "01 - Gather Values",
+			"item": [
+				{
+					"name": "Gather - Identity Namespaces",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"id_namespace_count\";    \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"\r",
+									"let found = 0\r",
+									"let array = [\"customerID\",\"storeID\",\"planID\",\"productID\"]\r",
+									"for (child in data) {\r",
+									"    if (array.includes(data[child].code)) {\r",
+									"        found++\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.collectionVariables.set(var_name, found);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.adobe.xed-id+json",
+								"description": "The desired response format (application/vnd.adobe.xed-full+json).",
+								"type": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token provided after authorization in the format \"Bearer {ACCESS_TOKEN}\"",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "Your specific API key for your unique Platform configuration ({API_KEY})",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "Unique Identifier for your IMS Organization ({IMS_ORG})",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "The name of the sandbox in which the operation will take place. See the [sandboxes overview documentation](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/idnamespace/identities",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"idnamespace",
+								"identities"
+							]
+						},
+						"description": "<p>You are able to view a list of all schemas within a container by performing a single GET request. To help filter results, the Schema Registry supports the use of query parameters when listing resources. The most common query parameters include:</br><ul><li>limit - Limit the number of resources returned. e.g. limit=5 will return only five resources in the list.</li><li>orderby - Sort results by a specific property. e.g. orderby=title will sort results by title ascending (A-Z). Adding a - before title (orderby=-title) will sort items by title descending (Z-A).</li><li>properties - Filter results on any top-level attributes. e.g. property=meta:intendedToExtend==https://ns.adobe.com/xdm/context/profile returns only mixins that are compatible with the Profile class.</li><li>You may also use an ampersand (&) to combine query parameters.</li></ul></p><p>The response format depends on the Accept header sent in the request. The following Accept headers are available for this request:<br/><ul><li><strong>application/vnd.adobe.xed-id+json</strong> | Returns a short summary of each resource, generally the preferred header for listing.</li><li><strong>application/vnd.adobe.xed-full+json</strong> | Returns full JSON for each resource, with original $ref and allOf attributes included.</li></ul></p>"
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Classes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"class_count\";    \r",
+									"const var_class = \"class_meta_altid\";    \r",
+									"\r",
+									"var data = JSON.parse(responseBody);\r",
+									"\r",
+									"if (data._page.count != 0){\r",
+									"    pm.collectionVariables.set(var_name, data.results.length);\r",
+									"    pm.collectionVariables.set(var_class,data.results[0][\"meta:altId\"]);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.adobe.xed-id+json",
+								"description": "The desired response format (application/vnd.adobe.xed-full+json).",
+								"type": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token provided after authorization in the format \"Bearer {ACCESS_TOKEN}\"",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "Your specific API key for your unique Platform configuration ({API_KEY})",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "Unique Identifier for your IMS Organization ({IMS_ORG})",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "The name of the sandbox in which the operation will take place. See the [sandboxes overview documentation](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/foundation/schemaregistry/tenant/classes/?property=title~{{PREFIX_NAME}}:",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"foundation",
+								"schemaregistry",
+								"tenant",
+								"classes",
+								""
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "title~{{PREFIX_NAME}}:"
+								}
+							]
+						},
+						"description": "<p>You are able to view a list of all schemas within a container by performing a single GET request. To help filter results, the Schema Registry supports the use of query parameters when listing resources. The most common query parameters include:</br><ul><li>limit - Limit the number of resources returned. e.g. limit=5 will return only five resources in the list.</li><li>orderby - Sort results by a specific property. e.g. orderby=title will sort results by title ascending (A-Z). Adding a - before title (orderby=-title) will sort items by title descending (Z-A).</li><li>properties - Filter results on any top-level attributes. e.g. property=meta:intendedToExtend==https://ns.adobe.com/xdm/context/profile returns only mixins that are compatible with the Profile class.</li><li>You may also use an ampersand (&) to combine query parameters.</li></ul></p><p>The response format depends on the Accept header sent in the request. The following Accept headers are available for this request:<br/><ul><li><strong>application/vnd.adobe.xed-id+json</strong> | Returns a short summary of each resource, generally the preferred header for listing.</li><li><strong>application/vnd.adobe.xed-full+json</strong> | Returns full JSON for each resource, with original $ref and allOf attributes included.</li></ul></p>"
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Field Groups",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"fg_count\";    \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"\r",
+									"if (data._page.count != 0){\r",
+									"    pm.collectionVariables.set(var_name, data.results.length);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.adobe.xed-id+json",
+								"description": "The desired response format (application/vnd.adobe.xed-full+json).",
+								"type": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token provided after authorization in the format \"Bearer {ACCESS_TOKEN}\"",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "Your specific API key for your unique Platform configuration ({API_KEY})",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "Unique Identifier for your IMS Organization ({IMS_ORG})",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "The name of the sandbox in which the operation will take place. See the [sandboxes overview documentation](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/foundation/schemaregistry/tenant/mixins/?property=title~{{PREFIX_NAME}}:",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"foundation",
+								"schemaregistry",
+								"tenant",
+								"mixins",
+								""
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "title~{{PREFIX_NAME}}:"
+								}
+							]
+						},
+						"description": "<p>You are able to view a list of all schemas within a container by performing a single GET request. To help filter results, the Schema Registry supports the use of query parameters when listing resources. The most common query parameters include:</br><ul><li>limit - Limit the number of resources returned. e.g. limit=5 will return only five resources in the list.</li><li>orderby - Sort results by a specific property. e.g. orderby=title will sort results by title ascending (A-Z). Adding a - before title (orderby=-title) will sort items by title descending (Z-A).</li><li>properties - Filter results on any top-level attributes. e.g. property=meta:intendedToExtend==https://ns.adobe.com/xdm/context/profile returns only mixins that are compatible with the Profile class.</li><li>You may also use an ampersand (&) to combine query parameters.</li></ul></p><p>The response format depends on the Accept header sent in the request. The following Accept headers are available for this request:<br/><ul><li><strong>application/vnd.adobe.xed-id+json</strong> | Returns a short summary of each resource, generally the preferred header for listing.</li><li><strong>application/vnd.adobe.xed-full+json</strong> | Returns full JSON for each resource, with original $ref and allOf attributes included.</li></ul></p>"
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Schemas",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"schema_count\";    \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(var_name, data.results.length);\r",
+									"\r",
+									"var schema_list = data.results.reduce((accumulator, curValue) => {\r",
+									"    a = Array.from(accumulator);\r",
+									"    a.push(curValue[\"$id\"]);\r",
+									"    return a;\r",
+									"}, []);\r",
+									"pm.collectionVariables.set(\"schema_list\", schema_list);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.adobe.xed-id+json",
+								"description": "The desired response format (application/vnd.adobe.xed-full+json).",
+								"type": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token provided after authorization in the format \"Bearer {ACCESS_TOKEN}\"",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "Your specific API key for your unique Platform configuration ({API_KEY})",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "Unique Identifier for your IMS Organization ({IMS_ORG})",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "The name of the sandbox in which the operation will take place. See the [sandboxes overview documentation](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/foundation/schemaregistry/tenant/schemas/?property=title~{{PREFIX_NAME}}:",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"foundation",
+								"schemaregistry",
+								"tenant",
+								"schemas",
+								""
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "title~{{PREFIX_NAME}}:"
+								}
+							]
+						},
+						"description": "<p>You are able to view a list of all schemas within a container by performing a single GET request. To help filter results, the Schema Registry supports the use of query parameters when listing resources. The most common query parameters include:</br><ul><li>limit - Limit the number of resources returned. e.g. limit=5 will return only five resources in the list.</li><li>orderby - Sort results by a specific property. e.g. orderby=title will sort results by title ascending (A-Z). Adding a - before title (orderby=-title) will sort items by title descending (Z-A).</li><li>properties - Filter results on any top-level attributes. e.g. property=meta:intendedToExtend==https://ns.adobe.com/xdm/context/profile returns only mixins that are compatible with the Profile class.</li><li>You may also use an ampersand (&) to combine query parameters.</li></ul></p><p>The response format depends on the Accept header sent in the request. The following Accept headers are available for this request:<br/><ul><li><strong>application/vnd.adobe.xed-id+json</strong> | Returns a short summary of each resource, generally the preferred header for listing.</li><li><strong>application/vnd.adobe.xed-full+json</strong> | Returns full JSON for each resource, with original $ref and allOf attributes included.</li></ul></p>"
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Descriptors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const alt_count = \"alt_display_desc_count\";    \r",
+									"const id_count = \"identity_desc_count\";\r",
+									"const ref_count = \"reference_desc_count\";\r",
+									"const one_count = \"one_to_one_desc_count\";\r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"var schema_list = pm.collectionVariables.get(\"schema_list\");\r",
+									"function schemaFilter(descriptor) {\r",
+									"    return schema_list.includes(descriptor[\"xdm:sourceSchema\"]);\r",
+									"}\r",
+									"console.log(schema_list);\r",
+									"if (schema_list){\r",
+									"    pm.collectionVariables.set(alt_count, data[\"xdm:alternateDisplayInfo\"].filter(schemaFilter).length);\r",
+									"    pm.collectionVariables.set(id_count, data[\"xdm:descriptorIdentity\"].filter(schemaFilter).length);\r",
+									"    pm.collectionVariables.set(ref_count, data[\"xdm:descriptorReferenceIdentity\"].filter(schemaFilter).length);\r",
+									"    pm.collectionVariables.set(one_count, data[\"xdm:descriptorOneToOne\"].filter(schemaFilter).length);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.adobe.xdm+json",
+								"description": "The desired response format (application/vnd.adobe.xed-full+json).",
+								"type": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token provided after authorization in the format \"Bearer {ACCESS_TOKEN}\"",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "Your specific API key for your unique Platform configuration ({API_KEY})",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "Unique Identifier for your IMS Organization ({IMS_ORG})",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "The name of the sandbox in which the operation will take place. See the [sandboxes overview documentation](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/foundation/schemaregistry/tenant/descriptors/",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"foundation",
+								"schemaregistry",
+								"tenant",
+								"descriptors",
+								""
+							]
+						},
+						"description": "<p>You are able to view a list of all schemas within a container by performing a single GET request. To help filter results, the Schema Registry supports the use of query parameters when listing resources. The most common query parameters include:</br><ul><li>limit - Limit the number of resources returned. e.g. limit=5 will return only five resources in the list.</li><li>orderby - Sort results by a specific property. e.g. orderby=title will sort results by title ascending (A-Z). Adding a - before title (orderby=-title) will sort items by title descending (Z-A).</li><li>properties - Filter results on any top-level attributes. e.g. property=meta:intendedToExtend==https://ns.adobe.com/xdm/context/profile returns only mixins that are compatible with the Profile class.</li><li>You may also use an ampersand (&) to combine query parameters.</li></ul></p><p>The response format depends on the Accept header sent in the request. The following Accept headers are available for this request:<br/><ul><li><strong>application/vnd.adobe.xed-id+json</strong> | Returns a short summary of each resource, generally the preferred header for listing.</li><li><strong>application/vnd.adobe.xed-full+json</strong> | Returns full JSON for each resource, with original $ref and allOf attributes included.</li></ul></p>"
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Datasets",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"dataset_count\"; \r",
+									"const var_enabled = \"dataset_enabled_count\"   \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"let count = 0;\r",
+									"let enabled = 0\r",
+									"for (key in data) {\r",
+									"    count++\r",
+									"    if (data[key][\"tags\"][\"unifiedProfile\"]) {\r",
+									"        enabled++\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.collectionVariables.set(var_name, count);\r",
+									"pm.collectionVariables.set(var_enabled, enabled);\r",
+									"pm.collectionVariables.set(\"dataset_list\", Object.keys(data));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "- The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer\". For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "- The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "- The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "- The name of the sandbox in which the operation will take place. See the [sandboxes overview documentation](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "{{accept-encoding}}",
+								"description": "- Used to signal the intent to consume compressed response bodies. Supported encodings: gzip.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/foundation/catalog/dataSets?property=name~{{PREFIX_NAME}}:",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"foundation",
+								"catalog",
+								"dataSets"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "name~{{PREFIX_NAME}}:"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Flow Accounts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"flow_account_count\";    \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"\r",
+									"if(data){\r",
+									"    pm.collectionVariables.set(var_name, data.items.length);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with 'Bearer '. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "Identifies the Adobe Experience Platform sandbox to use. Default sandbox is 'prod'",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/foundation/flowservice/connections?property=name=={{PREFIX_NAME}}: HTTP API [raw]",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"foundation",
+								"flowservice",
+								"connections"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "name=={{PREFIX_NAME}}: HTTP API [raw]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Dataflows",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"dataflow_count\";    \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(var_name, data.items.length);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with 'Bearer '. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "Identifies the Adobe Experience Platform sandbox to use. Default sandbox is 'prod'",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/foundation/flowservice/flows?property=flowSpec.id==c1a19761-d2c7-4702-b9fa-fe91f0613e81",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"foundation",
+								"flowservice",
+								"flows"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "flowSpec.id==c1a19761-d2c7-4702-b9fa-fe91f0613e81"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Merge Policies",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"merge_policy_count\";    \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"data = data[\"children\"];\r",
+									"\r",
+									"let found = 0;\r",
+									"\r",
+									"for (child in data) {\r",
+									"    if (data[child][\"name\"] == 'Default Timebased') {\r",
+									"        if(data[child][\"default\"] == true && data[child][\"isActiveOnEdge\"] == true) {\r",
+									"            found++\r",
+									"        }\r",
+									"    }\r",
+									"    else if (data[child][\"name\"] == pm.environment.get(\"PREFIX_NAME\") + \": No Stitch\") {\r",
+									"        found++\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.collectionVariables.set(var_name, found);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/config/mergePolicies",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"config",
+								"mergePolicies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Audiences",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"audience_count\";    \r",
+									"    \r",
+									"var data = JSON.parse(responseBody);\r",
+									"\r",
+									"if(data[\"children\"]){\r",
+									"    const hash_present = data[\"children\"][0][\"ansibleDataModel\"][\"hash\"];\r",
+									"    pm.collectionVariables.set(var_name,data.children.length)\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](https://docs.adobe.com/content/help/en/experience-platform/tutorials/authentication.html).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://docs.adobe.com/content/help/en/experience-platform/sandbox/home.html) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/audiences?property=name~{{PREFIX_NAME}}:",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"audiences"
+							],
+							"query": [
+								{
+									"key": "property",
+									"value": "name~{{PREFIX_NAME}}:"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Profile Traits [depche.mode@dep.com]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"profile_trait_count\";    \r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    var entity_id = Object.keys(data);\r",
+									"    entity_id = entity_id[0];\r",
+									"    pm.collectionVariables.set(var_name, data[entity_id].sources.filter(d => pm.collectionVariables.get(\"dataset_list\").includes(d)).length);\r",
+									"    pm.collectionVariables.unset(\"dataset_list\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.context.profile&entityId=266242885&entityIdNS=customerID&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.context.profile"
+								},
+								{
+									"key": "entityId",
+									"value": "266242885"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "customerID"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Profile Events [customerID]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"profile_event_customer_id_count\";    \r",
+									"\r",
+									"if(pm.response.code === 200){    \r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    pm.collectionVariables.set(var_name, data._page.count);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&entityId=266242885&entityIdNS=customerID&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.context.experienceevent"
+								},
+								{
+									"key": "relatedSchema.name",
+									"value": "_xdm.context.profile"
+								},
+								{
+									"key": "entityId",
+									"value": "266242885"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "customerID"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Profile Events [email1]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"profile_event_email1_count\";\r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    pm.collectionVariables.set(var_name, data._page.count);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&entityId=depeche.mode@dep.com&entityIdNS=email&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.context.experienceevent"
+								},
+								{
+									"key": "relatedSchema.name",
+									"value": "_xdm.context.profile"
+								},
+								{
+									"key": "entityId",
+									"value": "depeche.mode@dep.com"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "email"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Profile Events [email2]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"profile_event_email2_count\";    \r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    pm.collectionVariables.set(var_name, data._page.count);\r",
+									"} \r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&entityId=dave.gahan@dep.com&entityIdNS=email&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.context.experienceevent"
+								},
+								{
+									"key": "relatedSchema.name",
+									"value": "_xdm.context.profile"
+								},
+								{
+									"key": "entityId",
+									"value": "dave.gahan@dep.com"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "email"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Profile Events [ecid1]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"profile_event_ecid1_count\";    \r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    pm.collectionVariables.set(var_name, data._page.count);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&entityId=34537751351243145301122536483456723542&entityIdNS=ecid&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.context.experienceevent"
+								},
+								{
+									"key": "relatedSchema.name",
+									"value": "_xdm.context.profile"
+								},
+								{
+									"key": "entityId",
+									"value": "34537751351243145301122536483456723542"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "ecid"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Profile Events [ecid2]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"profile_event_ecid2_count\";    \r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    pm.collectionVariables.set(var_name, data._page.count);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&entityId=66385443304271800137026604878870723316&entityIdNS=ecid&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.context.experienceevent"
+								},
+								{
+									"key": "relatedSchema.name",
+									"value": "_xdm.context.profile"
+								},
+								{
+									"key": "entityId",
+									"value": "66385443304271800137026604878870723316"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "ecid"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Profile Events [ecid3]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"profile_event_ecid3_count\";    \r",
+									"\r",
+									"if(pm.response.code === 200){ \r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    pm.collectionVariables.set(var_name, data._page.count);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.context.experienceevent&relatedSchema.name=_xdm.context.profile&entityId=11537751351243145301122536483456723597&entityIdNS=ecid&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.context.experienceevent"
+								},
+								{
+									"key": "relatedSchema.name",
+									"value": "_xdm.context.profile"
+								},
+								{
+									"key": "entityId",
+									"value": "11537751351243145301122536483456723597"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "ecid"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Store Data [Lookup]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"store_lookup_exists\";    \r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    var entity_id = Object.keys(data);\r",
+									"    entity_id = entity_id[0];\r",
+									"    sources_cnt = eval(\"data['\" + entity_id + \"'].sources.length\")\r",
+									"\r",
+									"    if( sources_cnt == 1) {\r",
+									"        pm.collectionVariables.set(var_name,sources_cnt);\r",
+									"    }\r",
+									"    else {\r",
+									"        pm.collectionVariables.set(var_name,0);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name={{class_meta_altid}}&entityId=STORE-1&entityIdNS=storeID&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "{{class_meta_altid}}"
+								},
+								{
+									"key": "entityId",
+									"value": "STORE-1"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "storeID"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Plan Data [Lookup]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"plan_lookup_exists\";    \r",
+									"\r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    var entity_id = Object.keys(data);\r",
+									"    entity_id = entity_id[0];\r",
+									"    sources_cnt = eval(\"data['\" + entity_id + \"'].sources.length\")\r",
+									"\r",
+									"    if( sources_cnt == 1) {\r",
+									"        pm.collectionVariables.set(var_name,sources_cnt);\r",
+									"    }\r",
+									"    else {\r",
+									"        pm.collectionVariables.set(var_name,0);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.classes.plan&entityId=m1&entityIdNS=planID&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.classes.plan"
+								},
+								{
+									"key": "entityId",
+									"value": "m1"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "planID"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gather - Product Data [Lookup]",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//set variable id_name\r",
+									"const var_name = \"product_lookup_exists\";    \r",
+									"\r",
+									"if(pm.response.code === 200){    \r",
+									"    var data = JSON.parse(responseBody);\r",
+									"    var entity_id = Object.keys(data);\r",
+									"    entity_id = entity_id[0];\r",
+									"    sources_cnt = eval(\"data['\" + entity_id + \"'].sources.length\")\r",
+									"\r",
+									"    if( sources_cnt == 1) {\r",
+									"        pm.collectionVariables.set(var_name,sources_cnt);\r",
+									"    }\r",
+									"    else {\r",
+									"        pm.collectionVariables.set(var_name,0);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ACCESS_TOKEN}}",
+								"description": "The access token which can be copied from your Experience Platform integration, prefixed with \"Bearer \".  For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}",
+								"description": "The API key which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-gw-ims-org-id",
+								"value": "{{IMS_ORG}}",
+								"description": "The Organization ID which can be copied from your Experience Platform integration. For more information on how to obtain this value, visit the [authentication tutorial](http://www.adobe.com/go/platform-api-authentication-en).",
+								"type": "string"
+							},
+							{
+								"key": "x-sandbox-name",
+								"value": "{{SANDBOX_NAME}}",
+								"description": "All resources in Experience Platform are isolated to specific virtual sandboxes. Requests to Platform APIs require a header that specifies the name of the sandbox in which the operation will take place. See the [sandboxes overview](https://adobe.com/go/sandbox-overview-en) for more information.",
+								"type": "string"
+							}
+						],
+						"url": {
+							"raw": "https://{{ADOBE_IO_ENV}}/data/core/ups/access/entities?schema.name=_xdm.classes.product&entityId=PRODUCT-1&entityIdNS=productID&mergePolicyId=none",
+							"protocol": "https",
+							"host": [
+								"{{ADOBE_IO_ENV}}"
+							],
+							"path": [
+								"data",
+								"core",
+								"ups",
+								"access",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "schema.name",
+									"value": "_xdm.classes.product"
+								},
+								{
+									"key": "entityId",
+									"value": "PRODUCT-1"
+								},
+								{
+									"key": "entityIdNS",
+									"value": "productID"
+								},
+								{
+									"key": "mergePolicyId",
+									"value": "none"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"    postman.setNextRequest();",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Final Report",
+			"item": [
+				{
+					"name": "Health Test Report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"total_found\",0);\r",
+									"findTotal()\r",
+									"\r",
+									"function findTotal() {\r",
+									"    var total = 0;\r",
+									"    const count = _.keys(pm.collectionVariables.toObject())\r",
+									"    _.each(count, (arrItem) => {\r",
+									"        if (arrItem != \"total_found\" && arrItem != \"class_meta_altid\") {\r",
+									"            total = +total + +pm.collectionVariables.get(arrItem)\r",
+									"        }\r",
+									"    })\r",
+									"    pm.collectionVariables.set(\"total_found\",total)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//identity namespace count\r",
+									"pm.test(\"Identity namespace count matches expected value\", () => {\r",
+									"    pm.expect(pm.collectionVariables.get(\"id_namespace_count\")).to.eql(4);\r",
+									"});\r",
+									"\r",
+									"//class count\r",
+									"pm.test(\"Class count matches expected value\", () => {\r",
+									"    pm.expect(pm.collectionVariables.get(\"class_count\")).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"//field group count\r",
+									"pm.test(\"Field group count matches expected value\", () => {\r",
+									"    pm.expect(pm.collectionVariables.get(\"fg_count\")).to.eql(13);\r",
+									"});\r",
+									"\r",
+									"//schema count\r",
+									"pm.test(\"Schema count matches expected value\", () => {\r",
+									"    pm.expect(pm.collectionVariables.get(\"schema_count\")).to.eql(10);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"// ---------    XDM Descriptors    -----------------------------------------------------------\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"    \r",
+									"    //alternate display descriptor count\r",
+									"    pm.test(\"Alternate display descriptor count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"alt_display_desc_count\")).to.eql(3);\r",
+									"    });\r",
+									"\r",
+									"    //id descriptor count\r",
+									"    pm.test(\"Identity descriptor count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"identity_desc_count\")).to.eql(12);\r",
+									"    });\r",
+									"\r",
+									"    //reference identity descriptor count\r",
+									"    pm.test(\"Reference identity descriptor count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"reference_desc_count\")).to.eql(6);\r",
+									"    });\r",
+									"\r",
+									"    //one to one identity descriptor count\r",
+									"    pm.test(\"One-to-one identity descriptor count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"one_to_one_desc_count\")).to.eql(6);\r",
+									"    });\r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"\r",
+									"\r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"// ---------    Datasets    ------------------------------------------------------------------\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"\r",
+									"    //dataset count\r",
+									"    pm.test(\"Dataset count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"dataset_count\")).to.eql(10);\r",
+									"    });\r",
+									"\r",
+									"    //dataset enabled count\r",
+									"    pm.test(\"Dataset enabled for profile count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"dataset_enabled_count\")).to.eql(10);\r",
+									"    });\r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"\r",
+									"\r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"// ---------    Dataflows    -----------------------------------------------------------------\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"\r",
+									"    //flow accounts\r",
+									"    pm.test(\"Dataflow account count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"flow_account_count\")).to.eql(1);\r",
+									"    });\r",
+									"\r",
+									"    //dataflow run count\r",
+									"    pm.test(\"Dataflow run succces count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"dataflow_count\")).to.eql(10);\r",
+									"    });\r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"\r",
+									"\r",
+									"\r",
+									"//merge policy count\r",
+									"pm.test(\"Merge policy count matches expected value\", () => {\r",
+									"    pm.expect(pm.collectionVariables.get(\"merge_policy_count\")).to.eql(2);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//audience count\r",
+									"pm.test(\"Audience count matches expected value\", () => {\r",
+									"    pm.expect(pm.collectionVariables.get(\"audience_count\")).to.eql(1);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"// ---------    Profile Counts    ------------------------------------------------------------\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"\r",
+									"    //profile trait count\r",
+									"    pm.test(\"Profile trait count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"profile_trait_count\")).to.eql(3);\r",
+									"    });\r",
+									"\r",
+									"    //profile event email1 count\r",
+									"    pm.test(\"Profile event email1 count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"profile_event_email1_count\")).to.eql(2);\r",
+									"    });\r",
+									"\r",
+									"    //profile event email2 count\r",
+									"    pm.test(\"Profile event email2 count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"profile_event_email2_count\")).to.eql(1);\r",
+									"    });\r",
+									"\r",
+									"    //profile event customer id count\r",
+									"    pm.test(\"Profile event customer id count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"profile_event_customer_id_count\")).to.eql(6);\r",
+									"    }); \r",
+									"\r",
+									"    //profile event ecid1 count\r",
+									"    pm.test(\"Profile event ecid1 count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"profile_event_ecid1_count\")).to.eql(6);\r",
+									"    }); \r",
+									"\r",
+									"    //profile event ecid2 count\r",
+									"    pm.test(\"Profile event ecid2 count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"profile_event_ecid2_count\")).to.eql(17);\r",
+									"    }); \r",
+									"\r",
+									"    //profile event ecid3 count\r",
+									"    pm.test(\"Profile event ecid3 count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"profile_event_ecid3_count\")).to.eql(10);\r",
+									"    }); \r",
+									"\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"// ---------    Lookup Counts    ------------------------------------------------------------\r",
+									"// -------------------------------------------------------------------------------------------\r",
+									"\r",
+									"    //store data found\r",
+									"    pm.test(\"Store lookup data count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"store_lookup_exists\")).to.eql(1);\r",
+									"    });\r",
+									"\r",
+									"    //plan data found\r",
+									"    pm.test(\"Plan lookup data count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"plan_lookup_exists\")).to.eql(1);\r",
+									"    });    \r",
+									"\r",
+									"    //product data found\r",
+									"    pm.test(\"Product lookup data count matches expected value\", () => {\r",
+									"        pm.expect(pm.collectionVariables.get(\"product_lookup_exists\")).to.eql(1);\r",
+									"    });        "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imsorgid\": \"{{IMS_ORG}}\",\r\n    \"sandbox\": \"{{SANDBOX_NAME}}\",\r\n    \"date\": \"{{$isoTimestamp}}\",\r\n    \"status\": \"active\",\r\n    \"tenantid\": \"{{PREFIX_NAME}}\",\r\n    \"totalExpected\": 137,\r\n    \"totalFound\": {{total_found}},\r\n    \"details\": [\r\n        {\r\n            \"identity-namespace-count\": {\r\n                \"expected\": 4,\r\n                \"found\": {{id_namespace_count}}\r\n            },\r\n            \"xdm\": {\r\n                \"class-count\": {\r\n                    \"expected\": 1,\r\n                    \"found\": {{class_count}}\r\n                },\r\n                \"field-group-count\": {\r\n                    \"expected\": 13,\r\n                    \"found\": {{fg_count}}\r\n                },\r\n                \"schema-count\": {\r\n                    \"expected\": 10,\r\n                    \"found\": {{schema_count}}\r\n                }\r\n            },\r\n            \"descriptors\": {\r\n                \"alternative-display-count\": {\r\n                    \"expected\": 3,\r\n                    \"found\": {{alt_display_desc_count}}\r\n                },\r\n                \"identity-display-count\": {\r\n                    \"expected\": 12,\r\n                    \"found\": {{identity_desc_count}}\r\n                },\r\n                \"reference-identity-count\": {\r\n                    \"expected\": 6,\r\n                    \"found\": {{reference_desc_count}}\r\n                },\r\n                \"one-to-one\": {\r\n                    \"expected\": 6,\r\n                    \"found\": {{one_to_one_desc_count}}\r\n                }\r\n            },\r\n            \"datasets\": {\r\n                \"dataset-count\": {\r\n                    \"expected\": 10,\r\n                    \"found\": {{dataset_count}}\r\n                },\r\n                \"dataset-enabled-count\": {\r\n                    \"expected\": 10,\r\n                    \"found\": {{dataset_enabled_count}}\r\n                }\r\n            },\r\n            \"dataflows\": {\r\n                \"account-count\": {\r\n                    \"expected\": 1,\r\n                    \"found\": {{flow_account_count}}\r\n                },\r\n                \"dataflow-count\": {\r\n                    \"expected\": 10,\r\n                    \"found\": {{dataflow_count}}\r\n                }\r\n            },\r\n            \"merge-policy-count\": {\r\n                \"expected\": 2,\r\n                \"found\": {{merge_policy_count}}\r\n            },\r\n            \"profile-data\": {\r\n                \"trait-counts\": {\r\n                    \"expected\": 3,\r\n                    \"found\": {{profile_trait_count}}\r\n                },\r\n                \"email1-event-count\": {\r\n                    \"expected\": 2,\r\n                    \"found\": {{profile_event_email1_count}}\r\n                },\r\n                \"email2-event-count\": {\r\n                    \"expected\": 1,\r\n                    \"found\": {{profile_event_email2_count}}\r\n                },\r\n                \"customer-id-event-count\": {\r\n                    \"expected\": 6,\r\n                    \"found\": {{profile_event_customer_id_count}}\r\n                },\r\n                \"ecid1-event-count\": {\r\n                    \"expected\": 6,\r\n                    \"found\": {{profile_event_ecid1_count}}\r\n                },\r\n                \"ecid2-event-count\": {\r\n                    \"expected\": 17,\r\n                    \"found\": {{profile_event_ecid2_count}}\r\n                },\r\n                \"ecid3-event-count\": {\r\n                    \"expected\": 10,\r\n                    \"found\": {{profile_event_ecid3_count}}\r\n                }\r\n            },\r\n            \"lookup-data\": {\r\n                \"store-lookup\": {\r\n                    \"expected\": 1,\r\n                    \"found\": {{store_lookup_exists}}\r\n                },\r\n                \"plan-lookup\": {\r\n                    \"expected\": 1,\r\n                    \"found\": {{plan_lookup_exists}}\r\n                },\r\n                \"product-lookup\": {\r\n                    \"expected\": 1,\r\n                    \"found\": {{product_lookup_exists}}\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://postman-echo.com/get",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id_namespace_count",
+			"value": "0"
+		},
+		{
+			"key": "fg_count",
+			"value": "0"
+		},
+		{
+			"key": "class_count",
+			"value": "0"
+		},
+		{
+			"key": "schema_count",
+			"value": "0"
+		},
+		{
+			"key": "dataset_count",
+			"value": "0"
+		},
+		{
+			"key": "flow_account_count",
+			"value": "0"
+		},
+		{
+			"key": "dataflow_count",
+			"value": "0"
+		},
+		{
+			"key": "merge_policy_count",
+			"value": "0"
+		},
+		{
+			"key": "dataset_enabled_count",
+			"value": "0"
+		},
+		{
+			"key": "audience_count",
+			"value": "0"
+		},
+		{
+			"key": "alt_display_desc_count",
+			"value": "0"
+		},
+		{
+			"key": "identity_desc_count",
+			"value": "0"
+		},
+		{
+			"key": "reference_desc_count",
+			"value": "0"
+		},
+		{
+			"key": "one_to_one_desc_count",
+			"value": "0"
+		},
+		{
+			"key": "profile_trait_count",
+			"value": "0"
+		},
+		{
+			"key": "profile_event_email1_count",
+			"value": "0"
+		},
+		{
+			"key": "profile_event_email2_count",
+			"value": "0"
+		},
+		{
+			"key": "profile_event_customer_id_count",
+			"value": "0"
+		},
+		{
+			"key": "profile_event_ecid1_count",
+			"value": "0"
+		},
+		{
+			"key": "profile_event_ecid2_count",
+			"value": "0"
+		},
+		{
+			"key": "profile_event_ecid3_count",
+			"value": "0"
+		},
+		{
+			"key": "total_found",
+			"value": "0",
+			"type": "string"
+		},
+		{
+			"key": "store_lookup_exists",
+			"value": "0"
+		},
+		{
+			"key": "plan_lookup_exists",
+			"value": "0"
+		},
+		{
+			"key": "product_lookup_exists",
+			"value": "0"
+		},
+		{
+			"key": "class_meta_altid",
+			"value": ""
+		},
+		{
+			"key": "schema_list",
+			"value": ""
+		}
+	]
+}

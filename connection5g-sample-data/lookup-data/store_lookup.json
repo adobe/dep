@@ -1,0 +1,5 @@
+[{"tenant":{"storeID":1,"name":"Cool Place","inagurationDate":"1985-04-01T12:00:00Z","openTime":"9AM","closeTime":"10PM","address":{"street1":"174 Graedel Lane","city":"Suffolk","state":"Virginia","postalCode":23436}}},
+{"tenant":{"storeID":2,"name":"Neat-O","inagurationDate":"1990-04-01T12:00:00Z","openTime":"9AM","closeTime":"10PM","address":{"street1":"4 Schlimgen Way","city":"Nashville","state":"Tennessee","postalCode":37210}}},
+{"tenant":{"storeID":3,"name":"Awesome Town","inagurationDate":"1995-04-01T12:00:00Z","openTime":"9AM","closeTime":"10PM","address":{"street1":"492 Shasta Trail","city":"Washington","state":"District of Columbia","postalCode":20397}}},
+{"tenant":{"storeID":4,"name":"Just Peachy","inagurationDate":"2000-04-01T12:00:00Z","openTime":"9AM","closeTime":"10PM","address":{"street1":"03 Maywood Center","city":"Fort Worth","state":"Texas","postalCode":76192}}},
+{"tenant":{"storeID":5,"name":"Best Shop","inagurationDate":"2005-04-01T12:00:00Z","openTime":"9AM","closeTime":"10PM","address":{"street1":"99683 Arapahoe Point","city":"Huntsville","state":"Alabama","postalCode":35815}}}]

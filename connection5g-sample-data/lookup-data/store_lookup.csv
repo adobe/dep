@@ -1,0 +1,6 @@
+﻿store_id,store_name,store_inaguration_date,store_open_time,store_close_time,store_street,store_city,store_state,store_zip_code
+1,Cool Place,1985-04-01T12:00:00Z,9AM,10PM,174 Graedel Lane,Suffolk,Virginia,23436
+2,Neat-O,1990-04-01T12:00:00Z,9AM,10PM,4 Schlimgen Way,Nashville,Tennessee,37210
+3,Awesome Town,1995-04-01T12:00:00Z,9AM,10PM,492 Shasta Trail,Washington,District of Columbia,20397
+4,Just Peachy,2000-04-01T12:00:00Z,9AM,10PM,03 Maywood Center,Fort Worth,Texas,76192
+5,Best Shop,2005-04-01T12:00:00Z,9AM,10PM,99683 Arapahoe Point,Huntsville,Alabama,35815

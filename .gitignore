@@ -1,0 +1,8 @@
+# local testing
+deploy/ek-env.json
+deploy/ek-ajo-camp-env.json
+
+#in-development
+connection5g-sample-data/relational/*
+deploy/*
+lab-packs/ajo-campaigns/*

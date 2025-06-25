@@ -1,0 +1,192 @@
+{
+    "_id": "stmt-001",
+    "eventType": "billing.statement",
+    "timestamp": "{{p1_date}}",
+    "_dxp":
+    {
+        "customerID": "266242885",
+        "billing":
+        {
+            "periodStart": "{{p1_start}}",
+            "periodEnd": "{{p1_end}}",
+            "billingDetails": [
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-89",
+                "phoneNumber": "+19149012419",
+                "amountCharged": 54.32
+            },
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-88",
+                "phoneNumber": "+19149012418",
+                "amountCharged": 57.97
+            }],
+            "type": "phone",
+            "dataUsage": 200,
+            "dataAllowance": 200,
+            "total": 112.29,
+            "planID": "m3"
+        }
+    }
+},
+{
+    "_id": "stmt-002",
+    "eventType": "billing.statement",
+    "timestamp": "{{p2_date}}",
+    "_dxp":
+    {
+        "customerID": "266242885",
+        "billing":
+        {
+            "periodStart": "{{p2_start}}",
+            "periodEnd": "{{p2_end}}",
+            "billingDetails": [
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-89",
+                "phoneNumber": "+19149012419",
+                "amountCharged": 54.32
+            },
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-88",
+                "phoneNumber": "+19149012418",
+                "amountCharged": 57.97
+            }],
+            "type": "phone",
+            "dataUsage": 200,
+            "dataAllowance": 200,
+            "total": 112.29,
+            "planID": "m3"
+        }
+    }
+},
+{
+    "_id": "stmt-003",
+    "eventType": "billing.statement",
+    "timestamp": "{{p3_date}}",
+    "_dxp":
+    {
+        "customerID": "266242885",
+        "billing":
+        {
+            "periodStart": "{{p3_start}}",
+            "periodEnd": "{{p3_end}}",
+            "billingDetails": [
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-89",
+                "phoneNumber": "+19149012419",
+                "amountCharged": 54.32
+            },
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-88",
+                "phoneNumber": "+19149012418",
+                "amountCharged": 57.97
+            }],
+            "type": "phone",
+            "dataUsage": 200,
+            "dataAllowance": 200,
+            "total": 112.29,
+            "planID": "m3"
+        }
+    }
+},
+{
+    "_id": "stmt-004",
+    "eventType": "billing.statement",
+    "timestamp": "{{p4_date}}",
+    "_dxp":
+    {
+        "customerID": "266242885",
+        "billing":
+        {
+            "periodStart": "{{p4_start}}",
+            "periodEnd": "{{p4_end}}",
+            "billingDetails": [
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-89",
+                "phoneNumber": "+19149012419",
+                "amountCharged": 54.32
+            },
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-88",
+                "phoneNumber": "+19149012418",
+                "amountCharged": 57.97
+            }],
+            "type": "phone",
+            "dataUsage": 200,
+            "dataAllowance": 200,
+            "total": 112.29,
+            "planID": "m3"
+        }
+    }
+},
+{
+    "_id": "stmt-005",
+    "eventType": "billing.statement",
+    "timestamp": "{{p5_date}}",
+    "_dxp":
+    {
+        "customerID": "266242885",
+        "billing":
+        {
+            "periodStart": "{{p5_start}}",
+            "periodEnd": "{{p5_end}}",
+            "billingDetails": [
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-89",
+                "phoneNumber": "+19149012419",
+                "amountCharged": 54.32
+            },
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-88",
+                "phoneNumber": "+19149012418",
+                "amountCharged": 57.97
+            }],
+            "type": "phone",
+            "dataUsage": 200,
+            "dataAllowance": 200,
+            "total": 112.29,
+            "planID": "m3"
+        }
+    }
+},
+{
+    "_id": "stmt-006",
+    "eventType": "billing.statement",
+    "timestamp": "{{p6_date}}",
+    "_dxp":
+    {
+        "customerID": "266242885",
+        "billing":
+        {
+            "periodStart": "{{p6_start}}",
+            "periodEnd": "{{p6_end}}",
+            "billingDetails": [
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-89",
+                "phoneNumber": "+19149012419",
+                "amountCharged": 54.32
+            },
+            {
+                "detailStatementID": "19nN5fAZprHmV1PshcyWdYgPbdzxzdToQc",
+                "customerLineID": "06-97590066-88",
+                "phoneNumber": "+19149012418",
+                "amountCharged": 57.97
+            }],
+            "type": "phone",
+            "dataUsage": 200,
+            "dataAllowance": 200,
+            "total": 112.29,
+            "planID": "m3"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "_id": "ecomm-01",
+    "eventType": "orders.pickedUp",
+    "timestamp": "{{order1}}",
+    "_dxp": {
+        "customerID": "266242885",
+        "personalEmail": "depeche.mode@dep.com"
+    },
+    "order": {
+        "orderID": "a73f6f98-4a1b-468b-a1cf-e034a7d668bc",
+        "orderDate": "{{order1}}",
+        "priceTotal": 1001.72
+    },
+    "shipping": {
+        "address": {
+            "street1": "108 Ruskin Terrace",
+            "city": "New York City",
+            "state": "NY",
+            "postalCode": "11355"
+        },
+        "shippingMethod": "standard",
+        "shippingAmount": 0,
+        "shippingDestination": "store"
+    },
+    "productListItems": [
+        {
+            "_id": "product-2",
+            "SKU": "product-2",
+            "quantity": 1,
+            "priceTotal": 799.99,
+            "currencyCode": "USD",
+            "_dxp": {
+                "make": "Apple",
+                "model": "iPhone 14 Plus"
+            }
+        },
+        {
+            "_id": "product-6",
+            "SKU": "product-6",
+            "quantity": 1,
+            "priceTotal": 899.99,
+            "currencyCode": "USD",
+            "_dxp": {
+                "make": "Google",
+                "model": "Pixel 7 Pro"
+            }
+        }
+    ]
+}

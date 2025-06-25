@@ -1,0 +1,23 @@
+{
+    "_repo": {
+        "createDate": "2022-08-06T08:58:29Z",
+        "modifyDate": "2022-08-06T08:58:29Z"
+    },
+    "_dxp": {
+        "customerID": "266242885",
+        "activeProducts": [
+            {
+                "customerLineID": "06-97590066-89",
+                "productID": "product-2",
+                "make": "Apple",
+                "model": "iPhone 14 Plus"
+            },
+            {
+                "customerLineID": "06-97590066-88",
+                "productID": "product-6",
+                "make": "Google",
+                "model": "Pixel 7 Pro"
+            }
+        ]
+    }
+}

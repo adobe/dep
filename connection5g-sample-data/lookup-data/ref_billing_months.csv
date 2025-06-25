@@ -1,0 +1,4 @@
+﻿plan_id,plan_name,plan_type,monthly_line_cost,unlimited_talk,unlimited_text,unlimited_data,monthly_data_allowance
+1,basic,mobile,25,TRUE,FALSE,FALSE,5
+2,ultimate,mobile,40,TRUE,TRUE,FALSE,20
+3,pro,mobile,50,TRUE,TRUE,TRUE,100

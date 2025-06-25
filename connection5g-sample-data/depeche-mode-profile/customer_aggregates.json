@@ -1,0 +1,16 @@
+{
+    "_repo":
+    {
+        "createDate": "2022-07-27T04:15:10Z",
+        "modifyDate": "2022-07-27T04:15:10Z"
+    },
+    "_dxp":
+    {
+        "customerID": "266242885",
+        "aggregates":
+        {
+            "rollingSixMonthAvgMonthlyDataUsage": 30,
+            "rollingSixMonthTotalDataUsage": 200
+        }
+    }
+}

@@ -1,0 +1,3 @@
+[{"planID":1,"planName":"basic","tenant":{"planType":"mobile","monthlyLineCost":25,"hasUnlimitedTalk":"TRUE","hasUnlimitedText":"FALSE","hasUnlimitedData":"FALSE","monthlyDataAllowance":5}},
+{"planID":2,"planName":"ultimate","tenant":{"planType":"mobile","monthlyLineCost":40,"hasUnlimitedTalk":"TRUE","hasUnlimitedText":"TRUE","hasUnlimitedData":"FALSE","monthlyDataAllowance":20}},
+{"planID":3,"planName":"pro","tenant":{"planType":"mobile","monthlyLineCost":50,"hasUnlimitedTalk":"TRUE","hasUnlimitedText":"TRUE","hasUnlimitedData":"TRUE","monthlyDataAllowance":100}}]

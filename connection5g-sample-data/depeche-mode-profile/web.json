@@ -1,0 +1,960 @@
+{
+    "_id": "web-01",
+    "timestamp": "{{day1_event1}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Nav: Homepage",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "34537751351243145301122536483456723542",
+            "primary": true
+        }],
+        "GAID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "266242-9012",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-02",
+    "timestamp": "{{day1_event2}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Sales: Accessories Sale",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "34537751351243145301122536483456723542",
+            "primary": true
+        }]
+    }
+},
+{
+    "_id": "web-03",
+    "timestamp": "{{day1_event3}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Product: Sales Phones",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "34537751351243145301122536483456723542",
+            "primary": true
+        }]
+    }
+},
+{
+    "_id": "web-04",
+    "timestamp": "{{day1_event4}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Phone: Apple iPhone 14 Pro",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "34537751351243145301122536483456723542",
+            "primary": true
+        }]
+    }
+},
+{
+    "_id": "web-05",
+    "timestamp": "{{day1_event5}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Product: Sales Phones",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "34537751351243145301122536483456723542",
+            "primary": true
+        }]
+    }
+},
+{
+    "_id": "web-06",
+    "timestamp": "{{day1_event6}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Phone: Google Pixel 8 Pro",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "34537751351243145301122536483456723542",
+            "primary": true
+        }]
+    }
+},
+{
+    "_id": "web-07",
+    "timestamp": "{{day2_event1}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Sales: Take 20% Off",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "GAID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "266242-9012",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-08",
+    "timestamp": "{{day2_event2}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Nav: Homepage",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-09",
+    "timestamp": "{{day2_event3}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Special: Product Sneakpeeks",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-10",
+    "timestamp": "{{day2_event4}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Review: Contact Us",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-11",
+    "timestamp": "{{day2_event5}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Special: Product Sneakpeeks",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-12",
+    "timestamp": "{{day2_event6}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Review: Phone Extra Options",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-13",
+    "timestamp": "{{day2_event7}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Product: Accessories",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-14",
+    "timestamp": "{{day2_event8}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Phone: Apple iPhone 14 Pro",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-15",
+    "timestamp": "{{day2_event9}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Cart: Add To Cart",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-16",
+    "timestamp": "{{day2_event10}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Nav: Homepage",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-17",
+    "timestamp": "{{day2_event11}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Product: Sales Phones",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-18",
+    "timestamp": "{{day2_event12}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Phone: Samsung Galaxy S22+",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-19",
+    "timestamp": "{{day2_event13}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Product: Sales Phones",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-20",
+    "timestamp": "{{day2_event14}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Phone: Oneplus 9",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-21",
+    "timestamp": "{{day2_event15}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Cart: Add To Cart",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-22",
+    "timestamp": "{{day2_event16}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Cart: Checkout",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-23",
+    "timestamp": "{{day2_event17}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Cart: Order",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "66385443304271800137026604878870723316",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-24",
+    "timestamp": "{{day3_event1}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Nav: Homepage",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "GAID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "266242-9013",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-25",
+    "timestamp": "{{day3_event2}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Nav: Homepage",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-26",
+    "timestamp": "{{day3_event3}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Special: Product Sneakpeeks",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-27",
+    "timestamp": "{{day3_event4}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Review: Phone Plans",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-28",
+    "timestamp": "{{day3_event5}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Sales: Accessories Sale",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-29",
+    "timestamp": "{{day3_event6}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Nav: Homepage",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-30",
+    "timestamp": "{{day3_event7}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Product: Accessories",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-31",
+    "timestamp": "{{day3_event8}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Phone: Google Pixel 8 Pro",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-32",
+    "timestamp": "{{day3_event9}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Product: Accessories",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+},
+{
+    "_id": "web-33",
+    "timestamp": "{{day3_event10}}",
+    "web":
+    {
+        "webPageDetails":
+        {
+            "name": "Phone: Apple iPhone 14 Pro",
+            "pageViews":
+            {
+                "value": 1
+            }
+        }
+    },
+    "identityMap":
+    {
+        "ECID": [
+        {
+            "authenticatedState": "ambiguous",
+            "id": "11537751351243145301122536483456723597",
+            "primary": true
+        }],
+        "customerID": [
+        {
+            "authenticatedState": "authenticated",
+            "id": "266242885",
+            "primary": false
+        }]
+    }
+}
