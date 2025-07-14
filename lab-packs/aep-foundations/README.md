@@ -54,7 +54,7 @@ This lab pack contains all the necessary postman collections, sample data and la
 4. Execute the deployment collection in newman using the following command:
 
     ```
-    newman run deploy.json -e env-manual-deploy.json --delay-request 750 --bail failure --timeout-script 3600000
+    newman run deploy.json -e env-manual-deploy.json --delay-request 750 --bail failure --timeout-script 4800000
     ```
 
 5. When it completes wait 15mins and then execute the `health.json` collection
@@ -66,7 +66,7 @@ This lab pack contains all the necessary postman collections, sample data and la
 <br>
 
 >[!Note]
-> The deployment takes roughly 1 hour and 15mins to complete.  Why? Once objects are deployed there needs to be a 1 hour delay until data is introduced to ensure the control plane has had enough time to finish its updates.
+> The deployment takes roughly 80 minutes to complete.  Why? Once objects are deployed there needs to be a 1 hour delay until data is introduced to ensure the control plane has had enough time to finish its updates.
 
 > [!TIP]
 > A successful health check run will result in a `totalFound` count matching the `totalExpected` count.  This should be 137.
