@@ -1,0 +1,30 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "aggregates": {
+        "title": "Aggregates Details",
+        "description": "",
+        "type": "object",
+        "isRequired": false,
+        "required": [],
+        "properties": {
+          "rollingSixMonthAvgMonthlyDataUsage": {
+            "title": "Agg Rolling 6 month Average Monthly Usage",
+            "description": "",
+            "type": "number",
+            "required": [],
+            "meta:xdmType": "number"
+          },
+          "rollingSixMonthTotalDataUsage": {
+            "title": "Agg Rolling 6 month Total Data Usage",
+            "description": "",
+            "type": "number",
+            "required": [],
+            "meta:xdmType": "number"
+          }
+        }
+      }
+    }
+  }
+}

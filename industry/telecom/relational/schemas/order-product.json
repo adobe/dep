@@ -1,0 +1,31 @@
+{
+  "order_product_id": {
+    "type": "integer",
+    "title": "Order Product ID"
+  },
+  "order_id": {
+    "type": "integer",
+    "title": "Order ID"
+  },
+  "product_id": {
+    "type": "integer",
+    "title": "Product ID"
+  },
+  "quantity": {
+    "type": "integer",
+    "title": "Quantity"
+  },
+  "total": {
+    "type": "number",
+    "title": "Total Price"
+  },
+  "currency": {
+    "type": "string",
+    "title": "Currency"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "planType": {
+        "title": "Plan Type",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string",
+        "enum": [
+          "mobile"
+        ],
+        "meta:enum": {
+          "mobile": "Mobile"
+        }
+      },
+      "monthlyLineCost": {
+        "title": "Plan Monthly Line Cost",
+        "description": "",
+        "type": "number",
+        "required": [],
+        "meta:xdmType": "number"
+      },
+      "hasUnlimitedTalk": {
+        "title": "Plan Has Unlimited Talk",
+        "description": "",
+        "type": "boolean",
+        "required": [],
+        "meta:xdmType": "boolean"
+      },
+      "hasUnlimitedText": {
+        "title": "Plan Has Unlimited Text",
+        "description": "",
+        "type": "boolean",
+        "required": [],
+        "meta:xdmType": "boolean"
+      },
+      "hasUnlimitedData": {
+        "title": "Plan Has Unlimited Data",
+        "description": "",
+        "type": "boolean",
+        "required": [],
+        "meta:xdmType": "boolean"
+      },
+      "monthlyDataAllowance": {
+        "title": "Plan Monthly Data Allowance",
+        "description": "",
+        "type": "number",
+        "required": [],
+        "meta:xdmType": "number"
+      }
+    }
+  }
+}

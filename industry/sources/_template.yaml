@@ -1,0 +1,46 @@
+# Template for a new source connector.
+# Copy to industry/sources/<name>.yaml and fill in the values below.
+# Reference: https://developer.adobe.com/experience-platform-apis/references/flow-service
+#
+# Data load entry format for data-load.yaml files using this source:
+#   schemas:
+#     <schema_key>:
+#       <field>: <description>    # define the per-schema entry fields for this source here
+
+name: "{PREFIX_NAME} <Source Name>"  # REQUIRED — base connection display name; {PREFIX_NAME} substituted at runtime
+
+# ---------------------------------------------------------------------------
+# SOURCE CONNECTOR  (required)
+# ---------------------------------------------------------------------------
+sourceConnConfig:
+  connectionSpec:
+    id: ""          # REQUIRED — connectionSpec ID for this source type (from Flow Service API)
+    version: "1.0"  # always "1.0"
+  # auth:           # OPTIONAL — only needed for authenticated sources (e.g., HTTP API uses none)
+  #   specName: ""
+  #   params: {}
+  data:
+    format: ""      # REQUIRED — e.g., "json", "delimited", "parquet_xdm"
+    # properties:   # OPTIONAL — source-specific data properties (e.g., columnDelimiter for CSV)
+
+# ---------------------------------------------------------------------------
+# TARGET CONNECTOR  (required)
+# ---------------------------------------------------------------------------
+targetConnConfig:
+  connectionSpec:
+    id: "c604ff05-7f1a-43c0-8e18-33bf874cb11c"  # always Platform Storage
+    version: "1.0"
+  data:
+    format: ""      # REQUIRED — output format (e.g., "json", "parquet_xdm")
+
+# ---------------------------------------------------------------------------
+# FLOW  (required)
+# ---------------------------------------------------------------------------
+flowConfig:
+  flowSpec:
+    id: ""          # REQUIRED — flowSpec ID for this source type (from Flow Service API)
+    version: "1.0"
+  scheduleParams:
+    frequency: "once"   # REQUIRED — once | minute | hour | day | week | month
+    # interval: ""      # OPTIONAL — numeric interval (omit when frequency is "once")
+    # backfill: true    # OPTIONAL — omit when frequency is "once"

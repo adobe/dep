@@ -1,0 +1,20 @@
+# AEP-only pack manifest — no relational section.
+# Menu actions read their relevant section by key:
+#   "Create profile base"  → standard.mergePolicies + standard.schemas + standard.audiences
+#   "Load profile data"    → standard.dataLoad
+
+standard:
+  mergePolicies:             # OPTIONAL — policy keys from standard/audiences.yaml mergePolicies to apply
+    - default                # patches isActiveOnEdge on the default merge policy; required for edge audiences
+    - <policy-key>           # any other key creates a new named merge policy
+  schemas:                   # REQUIRED — schema keys from standard/schemas.yaml to deploy
+    - <schema-key>
+  audiences:                 # OPTIONAL — audience keys from standard/audiences.yaml to deploy
+    - <audience-key>
+  dataLoad:                  # OPTIONAL — one line per entry to stream from standard/data-load.yaml.
+                             #   Format: "<schema-key>:<id>" where <id> matches an entry's `id:` in
+                             #   data-load.yaml. List the same schema multiple times to stream multiple
+                             #   entries (each line = one file).
+    - <schema-key>:<id>
+
+# No relational key = AEP deploys nothing from relational catalog

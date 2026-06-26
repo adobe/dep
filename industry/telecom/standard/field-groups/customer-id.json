@@ -1,0 +1,12 @@
+{
+  "{tenantId}": {
+    "properties": {
+      "customerID": {
+        "title": "customerID",
+        "type": "string",
+        "isRequired": false,
+        "required": []
+      }
+    }
+  }
+}

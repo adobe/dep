@@ -1,0 +1,50 @@
+{
+  "statement_id": {
+    "type": "integer",
+    "title": "Statement ID"
+  },
+  "customer_id": {
+    "type": "string",
+    "title": "Customer ID"
+  },
+  "statement_date": {
+    "type": "string",
+    "format": "date",
+    "title": "Statement Date"
+  },
+  "billing_period_start": {
+    "type": "string",
+    "format": "date",
+    "title": "Billing Period Start"
+  },
+  "billing_period_end": {
+    "type": "string",
+    "format": "date",
+    "title": "Billing Period End"
+  },
+  "plan_type": {
+    "type": "string",
+    "title": "Plan Type"
+  },
+  "data_usage": {
+    "type": "integer",
+    "title": "Data Usage (GB)"
+  },
+  "data_allowance": {
+    "type": "integer",
+    "title": "Data Allowance (GB)"
+  },
+  "plan_id": {
+    "type": "integer",
+    "title": "Plan ID"
+  },
+  "bill_total": {
+    "type": "number",
+    "title": "Bill Total"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

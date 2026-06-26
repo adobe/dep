@@ -1,0 +1,17 @@
+source: dlz                  # REQUIRED — always dlz for relational batch loads
+
+# Catalog of available CSV uploads. lab-packs/*/deploy.yaml relational.dataLoad: lines
+# reference entries here as "<schema_key>:<id>". Each (schema, id) pair must resolve to
+# exactly one entry. ids are unique per schema, not globally.
+
+schemas:                     # REQUIRED — one key per schema table to upload
+  <schema_key>:              # REQUIRED — must match a key in relational/schemas.yaml; value is an array
+    - id: <id>               # REQUIRED — stable name for THIS entry (e.g. "default" when there's just one CSV per table).
+                             #   Referenced from deploy.yaml as "<schema_key>:<id>".
+      localPath: "industry/<vertical>/relational/sample-data/<file>.csv"  # REQUIRED — repo CSV path
+      targetPath: "dlz-user-container/<prefix>/ajo-campaigns/<file>.csv"  # REQUIRED — DLZ destination
+      type: "file"             # always "file"
+      dataFormat: "delimited"  # always "delimited" for CSV
+      columnDelimiter: ","     # always "," for standard CSV
+      encoding: "utf-8"        # always "utf-8"
+      compressionType: ""      # leave blank for uncompressed files

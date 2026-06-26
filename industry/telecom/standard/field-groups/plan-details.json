@@ -1,0 +1,53 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "plan": {
+        "title": "Plan Details",
+        "description": "",
+        "type": "object",
+        "isRequired": false,
+        "required": [],
+        "properties": {
+          "planID": {
+            "title": "Plan ID",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string"
+          },
+          "name": {
+            "title": "Plan Name",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string",
+            "enum": [
+              "basic",
+              "ultimate",
+              "pro"
+            ],
+            "meta:enum": {
+              "basic": "Basic",
+              "ultimate": "Ultimate",
+              "pro": "Pro"
+            }
+          },
+          "type": {
+            "title": "Plan Type",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string",
+            "enum": [
+              "mobile"
+            ],
+            "meta:enum": {
+              "mobile": "Mobile"
+            }
+          }
+        }
+      }
+    }
+  }
+}

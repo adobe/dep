@@ -1,0 +1,353 @@
+cus_address_id,customer_id,address_type,is_primary,street_address,city,state,postal_code,last_modified,_change_request_type
+1,13495585,shipping,1,1997 Spruce Street,Denver,CO,80223,2024-12-31 19:48:24,u
+2,13495585,billing,1,4894 Terrace Avenue,Duluth,GA,30195,2025-03-12 07:42:20,u
+3,37938260,shipping,1,7090 Grant Street,South Lake Tahoe,CA,96154,2025-05-04 18:12:26,u
+4,37938260,billing,0,14478 Country Club Drive,Maple Plain,MN,55579,2025-10-31 13:11:20,u
+5,37938260,shipping,0,8078 Green Street,Tucson,AZ,85748,2025-05-28 19:31:22,u
+6,67740571,billing,0,7741 Jackson Street,Ocala,FL,34479,2025-05-20 14:30:37,u
+7,67740571,shipping,0,13274 Virginia Street,Fresno,CA,93778,2025-10-02 06:01:56,u
+8,67740571,billing,0,8963 Hillside Avenue,Jacksonville,FL,32225,2025-06-19 07:55:09,u
+9,36124990,shipping,1,4541 River Road,Louisville,KY,40287,2025-03-03 17:27:02,u
+10,36124990,billing,0,10667 Old Town Road,Naples,FL,34108,2025-07-30 19:15:04,u
+11,36124990,shipping,0,14971 Sycamore Street,Dayton,OH,45403,2025-11-12 13:21:04,u
+12,36124990,billing,1,5755 Vista Drive,El Paso,TX,88579,2025-04-02 06:29:39,u
+13,36124990,shipping,0,12784 River Road,Chula Vista,CA,91913,2025-09-20 07:37:34,u
+14,28158994,billing,1,3007 Circle Drive,Lexington,KY,40510,2025-01-25 09:53:43,u
+15,28158994,billing,0,9400 High Street,Vienna,VA,22184,2025-06-29 23:19:26,u
+16,28158994,shipping,1,1143 Arthur Street,Riverside,CA,92519,2024-12-11 00:42:10,u
+17,28158994,shipping,0,9546 Atlantic Avenue,Schaumburg,IL,60193,2025-07-03 12:21:52,u
+18,45749269,billing,0,11061 Victory Boulevard,Saint Paul,MN,55123,2025-08-09 09:20:50,u
+19,45749269,shipping,0,11423 Union Street,Minneapolis,MN,55480,2025-08-18 05:00:05,u
+20,45749269,billing,1,6527 Hillside Avenue,Fort Wayne,IN,46896,2025-04-21 01:20:58,u
+21,45749269,billing,1,1191 Peachtree Street,Littleton,CO,80126,2024-12-12 04:45:42,u
+22,23025956,shipping,0,8408 Meadow Lane,Toledo,OH,43666,2025-06-05 20:00:42,u
+23,23025956,shipping,0,11806 Jackson Street,Amarillo,TX,79188,2025-08-27 12:49:31,u
+24,23025956,billing,1,1892 Atlantic Avenue,Chicago,IL,60614,2024-12-29 06:26:53,u
+25,23025956,shipping,1,5339 Countryside Lane,Cincinnati,OH,45264,2025-03-23 03:35:10,u
+26,23025956,billing,0,9184 Sierra Drive,Worcester,MA,01610,2025-06-24 17:07:08,u
+27,18927446,shipping,1,2009 Hillside Avenue,Saint Louis,MO,63131,2025-01-01 02:58:55,u
+28,18927446,billing,1,4457 California Street,Houston,TX,77075,2025-03-01 16:37:01,u
+29,18927446,shipping,1,6526 Lincoln Avenue,Arlington,VA,22234,2025-04-21 01:04:43,u
+30,18927446,billing,0,14205 Pine Street,Dayton,OH,45432,2025-10-24 21:30:06,u
+31,92445190,shipping,0,14959 El Camino Real,Atlanta,GA,30386,2025-11-12 05:49:19,u
+32,92445190,billing,1,1080 Main Avenue,Worcester,MA,01654,2024-12-09 12:18:02,u
+33,92445190,shipping,1,3257 Walnut Street,Oakland,CA,94605,2025-01-31 11:24:03,u
+34,13714356,billing,0,12730 Pacific Avenue,Fresno,CA,93709,2025-09-18 23:57:07,u
+35,13714356,billing,1,1978 Creek Road,Chicago,IL,60681,2024-12-31 08:32:23,u
+36,13714356,shipping,0,7974 Pennsylvania Avenue,Columbia,SC,29220,2025-05-26 06:19:19,u
+37,13714356,billing,0,12525 Oak Street,Minneapolis,MN,55402,2025-09-14 00:22:55,u
+38,32364848,shipping,0,14666 Vine Street,San Francisco,CA,94126,2025-11-05 03:13:03,u
+39,32364848,shipping,0,14129 Clay Street,Washington,DC,20540,2025-10-23 01:06:45,u
+40,32364848,billing,1,7368 Main Street,Sacramento,CA,95833,2025-05-11 12:45:02,u
+41,32364848,shipping,1,6068 Commerce Street,Fort Worth,TX,76121,2025-04-09 21:11:04,u
+42,32364848,billing,0,8326 Broadway,Pinellas Park,FL,34665,2025-06-03 20:08:53,u
+43,00569524,shipping,0,11406 Union Street,Springfield,IL,62764,2025-08-17 18:47:24,u
+44,00569524,billing,1,6709 Franklin Street,Buffalo,NY,14220,2025-04-25 11:39:50,u
+45,00569524,shipping,0,14746 Jackson Street,Nashville,TN,37205,2025-11-07 01:39:51,u
+46,56119723,billing,1,3783 Creek Road,Stockton,CA,95219,2025-02-13 06:51:01,u
+47,56119723,shipping,0,9869 Jackson Street,Norcross,GA,30092,2025-07-11 09:15:51,u
+48,56119723,billing,0,14218 Water Street,Young America,MN,55551,2025-10-25 05:23:26,u
+49,56119723,shipping,1,3187 Poplar Street,Roanoke,VA,24004,2025-01-29 18:37:47,u
+50,56119723,billing,1,4593 Park Avenue,Houston,TX,77250,2025-03-04 23:53:01,u
+51,44873563,shipping,1,540 Atlantic Avenue,Washington,DC,20397,2024-11-26 09:03:41,u
+52,44873563,billing,1,4081 Henry Street,Evansville,IN,47737,2025-02-20 12:38:17,u
+53,08610779,shipping,0,8004 Canyon Road,Stamford,CT,06912,2025-05-27 00:03:37,u
+54,08610779,billing,0,14725 Charles Street,Omaha,NE,68134,2025-11-06 13:21:43,u
+55,08610779,shipping,0,8793 Lake Drive,Fort Worth,TX,76178,2025-06-15 04:35:07,u
+56,08610779,billing,0,9696 Hill Street,Lake Worth,FL,33462,2025-07-07 04:10:36,u
+57,91566010,shipping,1,2165 Central Avenue,Cincinnati,OH,45203,2025-01-04 21:53:16,u
+58,91566010,billing,0,13023 Harrison Street,Cincinnati,OH,45213,2025-09-26 03:13:45,u
+59,13409372,shipping,0,13666 Sunset Drive,Moreno Valley,CA,92555,2025-10-11 18:53:19,u
+60,13409372,billing,1,3709 Maple Avenue,Roanoke,VA,24014,2025-02-11 11:41:50,u
+61,13409372,shipping,0,11771 Grant Street,Visalia,CA,93291,2025-08-26 16:05:38,u
+62,13409372,billing,1,7416 Farm Road,Portland,OR,97232,2025-05-12 16:52:34,u
+63,82123711,shipping,1,7422 Hill Street,Albuquerque,NM,87180,2025-05-12 20:00:53,u
+64,82123711,billing,0,9573 Mill Street,Missoula,MT,59806,2025-07-04 04:08:31,u
+65,82123711,shipping,0,14391 Court Street,Lakeland,FL,33805,2025-10-29 10:28:59,u
+66,82123711,billing,1,3053 Alameda Avenue,Glendale,CA,91205,2025-01-26 12:19:54,u
+67,05604353,shipping,1,7137 Jackson Street,Oakland,CA,94660,2025-05-05 21:54:16,u
+68,05604353,billing,1,6653 Kennedy Drive,Memphis,TN,38197,2025-04-24 03:04:44,u
+69,05604353,billing,0,8328 Buchanan Street,Austin,TX,78715,2025-06-03 21:30:12,u
+70,05604353,shipping,1,2566 Hillside Avenue,Milwaukee,WI,53263,2025-01-14 16:14:14,u
+71,05604353,shipping,0,13523 Fairview Avenue,Dearborn,MI,48126,2025-10-08 07:38:05,u
+72,75880089,billing,1,1298 Polk Street,Akron,OH,44393,2024-12-14 19:15:52,u
+73,75880089,shipping,1,2692 Mill Street,Decatur,IL,62525,2025-01-17 17:50:36,u
+74,75880089,billing,1,4876 West Street,Minneapolis,MN,55487,2025-03-11 21:16:03,u
+75,54590181,shipping,0,10877 Mill Road,Houston,TX,77201,2025-08-04 22:00:52,u
+76,54590181,billing,1,2316 Martin Luther King Jr. Boulevard,Gary,IN,46406,2025-01-08 13:49:05,u
+77,11851333,billing,1,6591 South Street,Orange,CA,92668,2025-04-22 14:32:21,u
+78,11851333,shipping,1,4701 State Street,Washington,DC,20260,2025-03-07 15:08:07,u
+79,11851333,shipping,0,8968 Clay Street,San Jose,CA,95155,2025-06-19 10:57:25,u
+80,11851333,billing,0,10052 Roosevelt Avenue,Grand Rapids,MI,49505,2025-07-15 20:01:53,u
+81,07068709,billing,1,5578 Birch Street,Los Angeles,CA,90071,2025-03-28 23:11:38,u
+82,07068709,shipping,1,3792 Highland Avenue,Rochester,NY,14624,2025-02-13 12:03:04,u
+83,07068709,billing,1,4800 Peachtree Street,Charleston,WV,25321,2025-03-10 00:31:37,u
+84,07068709,shipping,0,9992 First Street,Houston,TX,77085,2025-07-14 08:55:44,u
+85,07068709,shipping,1,6784 Country Club Drive,Birmingham,AL,35231,2025-04-27 07:41:09,u
+86,04561737,billing,0,12492 Main Avenue,San Antonio,TX,78265,2025-09-13 04:58:02,u
+87,04561737,shipping,1,6151 Canyon Road,San Antonio,TX,78245,2025-04-11 22:01:17,u
+88,45770072,billing,0,12723 Spring Street,Midland,TX,79710,2025-09-18 20:12:59,u
+89,45770072,shipping,1,1197 Adams Street,Paterson,NJ,07505,2024-12-12 08:18:34,u
+90,45770072,billing,1,762 Eisenhower Drive,Springfield,MA,01152,2024-12-01 18:15:32,u
+91,93166502,shipping,0,8131 Ann Street,Phoenix,AZ,85015,2025-05-30 02:06:25,u
+92,93166502,billing,0,9225 Ohio Street,Saint Louis,MO,63110,2025-06-25 17:04:27,u
+93,93166502,shipping,0,14424 Hillside Avenue,Dallas,TX,75397,2025-10-30 05:25:13,u
+94,93166502,billing,0,8995 Mountain View Drive,Saint Paul,MN,55103,2025-06-20 02:51:10,u
+95,86996448,billing,1,4157 MLK Boulevard,Los Angeles,CA,90025,2025-02-22 09:31:08,u
+96,86996448,shipping,1,7346 Georgia Street,Pittsburgh,PA,15230,2025-05-10 23:49:53,u
+97,26522145,shipping,0,7752 Fourth Street,Shreveport,LA,71151,2025-05-20 21:03:01,u
+98,26522145,billing,0,9092 Canal Street,Fayetteville,NC,28314,2025-06-22 11:31:40,u
+99,26522145,shipping,1,2984 Garfield Street,San Diego,CA,92186,2025-01-24 20:07:05,u
+100,21657939,billing,1,2705 Main Street,Anchorage,AK,99522,2025-01-18 01:02:36,u
+101,21657939,billing,0,14798 Maple Avenue,Lansing,MI,48912,2025-11-08 08:07:52,u
+102,21657939,shipping,0,11198 King Street,Sacramento,CA,95813,2025-08-12 17:16:03,u
+103,41900794,billing,1,3807 Elm Street,Rochester,NY,14639,2025-02-13 20:48:21,u
+104,41900794,shipping,1,5884 Main Street,New York City,NY,10060,2025-04-05 09:40:10,u
+105,41900794,shipping,1,6536 Front Street,Portsmouth,NH,03804,2025-04-21 06:57:38,u
+106,41900794,billing,1,7293 Queen Street,Atlanta,GA,30351,2025-05-09 16:41:53,u
+107,41900794,billing,0,12932 Hillside Avenue,New Orleans,LA,70149,2025-09-23 21:56:57,u
+108,21528794,shipping,0,11382 Pierce Street,Kansas City,MO,64190,2025-08-17 05:11:49,u
+109,21528794,shipping,1,5203 Vista Drive,Oklahoma City,OK,73173,2025-03-19 20:25:33,u
+110,21528794,billing,0,7660 Valley View Drive,Flint,MI,48555,2025-05-18 15:06:41,u
+111,21528794,shipping,0,10312 Veterans Drive,Atlanta,GA,30306,2025-07-22 03:52:56,u
+112,21528794,billing,1,5853 Taft Avenue,New Orleans,LA,70142,2025-04-04 15:48:26,u
+113,23171531,shipping,1,752 Summit Avenue,Topeka,KS,66629,2024-12-01 12:30:46,u
+114,23171531,billing,0,13417 Canal Street,Sioux Falls,SD,57193,2025-10-05 17:40:10,u
+115,19749592,billing,0,9591 First Street,Detroit,MI,48258,2025-07-04 15:12:32,u
+116,19749592,shipping,1,1979 Massachusetts Avenue,Riverside,CA,92513,2024-12-31 09:21:57,u
+117,09122357,shipping,1,1496 Constitution Avenue,Los Angeles,CA,90101,2024-12-19 14:52:35,u
+118,09122357,billing,0,11254 Park Avenue,Wilkes Barre,PA,18706,2025-08-14 02:27:24,u
+119,09122357,billing,0,11718 Arthur Street,Rockford,IL,61105,2025-08-25 09:01:16,u
+120,09122357,shipping,0,14493 East Street,Honolulu,HI,96810,2025-10-31 21:45:57,u
+121,09122357,shipping,0,14939 Depot Street,Atlanta,GA,31136,2025-11-11 18:25:21,u
+122,73864969,billing,1,2625 Quarry Road,Rochester,NY,14683,2025-01-16 02:17:10,u
+123,73864969,shipping,0,8720 Valley View Drive,Fresno,CA,93726,2025-06-13 10:18:22,u
+124,43587287,billing,0,9570 Pierce Street,Champaign,IL,61825,2025-07-04 02:45:28,u
+125,43587287,billing,0,9154 Chestnut Street,Amarillo,TX,79171,2025-06-23 23:27:28,u
+126,43587287,shipping,1,93 Bridge Street,Brooklyn,NY,11236,2024-11-15 11:46:42,u
+127,43587287,shipping,1,2715 Hillside Avenue,Killeen,TX,76544,2025-01-18 07:17:09,u
+128,15052369,billing,1,1073 Vista Drive,El Paso,TX,88530,2024-12-09 07:59:57,u
+129,15052369,billing,1,1691 Royal Street,Paterson,NJ,07522,2024-12-24 09:10:41,u
+130,15052369,shipping,1,5740 Atlantic Avenue,Las Cruces,NM,88006,2025-04-01 21:46:29,u
+131,15052369,billing,1,6746 South Street,Columbus,OH,43210,2025-04-26 09:13:30,u
+132,15052369,shipping,1,451 West Street,Flushing,NY,11355,2024-11-24 04:46:40,u
+133,82672855,shipping,0,14497 Truman Road,Jamaica,NY,11470,2025-11-01 00:06:19,u
+134,82672855,billing,1,4717 Spring Street,Virginia Beach,VA,23471,2025-03-08 00:07:43,u
+135,82672855,shipping,0,11529 Pearl Street,Boston,MA,02104,2025-08-20 18:43:40,u
+136,82672855,billing,1,4072 Central Avenue,Washington,DC,20099,2025-02-20 07:31:46,u
+137,82672855,shipping,0,12950 Sunrise Avenue,Madison,WI,53779,2025-09-24 08:47:09,u
+138,28561107,billing,1,3947 West Street,Roanoke,VA,24040,2025-02-17 06:35:23,u
+139,28561107,shipping,1,2904 Magnolia Avenue,Valdosta,GA,31605,2025-01-22 21:13:22,u
+140,28561107,billing,1,4164 Taft Avenue,Burbank,CA,91505,2025-02-22 13:20:12,u
+141,28561107,shipping,1,4960 Beach Boulevard,Houston,TX,77040,2025-03-13 21:57:40,u
+142,28561107,billing,0,11600 Grand Avenue,Gatesville,TX,76598,2025-08-22 12:15:28,u
+143,78992285,shipping,1,2402 Camino Real,Harrisburg,PA,17126,2025-01-10 16:15:41,u
+144,78992285,billing,1,1634 Alameda Avenue,Akron,OH,44305,2024-12-22 23:34:03,u
+145,78992285,billing,1,1236 Vista Drive,Los Angeles,CA,90081,2024-12-13 07:02:55,u
+146,37064463,shipping,0,8617 Circle Drive,South Bend,IN,46620,2025-06-10 22:02:29,u
+147,37064463,shipping,0,10380 William Street,Humble,TX,77346,2025-07-23 19:55:42,u
+148,37064463,billing,1,762 Lakeview Avenue,Spokane,WA,99210,2024-12-01 18:31:11,u
+149,34080149,shipping,1,7086 School Street,Sacramento,CA,94245,2025-05-04 15:52:14,u
+150,34080149,billing,1,5221 Main Avenue,Washington,DC,20299,2025-03-20 06:56:14,u
+151,34080149,shipping,0,7851 Ocean Avenue,Durham,NC,27705,2025-05-23 06:58:07,u
+152,34080149,billing,1,5030 Water Street,San Antonio,TX,78225,2025-03-15 15:05:19,u
+153,81566803,shipping,0,10988 Heritage Lane,Miami,FL,33158,2025-08-07 14:45:25,u
+154,81566803,billing,0,7649 Prince Street,Garden Grove,CA,92645,2025-05-18 08:56:05,u
+155,81566803,billing,0,13003 Mill Road,Charlottesville,VA,22903,2025-09-25 15:26:50,u
+156,81566803,shipping,0,13404 Memorial Drive,San Antonio,TX,78291,2025-10-05 09:43:55,u
+157,81566803,shipping,1,11 Michigan Avenue,Lancaster,PA,17622,2024-11-13 12:05:18,u
+158,95822312,billing,1,1301 First Street,Washington,DC,20380,2024-12-14 21:07:07,u
+159,95822312,billing,0,12668 McKinley Avenue,Wilmington,DE,19897,2025-09-17 12:08:07,u
+160,95822312,shipping,0,13852 Green Street,Columbus,OH,43231,2025-10-16 07:28:26,u
+161,07957145,shipping,0,8599 Arthur Street,Washington,DC,20557,2025-06-10 11:19:45,u
+162,07957145,billing,1,6035 Harrison Street,Philadelphia,PA,19178,2025-04-09 01:58:03,u
+163,07957145,shipping,0,7600 Golf Course Road,Reno,NV,89510,2025-05-17 04:22:12,u
+164,07957145,billing,0,13777 Virginia Street,Springfield,IL,62718,2025-10-14 11:38:10,u
+165,07957145,shipping,1,623 Boulevard Drive,Detroit,MI,48224,2024-11-28 09:13:58,u
+166,63483489,billing,1,2365 MLK Boulevard,Santa Fe,NM,87592,2025-01-09 18:45:40,u
+167,63483489,shipping,0,13050 Hillcrest Drive,Memphis,TN,38136,2025-09-26 19:11:09,u
+168,63483489,billing,1,2065 Fifth Street,Brooklyn,NY,11215,2025-01-02 11:27:27,u
+169,45379197,shipping,1,2735 Water Street,Knoxville,TN,37924,2025-01-18 18:31:21,u
+170,45379197,billing,1,1723 Mill Road,Port Saint Lucie,FL,34985,2024-12-25 03:46:20,u
+171,45379197,shipping,0,12717 Boulevard Drive,Pittsburgh,PA,15250,2025-09-18 16:27:51,u
+172,45379197,billing,0,8698 Buchanan Street,Shawnee Mission,KS,66276,2025-06-12 21:15:14,u
+173,21973354,billing,1,2939 Garden Street,Memphis,TN,38143,2025-01-23 18:06:55,u
+174,21973354,shipping,1,5668 Peachtree Street,Birmingham,AL,35244,2025-03-31 03:28:16,u
+175,21973354,billing,1,5759 Commerce Street,Wilmington,DE,19892,2025-04-02 09:01:01,u
+176,21973354,shipping,1,4923 Broad Street,Dayton,OH,45419,2025-03-13 00:38:51,u
+177,21973354,shipping,1,1195 Division Street,Jamaica,NY,11431,2024-12-12 07:12:45,u
+178,07265684,billing,0,10675 Broad Street,Palm Bay,FL,32909,2025-07-31 00:14:08,u
+179,07265684,billing,1,1239 Grove Street,Spokane,WA,99215,2024-12-13 09:08:51,u
+180,70840926,shipping,0,9303 Golf Course Road,Sacramento,CA,95828,2025-06-27 15:00:05,u
+181,70840926,billing,0,12955 Lake Drive,Richmond,VA,23289,2025-09-24 11:47:00,u
+182,70840926,shipping,0,10562 Creek Road,Des Moines,IA,50393,2025-07-28 05:49:07,u
+183,06076531,shipping,1,732 Catherine Street,Muskegon,MI,49444,2024-12-01 01:05:55,u
+184,06076531,billing,0,14973 Elm Street,Seattle,WA,98127,2025-11-12 14:14:04,u
+185,09172006,billing,1,1175 Seashore Drive,Memphis,TN,38104,2024-12-11 19:26:56,u
+186,09172006,shipping,1,6001 Pearl Street,Tampa,FL,33661,2025-04-08 06:20:24,u
+187,09172006,shipping,0,8103 Colonial Drive,El Paso,TX,79950,2025-05-29 10:04:23,u
+188,13667412,billing,0,9286 River Road,Spring,TX,77388,2025-06-27 05:02:29,u
+189,13667412,shipping,1,2450 Meadow Lane,El Paso,TX,88546,2025-01-11 20:08:58,u
+190,13667412,billing,0,11516 Walnut Street,Rockville,MD,20851,2025-08-20 10:57:22,u
+191,13667412,shipping,1,5680 River Road,Baltimore,MD,21275,2025-03-31 10:52:18,u
+192,48217959,billing,0,11957 Prairie Avenue,San Antonio,TX,78210,2025-08-31 04:58:10,u
+193,48217959,shipping,1,6003 Heritage Lane,Pittsburgh,PA,15215,2025-04-08 07:40:15,u
+194,48217959,billing,0,8942 Buchanan Street,Washington,DC,20310,2025-06-18 19:52:36,u
+195,48217959,billing,0,11641 Center Street,Kansas City,MO,64125,2025-08-23 12:25:12,u
+196,48217959,shipping,0,11236 Coolidge Avenue,Cleveland,OH,44177,2025-08-13 15:32:16,u
+197,92929688,shipping,1,554 Cherry Street,Lexington,KY,40576,2024-11-26 17:00:26,u
+198,92929688,billing,1,644 Lincoln Avenue,Austin,TX,78710,2024-11-28 21:22:33,u
+199,92929688,shipping,0,11224 Mill Street,Houston,TX,77095,2025-08-13 08:45:03,u
+200,92929688,billing,1,3537 Canal Street,Fort Lauderdale,FL,33305,2025-02-07 07:26:50,u
+201,57308791,shipping,0,14370 Canyon Road,North Hollywood,CA,91616,2025-10-28 22:10:51,u
+202,57308791,billing,1,5375 El Camino Real,Houston,TX,77030,2025-03-24 00:24:29,u
+203,57308791,billing,1,2150 Oak Street,Pasadena,CA,91186,2025-01-04 13:21:52,u
+204,57308791,shipping,0,9152 Seashore Drive,York,PA,17405,2025-06-23 22:20:54,u
+205,52965769,shipping,0,10395 Front Street,Oklahoma City,OK,73157,2025-07-24 04:15:01,u
+206,52965769,billing,0,7824 Liberty Street,Scranton,PA,18505,2025-05-22 14:47:59,u
+207,05623518,shipping,1,1030 Cherry Street,New Orleans,LA,70160,2024-12-08 06:53:19,u
+208,05623518,billing,1,3059 Summit Avenue,Daytona Beach,FL,32118,2025-01-26 16:05:08,u
+209,05623518,billing,0,13494 Pennsylvania Avenue,Fairbanks,AK,99709,2025-10-07 14:35:08,u
+210,05623518,shipping,0,10173 Clay Street,Seattle,WA,98121,2025-07-18 18:36:21,u
+211,05623518,billing,0,13823 Boulevard Drive,Portland,OR,97296,2025-10-15 14:42:33,u
+212,30710284,shipping,0,14943 Garden Street,Fort Smith,AR,72916,2025-11-11 20:33:42,u
+213,30710284,shipping,0,10315 Desert Road,New York City,NY,10045,2025-07-22 05:56:27,u
+214,30710284,billing,1,6036 Countryside Lane,Atlanta,GA,30392,2025-04-09 02:40:35,u
+215,30710284,shipping,1,6560 Duke Street,Seattle,WA,98104,2025-04-21 20:43:37,u
+216,30710284,billing,0,13018 Fairview Avenue,Asheville,NC,28805,2025-09-26 00:31:33,u
+217,70572058,shipping,1,3570 Pierce Street,Inglewood,CA,90305,2025-02-08 02:12:27,u
+218,70572058,billing,0,10410 North Street,Waterbury,CT,06721,2025-07-24 13:20:38,u
+219,68078421,billing,0,8468 Summit Avenue,Henderson,NV,89012,2025-06-07 07:06:30,u
+220,68078421,shipping,1,3725 Johnson Street,Kansas City,MO,64114,2025-02-11 21:07:48,u
+221,68078421,shipping,1,3481 Willow Street,Springfield,IL,62711,2025-02-05 22:16:55,u
+222,68078421,billing,1,2502 Roosevelt Avenue,Brooklyn,NY,11254,2025-01-13 02:56:24,u
+223,68078421,shipping,1,7183 Village Lane,Louisville,KY,40215,2025-05-07 00:47:42,u
+224,93447828,billing,0,8140 McKinley Avenue,Peoria,IL,61629,2025-05-30 07:13:17,u
+225,93447828,shipping,1,4046 South Street,Vancouver,WA,98687,2025-02-19 16:16:36,u
+226,93447828,billing,1,1576 Atlantic Avenue,Alexandria,LA,71307,2024-12-21 14:05:44,u
+227,11805239,shipping,0,10148 South Street,New Orleans,LA,70174,2025-07-18 04:19:36,u
+228,11805239,billing,0,8180 Prairie Avenue,Miami,FL,33147,2025-05-31 07:07:52,u
+229,11805239,billing,0,11107 Massachusetts Avenue,Lansing,MI,48919,2025-08-10 12:19:44,u
+230,47889676,shipping,0,14418 Grant Street,San Francisco,CA,94110,2025-10-30 01:56:01,u
+231,47889676,shipping,1,5839 Cedar Street,Seattle,WA,98109,2025-04-04 07:48:34,u
+232,47889676,billing,0,14547 Eisenhower Drive,Los Angeles,CA,90040,2025-11-02 05:42:35,u
+233,47889676,billing,1,6680 Mesa Drive,Houston,TX,77288,2025-04-24 18:44:32,u
+234,74399540,shipping,1,1984 Water Street,Tacoma,WA,98481,2024-12-31 12:06:12,u
+235,74399540,shipping,0,14244 Farm Road,Hagerstown,MD,21747,2025-10-25 20:22:16,u
+236,74399540,billing,1,226 Madison Avenue,Meridian,MS,39305,2024-11-18 17:37:26,u
+237,74399540,shipping,1,1318 Ridge Road,White Plains,NY,10606,2024-12-15 07:10:44,u
+238,74399540,billing,0,10888 Maple Avenue,Alhambra,CA,91841,2025-08-05 04:11:51,u
+239,26382359,shipping,0,13761 High Street,Phoenix,AZ,85062,2025-10-14 02:14:57,u
+240,26382359,billing,1,7318 Highland Avenue,Panama City,FL,32405,2025-05-10 07:13:45,u
+241,76692648,shipping,1,4496 Terrace Avenue,Warren,OH,44485,2025-03-02 15:30:48,u
+242,76692648,billing,1,2593 Bridge Street,Washington,DC,20591,2025-01-15 07:49:55,u
+243,76692648,billing,0,8091 Forest Avenue,North Las Vegas,NV,89087,2025-05-29 02:48:35,u
+244,64982803,shipping,1,3534 Pierce Street,Phoenix,AZ,85083,2025-02-07 05:22:59,u
+245,64982803,billing,0,13243 Polk Street,Detroit,MI,48211,2025-10-01 11:54:25,u
+246,64982803,shipping,0,11574 Vista Drive,Riverside,CA,92505,2025-08-21 21:00:49,u
+247,42452457,shipping,0,14733 Polk Street,El Paso,TX,79923,2025-11-06 18:07:50,u
+248,42452457,billing,1,7027 Lake Drive,Anniston,AL,36205,2025-05-03 05:40:37,u
+249,42452457,shipping,1,3492 School Street,Monticello,MN,55590,2025-02-06 04:49:15,u
+250,42452457,billing,1,4570 Desert Road,Glendale,CA,91210,2025-03-04 10:35:46,u
+251,34298403,shipping,1,1987 Cedar Street,Brooklyn,NY,11220,2024-12-31 14:05:18,u
+252,34298403,billing,0,11168 McKinley Avenue,Spokane,WA,99260,2025-08-11 23:57:42,u
+253,94856834,billing,1,2376 Catherine Street,Shreveport,LA,71161,2025-01-10 01:06:44,u
+254,94856834,shipping,0,7706 Arthur Street,Albuquerque,NM,87140,2025-05-19 17:46:49,u
+255,94856834,billing,1,5017 Central Street,Honolulu,HI,96850,2025-03-15 07:39:58,u
+256,94856834,shipping,1,2890 Mary Street,San Luis Obispo,CA,93407,2025-01-22 13:14:59,u
+257,94856834,shipping,1,2807 John Street,Lake Charles,LA,70616,2025-01-20 12:47:14,u
+258,99749631,billing,0,14589 Cedar Street,Boise,ID,83757,2025-11-03 06:00:17,u
+259,99749631,shipping,0,11131 Henry Street,Norfolk,VA,23520,2025-08-11 02:07:54,u
+260,99915811,billing,1,6473 Monroe Street,Aurora,CO,80044,2025-04-19 17:48:52,u
+261,99915811,shipping,0,14670 Central Street,Austin,TX,78759,2025-11-05 05:15:13,u
+262,64795609,billing,0,7885 Clay Street,New York City,NY,10160,2025-05-24 02:35:51,u
+263,64795609,shipping,0,14952 River Road,Houston,TX,77025,2025-11-12 01:50:28,u
+264,64795609,billing,1,3501 Roosevelt Avenue,Colorado Springs,CO,80920,2025-02-06 10:23:46,u
+265,22476301,shipping,1,1150 California Street,Augusta,GA,30905,2024-12-11 05:01:26,u
+266,22476301,billing,0,13728 Harrison Street,Memphis,TN,38109,2025-10-13 07:02:18,u
+267,22476301,shipping,1,2589 Cleveland Street,Indianapolis,IN,46202,2025-01-15 05:45:06,u
+268,22476301,billing,1,3360 Grant Street,Detroit,MI,48217,2025-02-02 23:35:13,u
+269,96591367,billing,1,4330 East Street,Colorado Springs,CO,80940,2025-02-26 14:26:45,u
+270,96591367,shipping,1,5546 Canyon Road,Huntington,WV,25770,2025-03-28 04:29:16,u
+271,53237193,shipping,0,8020 Buchanan Street,Schenectady,NY,12305,2025-05-27 09:08:43,u
+272,53237193,billing,0,11600 Commerce Street,Denver,CO,80270,2025-08-22 12:03:38,u
+273,53237193,shipping,0,11469 Georgia Street,San Jose,CA,95118,2025-08-19 07:35:21,u
+274,80605941,billing,1,4533 Woodland Drive,Tampa,FL,33620,2025-03-03 13:09:15,u
+275,80605941,shipping,0,13380 Ohio Street,Madison,WI,53710,2025-10-04 19:41:36,u
+276,80605941,billing,0,9776 Broad Street,Cheyenne,WY,82007,2025-07-09 03:11:10,u
+277,35360377,shipping,1,6595 Valley Road,Phoenix,AZ,85077,2025-04-22 17:04:19,u
+278,35360377,billing,0,14290 Texas Avenue,Jamaica,NY,11407,2025-10-26 23:15:46,u
+279,35360377,billing,0,10418 Grove Street,Washington,DC,20029,2025-07-24 18:10:29,u
+280,35360377,shipping,0,14419 Meadow Lane,Waterbury,CT,06705,2025-10-30 02:23:05,u
+281,77996530,shipping,1,7334 Magnolia Avenue,Fort Wayne,IN,46857,2025-05-10 16:45:39,u
+282,77996530,billing,1,5071 Hillside Avenue,Hartford,CT,06145,2025-03-16 15:15:20,u
+283,77996530,shipping,0,7742 Veterans Drive,Albany,NY,12237,2025-05-20 15:04:23,u
+284,77996530,billing,0,13409 Ridge Road,San Mateo,CA,94405,2025-10-05 12:53:42,u
+285,74737868,shipping,0,11295 Circle Drive,Atlanta,GA,31106,2025-08-15 02:06:03,u
+286,74737868,billing,1,4450 Lakeview Avenue,Sacramento,CA,94291,2025-03-01 12:22:12,u
+287,74737868,billing,0,12992 Vista Drive,Palatine,IL,60078,2025-09-25 09:27:29,u
+288,84253791,shipping,0,11245 State Street,Atlanta,GA,30358,2025-08-13 21:07:27,u
+289,84253791,billing,1,2421 Old Town Road,Honolulu,HI,96840,2025-01-11 03:16:10,u
+290,84253791,shipping,0,8648 Spring Street,Washington,DC,20036,2025-06-11 16:02:33,u
+291,53272032,billing,1,52 Chestnut Street,Greenville,SC,29605,2024-11-14 11:33:15,u
+292,53272032,shipping,0,8011 Terrace Avenue,Buffalo,NY,14215,2025-05-27 03:59:37,u
+293,53272032,shipping,1,3945 Lake Drive,Brooklyn,NY,11210,2025-02-17 05:15:21,u
+294,56520410,billing,1,4987 Hillside Avenue,Carol Stream,IL,60351,2025-03-14 14:08:35,u
+295,56520410,shipping,0,9377 Taylor Street,Wichita,KS,67205,2025-06-29 09:53:14,u
+296,56520410,billing,0,14771 Wilson Avenue,Montgomery,AL,36134,2025-11-07 16:31:02,u
+297,56520410,shipping,0,13037 Grand Avenue,Saint Louis,MO,63104,2025-09-26 11:15:11,u
+298,13098314,billing,1,3032 Second Street,Erie,PA,16505,2025-01-26 00:21:53,u
+299,13098314,shipping,0,9866 Victory Boulevard,San Rafael,CA,94913,2025-07-11 07:39:38,u
+300,13098314,billing,0,10971 Fourth Street,Jackson,TN,38308,2025-08-07 04:54:17,u
+301,54737661,shipping,1,4248 Fourth Street,Grand Rapids,MI,49544,2025-02-24 14:29:25,u
+302,54737661,billing,0,12971 Central Street,Phoenix,AZ,85010,2025-09-24 21:14:23,u
+303,54737661,shipping,0,7599 Hillcrest Drive,Sacramento,CA,94207,2025-05-17 03:39:05,u
+304,54737661,billing,0,8178 North Street,San Diego,CA,92176,2025-05-31 05:24:53,u
+305,54737661,shipping,1,3769 Village Lane,Boulder,CO,80305,2025-02-12 22:45:36,u
+306,49033802,billing,0,12920 Victory Boulevard,Petaluma,CA,94975,2025-09-23 15:13:48,u
+307,49033802,shipping,0,8424 Elizabeth Street,Tempe,AZ,85284,2025-06-06 05:37:56,u
+308,49033802,billing,0,10384 Mill Street,Washington,DC,20530,2025-07-23 21:47:28,u
+309,50581674,shipping,1,2641 Poplar Street,Louisville,KY,40233,2025-01-16 12:06:01,u
+310,50581674,billing,1,2933 Railroad Avenue,Denton,TX,76205,2025-01-23 14:29:42,u
+311,50581674,shipping,1,413 Lakeview Avenue,Sacramento,CA,95838,2024-11-23 06:25:46,u
+312,50581674,billing,0,10916 Mill Road,Bowie,MD,20719,2025-08-05 20:38:40,u
+313,50581674,billing,0,10994 Royal Street,Raleigh,NC,27626,2025-08-07 18:34:39,u
+314,62001453,shipping,0,13059 Main Street,Van Nuys,CA,91411,2025-09-27 00:35:39,u
+315,62001453,billing,0,13869 Cross Street,Sacramento,CA,94297,2025-10-16 17:17:36,u
+316,43648096,shipping,0,14654 Farm Road,Dallas,TX,75231,2025-11-04 19:43:32,u
+317,43648096,shipping,1,4482 River Road,Washington,DC,20566,2025-03-02 07:06:23,u
+318,24158844,billing,1,3827 Sierra Drive,Syracuse,NY,13251,2025-02-14 08:44:17,u
+319,24158844,shipping,0,12574 Birch Street,Springfield,IL,62776,2025-09-15 05:04:21,u
+320,24158844,billing,0,8015 Mill Road,Vero Beach,FL,32964,2025-05-27 06:34:16,u
+321,24158844,shipping,1,5895 Mission Street,Minneapolis,MN,55470,2025-04-05 16:27:47,u
+322,65620893,billing,0,11407 Polk Street,Arvada,CO,80005,2025-08-17 19:39:20,u
+323,65620893,billing,1,1377 Dogwood Drive,Bakersfield,CA,93311,2024-12-16 17:43:27,u
+324,65620893,shipping,0,9618 Main Street,New Haven,CT,06533,2025-07-05 06:43:44,u
+325,65620893,shipping,1,7375 Hillcrest Drive,Pittsburgh,PA,15279,2025-05-11 16:59:13,u
+326,94956887,billing,1,7478 Division Street,Greensboro,NC,27404,2025-05-14 04:56:22,u
+327,94956887,shipping,0,9040 Vista Drive,San Jose,CA,95123,2025-06-21 05:24:43,u
+328,94956887,billing,1,5002 Front Street,Jacksonville,FL,32259,2025-03-14 22:38:50,u
+329,94956887,shipping,1,5557 Sierra Drive,North Las Vegas,NV,89036,2025-03-28 10:51:02,u
+330,94956887,billing,1,6767 Valley View Drive,Corpus Christi,TX,78465,2025-04-26 21:41:31,u
+331,53392741,shipping,1,1194 Desert Road,Denver,CO,80241,2024-12-12 06:31:46,u
+332,53392741,billing,0,13292 McKinley Avenue,Birmingham,AL,35210,2025-10-02 16:33:49,u
+333,53392741,shipping,1,122 Webster Street,El Paso,TX,88584,2024-11-16 04:48:29,u
+334,53392741,billing,1,2141 Station Street,Columbus,OH,43268,2025-01-04 07:55:32,u
+335,48191080,shipping,1,7050 Central Avenue,San Francisco,CA,94132,2025-05-03 18:58:04,u
+336,48191080,billing,0,14422 Cedar Street,Fullerton,CA,92835,2025-10-30 04:10:24,u
+337,48191080,shipping,0,12789 Buchanan Street,Winston Salem,NC,27105,2025-09-20 10:54:24,u
+338,23728077,billing,1,2708 Madison Avenue,Wichita,KS,67215,2025-01-18 02:58:15,u
+339,23728077,shipping,0,8372 Royal Street,Hattiesburg,MS,39404,2025-06-04 22:47:27,u
+340,23728077,billing,0,9972 Pearl Street,Tulsa,OK,74156,2025-07-13 21:41:32,u
+341,51087608,shipping,0,9158 Riverside Drive,Bakersfield,CA,93386,2025-06-24 01:46:07,u
+342,51087608,billing,0,12972 McKinley Avenue,New York City,NY,10249,2025-09-24 21:47:26,u
+343,51087608,billing,1,700 Ashland Avenue,Metairie,LA,70005,2024-11-30 06:08:04,u
+344,51087608,shipping,1,5658 Old Town Road,San Diego,CA,92115,2025-03-30 22:10:31,u
+345,11888835,shipping,0,13523 Orchard Street,Biloxi,MS,39534,2025-10-08 07:06:10,u
+346,11888835,billing,0,8040 Texas Avenue,Fresno,CA,93721,2025-05-27 20:54:45,u
+347,11888835,shipping,0,13466 Coolidge Avenue,Springfield,VA,22156,2025-10-06 22:04:19,u
+348,11888835,billing,1,3163 School Street,San Diego,CA,92165,2025-01-29 04:44:57,u
+349,11730761,billing,1,3136 Commerce Street,Tucson,AZ,85725,2025-01-28 12:41:10,u
+350,11730761,shipping,1,5276 Lincoln Avenue,Dallas,TX,75210,2025-03-21 14:49:11,u
+351,10745717,shipping,1,2418 Sierra Drive,Lynn,MA,01905,2025-01-11 01:29:00,u
+352,10745717,billing,1,3408 Pacific Avenue,Farmington,MI,48335,2025-02-04 04:02:18,u

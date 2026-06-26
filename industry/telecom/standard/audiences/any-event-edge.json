@@ -1,0 +1,86 @@
+{
+  "expression": {
+    "format": "pql/json",
+    "value": "{\"nodeType\":\"chain\",\"array\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"xEvent\",\"object\":{\"nodeType\":\"parameterReference\",\"position\":1}},\"timestampField\":{\"nodeType\":\"lambda\",\"varNames\":[\"v0\"],\"body\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"timestamp\",\"object\":{\"nodeType\":\"varRef\",\"varName\":\"v0\"}}},\"elements\":[{\"nodeType\":\"element\",\"name\":\"C0\",\"negated\":false,\"what\":{\"nodeType\":\"lambda\",\"varNames\":[],\"body\":{\"nodeType\":\"literal\",\"literalType\":\"Boolean\",\"value\":true}},\"when\":{\"nodeType\":\"lambda\",\"varNames\":[\"v0\"],\"body\":{\"nodeType\":\"occurs\",\"timestamp\":{\"nodeType\":\"varRef\",\"varName\":\"v0\"},\"timeinterval\":{\"nodeType\":\"literal\",\"literalType\":\"Timestamp\",\"value\":\"now\"},\"relation\":{\"nodeType\":\"literal\",\"literalType\":\"TimeDirection\",\"value\":\"before\"},\"qualification\":{\"nodeType\":\"timeQualification\",\"duration\":{\"nodeType\":\"duration\",\"count\":{\"nodeType\":\"literal\",\"literalType\":\"Integer\",\"value\":1},\"unit\":{\"nodeType\":\"literal\",\"literalType\":\"TimeUnit\",\"value\":\"hours\"}},\"comparison\":{\"nodeType\":\"literal\",\"literalType\":\"Comparison\",\"value\":\"<=\"}}}}}]}"
+  },
+  "ansibleDataModel": {
+    "dataModel": {
+      "expression": {
+        "isValid": true,
+        "logicalOperator": "and",
+        "profileAttributesContainer": {
+          "exclude": false,
+          "items": [],
+          "logicalOperator": "and",
+          "itemType": "segmentContainer"
+        },
+        "xEventAttributesContainer": {
+          "exclude": false,
+          "items": [
+            {
+              "exclude": false,
+              "items": [
+                {
+                  "container": {
+                    "exclude": false,
+                    "isPlaceholder": false,
+                    "items": [],
+                    "logicalOperator": "and",
+                    "mapKey": "",
+                    "multiValuedParentFriendlyName": "XDM ExperienceEvent",
+                    "multiValuedParentsAllData": [
+                      {
+                        "id": "xEvent",
+                        "xdmPathIds": [
+                          "xEvent"
+                        ]
+                      }
+                    ],
+                    "occurrenceCount": 1,
+                    "occurrenceCountUpper": 2,
+                    "occurrenceOperator": "atLeast",
+                    "originalLocation": [],
+                    "subType": "array",
+                    "useAnyMapKey": false,
+                    "variableRef": {
+                      "friendlyName": "Any1",
+                      "id": "F0611C4A-CB29-B09E-EA69-A4179538824F",
+                      "isMapVariable": false,
+                      "name": "_Any1",
+                      "payloadExports": [],
+                      "type": "event",
+                      "itemType": "variable"
+                    },
+                    "xdmPathIds": [
+                      "xEvent"
+                    ],
+                    "itemType": "multiValueParentContainer"
+                  },
+                  "eventType": {
+                    "id": "__ansibleAnyEventType",
+                    "__entity__": true,
+                    "type": "n"
+                  },
+                  "id": "0D123A40-ABB9-8DCE-BE91-FEE6BAA53E33",
+                  "itemType": "eventTypeCard"
+                }
+              ],
+              "logicalOperator": "and",
+              "itemType": "eventTypeCardContainer"
+            }
+          ],
+          "logicalOperator": "then",
+          "temporalConstraint": {
+            "quantity": 1,
+            "subType": "in-last-constraint",
+            "type": "in-last",
+            "unit": "hours"
+          },
+          "itemType": "eventTypeCardContainer"
+        },
+        "itemType": "segmentDefinition"
+      }
+    },
+    "version": "1.0.0"
+  }
+}

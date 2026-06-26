@@ -1,0 +1,52 @@
+# AEP Foundations — profile health check configuration
+# Run "Check profile health" after data streaming and a 15 minute wait.
+# All checks use exact match: actual === expected.
+checks:
+  - label: "Depeche Mode profile traits"
+    type: profile-traits
+    entityId: "266242885"
+    entityIdNS: customerID
+    expected: 3
+
+  - label: "Depeche Mode profile events"
+    type: profile-events
+    identities:
+      - entityId: "266242885"
+        entityIdNS: customerID
+        expected: 6
+      - entityId: "depeche.mode@emailsim.io"
+        entityIdNS: Email
+        expected: 2
+      - entityId: "dave.gahan@emailsim.io"
+        entityIdNS: Email
+        expected: 1
+      - entityId: "34537751351243145301122536483456723542"
+        entityIdNS: ECID
+        expected: 6
+      - entityId: "66385443304271800137026604878870723316"
+        entityIdNS: ECID
+        expected: 17
+      - entityId: "11537751351243145301122536483456723597"
+        entityIdNS: ECID
+        expected: 10
+
+  - label: "Store lookup data"
+    type: lookup-entity
+    schemaRef: store-lookup   # lib resolves class meta:altId from schema registry at runtime (custom class)
+    entityId: "1"
+    entityIdNS: storeID
+    expected: 1
+
+  - label: "Plan lookup data"
+    type: lookup-entity
+    schemaName: "_xdm.classes.plan"
+    entityId: "1"
+    entityIdNS: planID
+    expected: 1
+
+  - label: "Product lookup data"
+    type: lookup-entity
+    schemaName: "_xdm.classes.product"
+    entityId: "1"
+    entityIdNS: productID
+    expected: 1

@@ -1,0 +1,18 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "customer_id", "destination": "customer_id" },
+    { "sourceType": "ATTRIBUTE", "source": "first_name", "destination": "first_name" },
+    { "sourceType": "ATTRIBUTE", "source": "last_name", "destination": "last_name" },
+    { "sourceType": "ATTRIBUTE", "source": "email", "destination": "email" },
+    { "sourceType": "ATTRIBUTE", "source": "mobile_phone", "destination": "mobile_phone" },
+    { "sourceType": "ATTRIBUTE", "source": "birth_Date", "destination": "birth_Date" },
+    { "sourceType": "ATTRIBUTE", "source": "email_optin", "destination": "email_optin" },
+    { "sourceType": "ATTRIBUTE", "source": "sms_optin", "destination": "sms_optin" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_id", "destination": "plan_id" },
+    { "sourceType": "EXPRESSION", "source": "date(create_date,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "create_date" },
+    { "sourceType": "EXPRESSION", "source": "date(modify_date,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "modify_date" },
+    { "sourceType": "EXPRESSION", "source": "iif(source==\"inStore\",\"in-store\",source)", "destination": "source" },
+    { "sourceType": "EXPRESSION", "source": "date(account_create_date,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "account_create_date" },
+    { "sourceType": "EXPRESSION", "source": "date(account_end_date,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "account_end_date" }
+  ]
+}

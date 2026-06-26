@@ -1,0 +1,19 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "productListItems[*].SKU", "destination": "productListItems[*].SKU" },
+    { "sourceType": "ATTRIBUTE", "source": "productListItems[*]._dxp.make", "destination": "productListItems[*].{tenantId}.make" },
+    { "sourceType": "ATTRIBUTE", "source": "productListItems[*]._id", "destination": "productListItems[*]._id" },
+    { "sourceType": "ATTRIBUTE", "source": "order.priceTotal", "destination": "order.priceTotal" },
+    { "sourceType": "ATTRIBUTE", "source": "productListItems[*]._dxp.model", "destination": "productListItems[*].{tenantId}.model" },
+    { "sourceType": "ATTRIBUTE", "source": "eventType", "destination": "eventType" },
+    { "sourceType": "ATTRIBUTE", "source": "order.orderDate", "destination": "order.orderDate" },
+    { "sourceType": "ATTRIBUTE", "source": "order.orderID", "destination": "order.orderID" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping", "destination": "shipping" },
+    { "sourceType": "ATTRIBUTE", "source": "productListItems[*].currencyCode", "destination": "productListItems[*].currencyCode" },
+    { "sourceType": "ATTRIBUTE", "source": "productListItems[*].priceTotal", "destination": "productListItems[*].priceTotal" },
+    { "sourceType": "ATTRIBUTE", "source": "timestamp", "destination": "timestamp" },
+    { "sourceType": "ATTRIBUTE", "source": "_id", "destination": "_id" },
+    { "sourceType": "ATTRIBUTE", "source": "_dxp", "destination": "{tenantId}" },
+    { "sourceType": "ATTRIBUTE", "source": "productListItems[*].quantity", "destination": "productListItems[*].quantity" }
+  ]
+}

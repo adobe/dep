@@ -1,0 +1,67 @@
+# Data load entry format for standard/data-load.yaml when using this source:
+#
+#   schemas:
+#     <schema-key>:            # array — one item per file to stream for this schema
+#       - mode: single | multi # single = one JSON object; multi = JSON array
+#         file: sample-data/<file>.json
+#         mappingSet: mapping-sets/<file>.json
+#
+#   Single-file schema (most schemas):
+#     store-lookup:
+#       - mode: multi
+#         file: sample-data/store_lookup.json
+#         mappingSet: mapping-sets/store-lookup.json
+#
+#   Multi-file schema (multiple data files targeting the same schema):
+#     customer-account:
+#       - mode: single
+#         file: sample-data/depeche-mode-profile/customer_account.json
+#         mappingSet: mapping-sets/customer-account.json
+#       - mode: multi
+#         file: sample-data/stranger-things-profiles/sample-profiles.json
+#         mappingSet: mapping-sets/customer-account.json
+#
+#   Each array item streams independently to the same dataset using its own file.
+#   Multiple items may share a mapping set when the source schema shape is identical.
+
+name: "{PREFIX_NAME} HTTP API [raw]"
+
+baseConnConfig:
+  name: ""
+  description: ""
+  connectionSpec:
+    id: "bc7b00d6-623a-4dfc-9fdb-f1240aeadaeb"
+    version: "1.0"
+  auth:
+    specName: "Streaming Connection"
+    params:
+      dataType: "raw"
+
+sourceConnConfig:
+  connectionSpec:
+    id: "bc7b00d6-623a-4dfc-9fdb-f1240aeadaeb"
+    version: "1.0"
+
+targetConnConfig:
+  data:
+    format: "json"
+    schema:
+      id: ""
+      version: "application/vnd.adobe.xed-full+json;version=1"
+  params:
+    dataSetId: ""
+  connectionSpec:
+    id: "c604ff05-7f1a-43c0-8e18-33bf874cb11c"
+    version: "1.0"
+
+flowConfig:
+  flowSpec:
+    id: "c1a19761-d2c7-4702-b9fa-fe91f0613e81"
+    version: "1.0"
+  sourceConnectionIds: []
+  targetConnectionIds: []
+  transformations:
+    - name: "Mapping"
+      params:
+        mappingVersion: "0"
+        mappingId: ""

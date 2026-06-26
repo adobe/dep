@@ -1,0 +1,26 @@
+# AJO pack manifest — includes both standard and relational sections.
+# Menu actions read their relevant section by key:
+#   "Create profile base"          → standard.mergePolicies + standard.schemas + standard.audiences
+#   "Load profile data"            → standard.dataLoad
+#   "Check profile health"         → reads health.yaml (not this file)
+#   "Create relational base"       → relational.schemas
+#   "Load relational data"         → relational.dataLoad
+#   "Deploy relational base & data" → relational.schemas + relational.dataLoad in sequence
+
+standard:
+  schemas:                   # REQUIRED — schema keys from standard/schemas.yaml to deploy
+    - <schema-key>
+  audiences:                 # OPTIONAL — audience keys from standard/audiences.yaml to deploy
+    - <audience-key>
+  dataLoad:                  # OPTIONAL — one line per entry to stream from standard/data-load.yaml.
+                             #   Format: "<schema-key>:<id>" where <id> matches an entry's `id:` in
+                             #   data-load.yaml. List the same schema multiple times to stream multiple
+                             #   entries (each line = one file).
+    - <schema-key>:<id>
+
+relational:                  # OPTIONAL — omit entirely for AEP-only packs
+  schemas:                   # REQUIRED if relational section present
+    - <schema_key>
+  dataLoad:                  # OPTIONAL — one line per entry to load from relational/data-load.yaml.
+                             #   Format: "<schema_key>:<id>", same convention as standard.dataLoad.
+    - <schema_key>:<id>

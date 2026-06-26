@@ -1,0 +1,27 @@
+{
+    "plan_id": "1",
+    "customer_id": "287415903",
+    "firstName": "Bob",
+    "lastName": "Basic",
+    "birth_Date": "1974-04-04",
+    "email_optIn": "y",
+    "sms_optIn": "y"
+},
+{
+    "plan_id": "2",
+    "customer_id": "105946728",
+    "firstName": "Peter",
+    "lastName": "Professional",
+    "birth_Date": "1981-01-01",
+    "email_optIn": "y",
+    "sms_optIn": "y"
+},
+{
+    "plan_id": "3",
+    "customer_id": "730682145",
+    "firstName": "Ursula",
+    "lastName": "Ultimate",
+    "birth_Date": "2002-02-02",
+    "email_optIn": "y",
+    "sms_optIn": "y"
+}

@@ -1,0 +1,33 @@
+# AEP Foundations pack manifest
+# Deploys all 10 standard schemas, one audience, and all profile data.
+# No relational content — AEP only.
+
+standard:
+  mergePolicies:
+    - default
+    - no-stitch
+  schemas:
+    - customer-account
+    - customer-active-lines
+    - customer-aggregates
+    - billing
+    - orders
+    - ecommerce
+    - web
+    - store-lookup
+    - product-lookup
+    - plan-lookup
+  audiences:
+    - any-event-streaming
+  # Each line references one entry in standard/data-load.yaml as <schema-key>:<id>.
+  dataLoad:
+    - customer-account:depeche-mode
+    - customer-active-lines:depeche-mode
+    - customer-aggregates:depeche-mode
+    - billing:depeche-mode
+    - orders:depeche-mode
+    - ecommerce:depeche-mode
+    - web:depeche-mode
+    - store-lookup:lookup
+    - product-lookup:lookup
+    - plan-lookup:lookup

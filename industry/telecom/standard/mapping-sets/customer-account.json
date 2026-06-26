@@ -1,0 +1,30 @@
+{
+  "mappings": [
+    { "sourceType": "EXPRESSION", "source": "date_part(\"yyyy\",date(birth_Date))", "destination": "person.birthYear" },
+    { "sourceType": "EXPRESSION", "source": "iif( sms_optIn == null,'n',sms_optIn )", "destination": "consents.marketing.sms.val" },
+    { "sourceType": "EXPRESSION", "source": "concat(date_part(\"mm\", date(birth_Date)).toString(), \"-\", date_part(\"dd\", date(birth_Date)).toString())", "destination": "person.birthDayAndMonth" },
+    { "sourceType": "EXPRESSION", "source": "true", "destination": "testProfile" },
+    { "sourceType": "ATTRIBUTE", "source": "createDate", "destination": "_repo.createDate" },
+    { "sourceType": "ATTRIBUTE", "source": "modifyDate", "destination": "_repo.modifyDate" },
+    { "sourceType": "ATTRIBUTE", "source": "firstName", "destination": "person.name.firstName" },
+    { "sourceType": "ATTRIBUTE", "source": "lastName", "destination": "person.name.lastName" },
+    { "sourceType": "ATTRIBUTE", "source": "email", "destination": "personalEmail.address" },
+    { "sourceType": "ATTRIBUTE", "source": "mobile_phone", "destination": "mobilePhone.number" },
+    { "sourceType": "ATTRIBUTE", "source": "email_optIn", "destination": "consents.marketing.email.val" },
+    { "sourceType": "ATTRIBUTE", "source": "customer_id", "destination": "{tenantId}.customerID" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_street_address", "destination": "shippingAddress.street1" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_city", "destination": "shippingAddress.city" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_state", "destination": "shippingAddress.state" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_zip_code", "destination": "shippingAddress.postalCode" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_street_address", "destination": "billingAddress.street1" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_city", "destination": "billingAddress.city" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_state", "destination": "billingAddress.state" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_zip_code", "destination": "billingAddress.postalCode" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_id", "destination": "{tenantId}.plan.planID" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_name", "destination": "{tenantId}.plan.name" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_type", "destination": "{tenantId}.plan.type" },
+    { "sourceType": "ATTRIBUTE", "source": "account_create_date", "destination": "{tenantId}.account.createDate" },
+    { "sourceType": "ATTRIBUTE", "source": "account_end_date", "destination": "{tenantId}.account.endDate" },
+    { "sourceType": "ATTRIBUTE", "source": "source", "destination": "{tenantId}.account.acqSource" }
+  ]
+}

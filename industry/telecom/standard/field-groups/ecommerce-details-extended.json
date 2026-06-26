@@ -1,0 +1,56 @@
+{
+  "productListItems": {
+    "required": [],
+    "type": "array",
+    "description": "",
+    "meta:xdmType": "array",
+    "items": {
+      "required": [],
+      "type": "object",
+      "meta:xdmType": "object",
+      "properties": {
+        "{tenantId}": {
+          "type": "object",
+          "meta:xdmType": "object",
+          "properties": {
+            "model": {
+              "title": "Model",
+              "description": "",
+              "type": "string",
+              "required": [],
+              "meta:xdmType": "string"
+            },
+            "make": {
+              "title": "Make",
+              "description": "",
+              "type": "string",
+              "required": [],
+              "meta:xdmType": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "{tenantId}": {
+    "type": "object",
+    "meta:xdmType": "object",
+    "properties": {
+      "acqSource": {
+        "title": "Acquire Source",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string",
+        "enum": [
+          "web",
+          "inStore"
+        ],
+        "meta:enum": {
+          "web": "Web",
+          "inStore": "In Store"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "account": {
+        "title": "Account Setting Details",
+        "description": "",
+        "type": "object",
+        "isRequired": false,
+        "required": [],
+        "properties": {
+          "createDate": {
+            "title": "Account Create Date",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "format": "date-time",
+            "meta:xdmType": "date-time"
+          },
+          "endDate": {
+            "title": "Account End Date",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "format": "date-time",
+            "meta:xdmType": "date-time"
+          },
+          "acqSource": {
+            "title": "Account Acquisition Source",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string",
+            "enum": [
+              "web",
+              "inStore"
+            ],
+            "meta:enum": {
+              "web": "Web",
+              "inStore": "In Store"
+            }
+          }
+        }
+      }
+    }
+  }
+}

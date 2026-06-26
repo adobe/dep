@@ -1,0 +1,56 @@
+# AJO Arch Foundations pack manifest
+# Deploys 6 standard schemas, 5 audiences, and standard + relational data.
+
+standard:
+  mergePolicies:
+    - default
+  schemas:
+    - customer-account
+    - customer-active-lines
+    - orders
+    - web
+    - product-lookup
+    - plan-lookup
+  audiences:
+    - any-event-streaming
+    - any-event-edge
+    - any-event-batch
+    - interested-in-iphone-17
+    - basic-plan-members
+  # Each line references one entry in standard/data-load.yaml as <schema-key>:<id>.
+  dataLoad:
+    - customer-account:depeche-mode
+    - customer-account:stranger-things
+    - customer-account:decisioning
+    - customer-active-lines:depeche-mode
+    - orders:depeche-mode
+    - web:depeche-mode
+    - product-lookup:lookup
+    - plan-lookup:lookup
+
+relational:
+  schemas:
+    - plan_lookup
+    - product_type_lookup
+    - product_lookup
+    - store_lookup
+    - customer_account
+    - customer_line
+    - customer_address
+    - order
+    - order_product
+    - billing_statement
+    - billing_detail
+  # Each line references one entry in relational/data-load.yaml as <schema-key>:<id>.
+  dataLoad:
+    - plan_lookup:default
+    - product_type_lookup:default
+    - product_lookup:default
+    - store_lookup:default
+    - customer_account:default
+    - customer_line:default
+    - customer_address:default
+    - order:default
+    - order_product:default
+    - billing_statement:default
+    - billing_detail:default
