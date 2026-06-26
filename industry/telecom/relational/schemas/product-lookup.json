@@ -1,0 +1,35 @@
+{
+  "product_type_id": {
+    "type": "integer",
+    "title": "Product Type ID"
+  },
+  "product_id": {
+    "type": "integer",
+    "title": "Product ID"
+  },
+  "model": {
+    "type": "string",
+    "title": "Model"
+  },
+  "make": {
+    "type": "string",
+    "title": "Make"
+  },
+  "release_year": {
+    "type": "string",
+    "title": "Release Year"
+  },
+  "five_g_compatible": {
+    "type": "boolean",
+    "title": "5G Compatible"
+  },
+  "price": {
+    "type": "number",
+    "title": "Price (USD)"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

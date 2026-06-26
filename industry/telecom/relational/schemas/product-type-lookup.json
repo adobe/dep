@@ -1,0 +1,27 @@
+{
+  "product_type_id": {
+    "type": "integer",
+    "title": "Product Type ID"
+  },
+  "product_type_name": {
+    "type": "string",
+    "title": "Product Type Name",
+    "enum": [
+      "phone",
+      "tablet",
+      "cable",
+      "headphones"
+    ],
+    "meta:enum": {
+      "phone": "Phone",
+      "tablet": "Tablet",
+      "cable": "Cable",
+      "headphones": "Headphones"
+    }
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

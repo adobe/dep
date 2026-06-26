@@ -1,0 +1,47 @@
+{
+  "cus_address_id": {
+    "type": "integer",
+    "title": "Customer Address ID"
+  },
+  "customer_id": {
+    "type": "string",
+    "title": "Customer ID"
+  },
+  "address_type": {
+    "type": "string",
+    "title": "Address Type",
+    "enum": [
+      "billing",
+      "shipping"
+    ],
+    "meta:enum": {
+      "billing": "Billing",
+      "shipping": "Shipping"
+    }
+  },
+  "is_primary": {
+    "type": "boolean",
+    "title": "Primary Address"
+  },
+  "street_address": {
+    "type": "string",
+    "title": "Street Address"
+  },
+  "city": {
+    "type": "string",
+    "title": "City"
+  },
+  "state": {
+    "type": "string",
+    "title": "State"
+  },
+  "postal_code": {
+    "type": "string",
+    "title": "Postal Code"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

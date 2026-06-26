@@ -1,0 +1,15 @@
+product_id,product_type,make,model,five_g_compatible,release_year,price,last_modified,_change_request_type
+1,1,Apple,iPhone 14,TRUE,2022,699.99,2024-12-31 19:48:24,u
+2,1,Apple,iPhone 14 Plus,TRUE,2022,799.99,2025-03-12 07:42:20,u
+3,1,Apple,iPhone 15,TRUE,2023,799.99,2025-05-04 18:12:26,u
+4,1,Apple,iPhone 15 Pro,TRUE,2023,999.99,2025-10-31 13:11:20,u
+5,1,Google,Pixel 7,TRUE,2022,599.99,2025-05-28 19:31:22,u
+6,1,Google,Pixel 7 Pro,TRUE,2022,899.99,2025-05-20 14:30:37,u
+7,1,Google,Pixel 8,TRUE,2023,699.99,2025-10-02 06:01:56,u
+8,1,Google,Pixel 8 Pro,TRUE,2023,999.99,2025-06-19 07:55:09,u
+9,1,Google,Pixel Fold,TRUE,2023,1799.99,2025-03-03 17:27:02,u
+10,1,Samsung,Galaxy S24,TRUE,2023,799.99,2025-07-30 19:15:04,u
+11,1,Samsung,Galaxy S24+,TRUE,2023,999.99,2025-11-12 13:21:04,u
+12,1,Samsung,Galaxy S24 Ultra,TRUE,2023,1299.99,2025-04-02 06:29:39,u
+13,1,Samsung,Z Flip5,TRUE,2023,999.99,2025-09-20 07:37:34,u
+14,1,Samsung,Z Fold5,TRUE,2023,1799.99,2025-01-25 09:53:43,u

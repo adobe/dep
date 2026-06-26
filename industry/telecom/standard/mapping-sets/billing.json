@@ -1,0 +1,8 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "_id", "destination": "_id" },
+    { "sourceType": "ATTRIBUTE", "source": "eventType", "destination": "eventType" },
+    { "sourceType": "ATTRIBUTE", "source": "timestamp", "destination": "timestamp" },
+    { "sourceType": "ATTRIBUTE", "source": "_dxp", "destination": "{tenantId}" }
+  ]
+}

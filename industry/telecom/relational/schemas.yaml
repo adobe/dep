@@ -1,0 +1,164 @@
+# ============================================================
+# CUSTOM COMPONENTS
+# Custom identity namespaces created before schema deployment.
+# Standard namespaces are pre-existing — do not list them here.
+# ============================================================
+
+identityNamespaces:
+  - name: customerID
+    code: customerID
+    idType: Cross_device
+
+# ============================================================
+# SCHEMAS
+# Relational table definitions with primary keys, version fields,
+# and foreign key relationships to other schemas in this catalog.
+# name = schema display title in AEP + dataset name.
+# {PREFIX_NAME} is resolved at deploy time to `dep-rel:` for relational deployments.
+# file = path to field-definitions-only JSON body (properties only).
+# required[] derived from primaryKey + versionField at runtime.
+# sourceToDestinationTitle and destinationToSourceTitle are derived
+# at runtime from the destination/source schema name fields.
+# ============================================================
+
+schemas:
+  - key: plan_lookup
+    name: "{PREFIX_NAME} Plan [Lookup]"
+    description: "Lookup table for telecom service plan definitions"
+    file: industry/telecom/relational/schemas/plan-lookup.json
+    primaryKey: plan_id
+    versionField: last_modified
+
+  - key: product_type_lookup
+    name: "{PREFIX_NAME} Product Type [Lookup]"
+    description: "Lookup table for product type classifications"
+    file: industry/telecom/relational/schemas/product-type-lookup.json
+    primaryKey: product_type_id
+    versionField: last_modified
+
+  - key: product_lookup
+    name: "{PREFIX_NAME} Product [Lookup]"
+    description: "Lookup table for product catalog data"
+    file: industry/telecom/relational/schemas/product-lookup.json
+    primaryKey: product_id
+    versionField: last_modified
+    foreignKeys:
+      - sourceProperty: product_type_id
+        destinationSchema: product_type_lookup
+        destinationProperty: product_type_id
+        cardinality: "M:1"
+
+  - key: store_lookup
+    name: "{PREFIX_NAME} Store [Lookup]"
+    description: "Lookup table for store location data"
+    file: industry/telecom/relational/schemas/store-lookup.json
+    primaryKey: store_id
+    versionField: last_modified
+
+  - key: customer_account
+    name: "{PREFIX_NAME} Customer Account"
+    description: "Customer account records for the relational store"
+    file: industry/telecom/relational/schemas/customer-account.json
+    primaryKey: customer_id
+    versionField: modify_date   # NOTE: uses modify_date, not last_modified
+    foreignKeys:
+      - sourceProperty: plan_id
+        destinationSchema: plan_lookup
+        destinationProperty: plan_id
+        cardinality: "M:1"
+
+  - key: customer_line
+    name: "{PREFIX_NAME} Customer Line"
+    description: "Customer mobile line records"
+    file: industry/telecom/relational/schemas/customer-line.json
+    primaryKey: customer_line_id
+    versionField: last_modified
+    foreignKeys:
+      - sourceProperty: customer_id
+        destinationSchema: customer_account
+        destinationProperty: customer_id
+        cardinality: "M:1"
+      - sourceProperty: product_id
+        destinationSchema: product_lookup
+        destinationProperty: product_id
+        cardinality: "M:1"
+
+  - key: customer_address
+    name: "{PREFIX_NAME} Customer Address"
+    description: "Customer address records"
+    file: industry/telecom/relational/schemas/customer-address.json
+    primaryKey: cus_address_id
+    versionField: last_modified
+    foreignKeys:
+      - sourceProperty: customer_id
+        destinationSchema: customer_account
+        destinationProperty: customer_id
+        cardinality: "M:1"
+
+  - key: order
+    name: "{PREFIX_NAME} Order"
+    description: "Customer order records"
+    file: industry/telecom/relational/schemas/order.json
+    primaryKey: order_id
+    versionField: last_modified
+    foreignKeys:
+      - sourceProperty: customer_id
+        destinationSchema: customer_account
+        destinationProperty: customer_id
+        cardinality: "M:1"
+      - sourceProperty: email
+        destinationSchema: customer_account
+        destinationProperty: email
+        cardinality: "M:1"
+      - sourceProperty: store_id
+        destinationSchema: store_lookup
+        destinationProperty: store_id
+        cardinality: "M:0"
+      - sourceProperty: plan_id
+        destinationSchema: plan_lookup
+        destinationProperty: plan_id
+        cardinality: "M:1"
+
+  - key: order_product
+    name: "{PREFIX_NAME} Order Product"
+    description: "Product line items within orders"
+    file: industry/telecom/relational/schemas/order-product.json
+    primaryKey: order_product_id
+    versionField: last_modified
+    foreignKeys:
+      - sourceProperty: product_id
+        destinationSchema: product_lookup
+        destinationProperty: product_id
+        cardinality: "M:1"
+      - sourceProperty: order_id
+        destinationSchema: order
+        destinationProperty: order_id
+        cardinality: "M:1"
+
+  - key: billing_statement
+    name: "{PREFIX_NAME} Billing Statement"
+    description: "Monthly billing statements per customer"
+    file: industry/telecom/relational/schemas/billing-statement.json
+    primaryKey: statement_id
+    versionField: last_modified
+    foreignKeys:
+      - sourceProperty: customer_id
+        destinationSchema: customer_account
+        destinationProperty: customer_id
+        cardinality: "M:1"
+      - sourceProperty: plan_id
+        destinationSchema: plan_lookup
+        destinationProperty: plan_id
+        cardinality: "M:1"
+
+  - key: billing_detail
+    name: "{PREFIX_NAME} Billing Detail"
+    description: "Detailed billing line items per customer line"
+    file: industry/telecom/relational/schemas/billing-detail.json
+    primaryKey: detail_statement_id
+    versionField: last_modified
+    foreignKeys:
+      - sourceProperty: statement_id
+        destinationSchema: billing_statement
+        destinationProperty: statement_id
+        cardinality: "M:1"

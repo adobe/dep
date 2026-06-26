@@ -1,0 +1,328 @@
+# ============================================================
+# CUSTOM COMPONENTS
+# Custom-built XDM assets created before schema deployment.
+# Classes: no body file — payload fully hardcoded at runtime.
+# Field groups: body file contains field definitions only
+#   (definitions.customFields.properties content — no wrapper).
+# name and description are in the YAML; {PREFIX_NAME} substituted
+# at runtime (default: dep).
+# ============================================================
+
+identityNamespaces:
+  - code: customerID
+    name: customerID
+    description: Customer ID
+    idType: Cross_device
+  - code: productID
+    name: productID
+    description: Product ID
+    idType: Cross_device
+  - code: planID
+    name: planID
+    description: Plan ID
+    idType: Cross_device
+  - code: storeID
+    name: storeID
+    description: Store ID
+    idType: Cross_device
+
+classes:
+  - key: store-lookup
+    name: "{PREFIX_NAME} Store Class"
+    description: "Custom lookup class for store location data"
+    # no file — payload fully hardcoded at runtime
+
+fieldGroups:
+  - key: customer-id
+    name: "{PREFIX_NAME} Customer ID"
+    description: "Customer identity field group"
+    file: industry/telecom/standard/field-groups/customer-id.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/profile"
+
+  - key: plan-details
+    name: "{PREFIX_NAME} Plan Details"
+    description: "Plan details for customer profile"
+    file: industry/telecom/standard/field-groups/plan-details.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/profile"
+
+  - key: customer-account-details
+    name: "{PREFIX_NAME} Customer Account Details"
+    description: "Customer account settings and acquisition details"
+    file: industry/telecom/standard/field-groups/customer-account-details.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/profile"
+
+  - key: active-line-details
+    name: "{PREFIX_NAME} Active Line Details"
+    description: "Active mobile lines and products for customer profile"
+    file: industry/telecom/standard/field-groups/active-line-details.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/profile"
+
+  - key: aggregates
+    name: "{PREFIX_NAME} Aggregates"
+    description: "Rolling data usage aggregates for customer profile"
+    file: industry/telecom/standard/field-groups/aggregates.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/profile"
+
+  - key: store-details
+    name: "{PREFIX_NAME} Store Details"
+    description: "Store location, hours, and address details"
+    file: industry/telecom/standard/field-groups/store-details.json
+    intendedToExtend: store-lookup   # custom class key (no "://") — resolved to created class $id at runtime
+
+  - key: product-details
+    name: "{PREFIX_NAME} Product Details"
+    description: "Product catalog details including make, model, and 5G compatibility"
+    file: industry/telecom/standard/field-groups/product-details.json
+    intendedToExtend: "https://ns.adobe.com/xdm/classes/product"
+
+  - key: plan-metadata
+    name: "{PREFIX_NAME} Plan Metadata"
+    description: "Plan feature metadata including cost, data allowance, and unlimited flags"
+    file: industry/telecom/standard/field-groups/plan-metadata.json
+    intendedToExtend: "https://ns.adobe.com/xdm/classes/plan"
+
+  - key: customer-metadata
+    name: "{PREFIX_NAME} Customer Metadata"
+    description: "Customer identity fields for experience events"
+    file: industry/telecom/standard/field-groups/customer-metadata.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/experienceevent"
+
+  - key: billing
+    name: "{PREFIX_NAME} Billing"
+    description: "Billing statement details for experience events"
+    file: industry/telecom/standard/field-groups/billing.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/experienceevent"
+
+  - key: order-details-extended
+    name: "{PREFIX_NAME} Order Details Extended"
+    description: "Extended order details with plan ID and acquisition source"
+    file: industry/telecom/standard/field-groups/order-details-extended.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/experienceevent"
+    extends: "https://ns.adobe.com/xdm/context/experienceevent-order-details"
+
+  - key: ecommerce-details-extended
+    name: "{PREFIX_NAME} Ecommerce Details Extended"
+    description: "Extended ecommerce product details with make, model, and acquisition source"
+    file: industry/telecom/standard/field-groups/ecommerce-details-extended.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/experienceevent"
+    extends: "https://ns.adobe.com/xdm/context/experienceevent-order-details"
+
+  - key: web
+    name: "{PREFIX_NAME} Web"
+    description: "Custom web event fields for experience events"
+    file: industry/telecom/standard/field-groups/web.json
+    intendedToExtend: "https://ns.adobe.com/xdm/context/experienceevent"
+
+# ============================================================
+# SCHEMAS
+# XDM schemas composed from custom components above and
+# out-of-the-box AEP classes and field groups,
+# including all associated descriptors.
+# ============================================================
+
+schemas:
+  - key: customer-account
+    name: "{PREFIX_NAME} Customer Account"
+    description: "Customer profile with account details, plan info, and consents"
+    class: "https://ns.adobe.com/xdm/context/profile"
+    fieldGroups:
+      ootb:
+        - "https://ns.adobe.com/xdm/context/profile-person-details"
+        - "https://ns.adobe.com/xdm/context/profile-personal-details"
+        - "https://ns.adobe.com/xdm/mixins/profile-consents"
+        - "https://ns.adobe.com/xdm/context/profile-test-profile"
+      custom:
+        - customer-id
+        - plan-details
+        - customer-account-details
+    identityDescriptors:
+      - sourceProperty: "/{tenantId}/customerID"
+        namespace: customerID
+        isPrimary: true
+      - sourceProperty: "/personalEmail/address"
+        namespace: Email
+        isPrimary: false
+    relationshipDescriptors:
+      - sourceProperty: "/{tenantId}/plan/planID"
+        destinationSchema: plan-lookup
+        destinationProperty: "/planID"
+    referenceIdentityDescriptors:
+      - sourceProperty: "/{tenantId}/plan/planID"
+        namespace: planID
+
+  - key: customer-active-lines
+    name: "{PREFIX_NAME} Customer Active Lines"
+    description: "Customer profile with active mobile line details"
+    class: "https://ns.adobe.com/xdm/context/profile"
+    fieldGroups:
+      custom:
+        - customer-id
+        - active-line-details
+    identityDescriptors:
+      - sourceProperty: "/{tenantId}/customerID"
+        namespace: customerID
+        isPrimary: true
+    relationshipDescriptors:
+      - sourceProperty: "/{tenantId}/activeProducts[*]/productID"
+        destinationSchema: product-lookup
+        destinationProperty: "/productID"
+    referenceIdentityDescriptors:
+      - sourceProperty: "/{tenantId}/activeProducts[*]/productID"
+        namespace: productID
+
+  - key: customer-aggregates
+    name: "{PREFIX_NAME} Customer Aggregates"
+    description: "Customer profile with rolling data usage aggregates"
+    class: "https://ns.adobe.com/xdm/context/profile"
+    fieldGroups:
+      custom:
+        - customer-id
+        - aggregates
+    identityDescriptors:
+      - sourceProperty: "/{tenantId}/customerID"
+        namespace: customerID
+        isPrimary: true
+
+  - key: billing
+    name: "{PREFIX_NAME} Billing"
+    description: "Billing statement experience events"
+    class: "https://ns.adobe.com/xdm/context/experienceevent"
+    fieldGroups:
+      custom:
+        - customer-metadata
+        - billing
+    identityDescriptors:
+      - sourceProperty: "/{tenantId}/customerID"
+        namespace: customerID
+        isPrimary: true
+    relationshipDescriptors:
+      - sourceProperty: "/{tenantId}/billing/planID"
+        destinationSchema: plan-lookup
+        destinationProperty: "/planID"
+    referenceIdentityDescriptors:
+      - sourceProperty: "/{tenantId}/billing/planID"
+        namespace: planID
+    friendlyNameDescriptors:
+      - sourceProperty: "/eventType"
+        title: "Event Type"
+        description: "The type of experience event detected by the system."
+        metaEnum:
+          "billing.statement": "Billing Statement"
+
+  - key: orders
+    name: "{PREFIX_NAME} Orders"
+    description: "Purchase order experience events"
+    class: "https://ns.adobe.com/xdm/context/experienceevent"
+    fieldGroups:
+      ootb:
+        - "https://ns.adobe.com/xdm/context/experienceevent-order-details"
+      custom:
+        - customer-metadata
+        - order-details-extended
+    identityDescriptors:
+      - sourceProperty: "/{tenantId}/personalEmail"
+        namespace: Email
+        isPrimary: true
+      - sourceProperty: "/{tenantId}/customerID"
+        namespace: customerID
+        isPrimary: false
+    relationshipDescriptors:
+      - sourceProperty: "/store/storeID"
+        destinationSchema: store-lookup
+        destinationProperty: "/{tenantId}/storeID"
+      - sourceProperty: "/productListItems[*]/SKU"
+        destinationSchema: product-lookup
+        destinationProperty: "/productID"
+      - sourceProperty: "/order/{tenantId}/plan/planID"
+        destinationSchema: plan-lookup
+        destinationProperty: "/planID"
+    referenceIdentityDescriptors:
+      - sourceProperty: "/store/storeID"
+        namespace: storeID
+      - sourceProperty: "/productListItems[*]/SKU"
+        namespace: productID
+      - sourceProperty: "/order/{tenantId}/plan/planID"
+        namespace: planID
+    friendlyNameDescriptors:
+      - sourceProperty: "/eventType"
+        title: "Event Type"
+        description: "The type of experience event detected by the system."
+        metaEnum:
+          "orders.placed": "Order Placed"
+          "orders.cancelled": "Order Cancelled"
+          "orders.readyForPickup": "Order Ready For Pickup"
+          "orders.pickedUp": "Order Picked Up"
+          "orders.shipped": "Order Shipped"
+          "orders.delivered": "Order Delivered"
+
+  - key: ecommerce
+    name: "{PREFIX_NAME} Ecommerce"
+    description: "Ecommerce experience events"
+    class: "https://ns.adobe.com/xdm/context/experienceevent"
+    fieldGroups:
+      ootb:
+        - "https://ns.adobe.com/xdm/context/experienceevent-order-details"
+      custom:
+        - customer-metadata
+        - ecommerce-details-extended
+    identityDescriptors:
+      - sourceProperty: "/{tenantId}/personalEmail"
+        namespace: Email
+        isPrimary: true
+      - sourceProperty: "/{tenantId}/customerID"
+        namespace: customerID
+        isPrimary: false
+
+  - key: web
+    name: "{PREFIX_NAME} Web"
+    description: "Web experience events"
+    class: "https://ns.adobe.com/xdm/context/experienceevent"
+    fieldGroups:
+      ootb:
+        - "https://ns.adobe.com/experience/aep-web-sdk-experienceevent"
+      custom:
+        - web
+
+  - key: store-lookup
+    name: "{PREFIX_NAME} Store [Lookup]"
+    description: "Store location lookup table"
+    class: store-lookup   # custom class key — resolved to $id at runtime
+    fieldGroups:
+      custom:
+        - store-details
+    identityDescriptors:
+      - sourceProperty: "/{tenantId}/storeID"
+        namespace: storeID
+        isPrimary: true
+
+  - key: product-lookup
+    name: "{PREFIX_NAME} Product [Lookup]"
+    description: "Product catalog lookup table"
+    class: "https://ns.adobe.com/xdm/classes/product"
+    fieldGroups:
+      custom:
+        - product-details
+    identityDescriptors:
+      - sourceProperty: "/productID"
+        namespace: productID
+        isPrimary: true
+
+  - key: plan-lookup
+    name: "{PREFIX_NAME} Plan [Lookup]"
+    description: "Mobile plan lookup table"
+    class: "https://ns.adobe.com/xdm/classes/plan"
+    fieldGroups:
+      custom:
+        - plan-metadata
+    identityDescriptors:
+      - sourceProperty: "/planID"
+        namespace: planID
+        isPrimary: true
+    friendlyNameDescriptors:
+      - sourceProperty: "/planName"
+        title: "Plan Name"
+        description: "The types of Plans"
+        metaEnum:
+          "basic": "Basic"
+          "ultimate": "Ultimate"
+          "pro": "Pro"

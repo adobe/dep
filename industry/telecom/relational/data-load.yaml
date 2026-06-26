@@ -1,0 +1,112 @@
+source: dlz                # references industry/sources/dlz.yaml
+
+schemas:
+  billing_detail:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/billing_detail.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/billing_detail.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  billing_statement:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/billing_statement.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/billing_statement.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  customer_account:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/customer_account.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/customer_account.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  customer_address:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/customer_address.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/customer_address.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  customer_line:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/customer_line.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/customer_line.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  order_product:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/order_product.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/order_product.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  order:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/order.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/order.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  plan_lookup:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/plan_lookup.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/plan_lookup.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  product_lookup:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/product_lookup.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/product_lookup.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  product_type_lookup:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/product_type_lookup.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/product_type_lookup.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""
+
+  store_lookup:
+    - id: default
+      localPath: "industry/telecom/relational/sample-data/store_lookup.csv"
+      targetPath: "dlz-user-container/dep/ajo-campaigns/store_lookup.csv"
+      type: "file"
+      dataFormat: "delimited"
+      columnDelimiter: ","
+      encoding: "utf-8"
+      compressionType: ""

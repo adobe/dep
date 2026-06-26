@@ -1,0 +1,102 @@
+{
+  "expression": {
+    "format": "pql/json",
+    "value": "{\"nodeType\":\"chain\",\"array\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"xEvent\",\"object\":{\"nodeType\":\"parameterReference\",\"position\":1}},\"timestampField\":{\"nodeType\":\"lambda\",\"varNames\":[\"v0\"],\"body\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"timestamp\",\"object\":{\"nodeType\":\"varRef\",\"varName\":\"v0\"}}},\"elements\":[{\"nodeType\":\"element\",\"name\":\"C0\",\"negated\":false,\"what\":{\"nodeType\":\"lambda\",\"varNames\":[\"v0\"],\"body\":{\"nodeType\":\"fnApply\",\"fnName\":\"equals\",\"params\":[{\"nodeType\":\"fieldLookup\",\"fieldName\":\"name\",\"object\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"webPageDetails\",\"object\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"web\",\"object\":{\"nodeType\":\"varRef\",\"varName\":\"v0\"}}}},{\"literalType\":\"String\",\"nodeType\":\"literal\",\"value\":\"phones:apple:iphone 17:overview\"},{\"nodeType\":\"literal\",\"literalType\":\"Boolean\",\"value\":false}]}},\"count\":3,\"when\":{\"nodeType\":\"lambda\",\"varNames\":[\"v0\"],\"body\":{\"nodeType\":\"occurs\",\"timestamp\":{\"nodeType\":\"varRef\",\"varName\":\"v0\"},\"timeinterval\":{\"nodeType\":\"literal\",\"literalType\":\"Timestamp\",\"value\":\"now\"},\"relation\":{\"nodeType\":\"literal\",\"literalType\":\"TimeDirection\",\"value\":\"before\"},\"qualification\":{\"nodeType\":\"timeQualification\",\"duration\":{\"nodeType\":\"duration\",\"count\":{\"nodeType\":\"literal\",\"literalType\":\"Integer\",\"value\":1},\"unit\":{\"nodeType\":\"literal\",\"literalType\":\"TimeUnit\",\"value\":\"days\"}},\"comparison\":{\"nodeType\":\"literal\",\"literalType\":\"Comparison\",\"value\":\"<=\"}}}}}]}"
+  },
+  "ansibleDataModel": {
+    "dataModel": {
+      "expression": {
+        "isValid": true,
+        "itemType": "segmentDefinition",
+        "logicalOperator": "and",
+        "xEventAttributesContainer": {
+          "items": [
+            {
+              "items": [
+                {
+                  "id": "6C2D7520-6473-4809-E523-E33A0298FFA6",
+                  "itemType": "eventTypeCard",
+                  "container": {
+                    "items": [
+                      {
+                        "value": [
+                          "phones:apple:iphone 17:overview"
+                        ],
+                        "itemType": "segmentRule",
+                        "component": {
+                          "id": "xEvent.web.webPageDetails.name",
+                          "type": "rE",
+                          "__entity__": true
+                        },
+                        "isPlaceholder": false,
+                        "comparisonType": "equals",
+                        "isCaseSensitive": false,
+                        "originalLocation": []
+                      }
+                    ],
+                    "mapKey": "",
+                    "exclude": false,
+                    "subType": "array",
+                    "itemType": "multiValueParentContainer",
+                    "xdmPathIds": [
+                      "xEvent"
+                    ],
+                    "variableRef": {
+                      "id": "E37456E6-5088-D3B9-0BF5-98E8DECFB89A",
+                      "name": "_Any2",
+                      "type": "event",
+                      "itemType": "variable",
+                      "friendlyName": "Any2",
+                      "isMapVariable": false,
+                      "payloadExports": []
+                    },
+                    "useAnyMapKey": false,
+                    "isPlaceholder": false,
+                    "logicalOperator": "and",
+                    "occurrenceCount": 3,
+                    "originalLocation": [],
+                    "occurrenceOperator": "atLeast",
+                    "temporalConstraint": {
+                      "type": "in-last",
+                      "unit": "days",
+                      "subType": "in-last-constraint",
+                      "quantity": 1
+                    },
+                    "occurrenceCountUpper": 2,
+                    "multiValuedParentsAllData": [
+                      {
+                        "id": "xEvent",
+                        "xdmPathIds": [
+                          "xEvent"
+                        ]
+                      }
+                    ],
+                    "multiValuedParentFriendlyName": "XDM ExperienceEvent"
+                  },
+                  "eventType": {
+                    "id": "__ansibleAnyEventType",
+                    "type": "j_",
+                    "__entity__": true
+                  }
+                }
+              ],
+              "exclude": false,
+              "itemType": "eventTypeCardContainer",
+              "logicalOperator": "and"
+            }
+          ],
+          "exclude": false,
+          "itemType": "eventTypeCardContainer",
+          "logicalOperator": "then"
+        },
+        "profileAttributesContainer": {
+          "items": [],
+          "exclude": false,
+          "itemType": "segmentContainer",
+          "logicalOperator": "and"
+        }
+      }
+    },
+    "version": "1.0.0"
+  }
+}

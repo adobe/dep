@@ -1,0 +1,13 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "cus_address_id", "destination": "cus_address_id" },
+    { "sourceType": "ATTRIBUTE", "source": "customer_id", "destination": "customer_id" },
+    { "sourceType": "ATTRIBUTE", "source": "address_type", "destination": "address_type" },
+    { "sourceType": "ATTRIBUTE", "source": "is_primary", "destination": "is_primary" },
+    { "sourceType": "ATTRIBUTE", "source": "street_address", "destination": "street_address" },
+    { "sourceType": "ATTRIBUTE", "source": "city", "destination": "city" },
+    { "sourceType": "ATTRIBUTE", "source": "state", "destination": "state" },
+    { "sourceType": "ATTRIBUTE", "source": "postal_code", "destination": "postal_code" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

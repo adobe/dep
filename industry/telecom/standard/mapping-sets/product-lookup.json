@@ -1,0 +1,8 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "productID", "destination": "productID" },
+    { "sourceType": "ATTRIBUTE", "source": "tenant", "destination": "{tenantId}" },
+    { "sourceType": "ATTRIBUTE", "source": "productName", "destination": "productName" },
+    { "sourceType": "ATTRIBUTE", "source": "productListPrice", "destination": "productListPrice" }
+  ]
+}

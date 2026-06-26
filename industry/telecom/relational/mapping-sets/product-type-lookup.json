@@ -1,0 +1,7 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "product_type", "destination": "product_type_id" },
+    { "sourceType": "ATTRIBUTE", "source": "product_type_name", "destination": "product_type_name" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

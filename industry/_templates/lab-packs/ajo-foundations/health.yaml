@@ -1,0 +1,43 @@
+# Health check configuration for this pack.
+# Run "Check profile health" after data streaming and a ~60 minute wait.
+# All checks use exact match: actual === expected.
+# Health checks cover standard/profile content only — never relational.
+#
+# Check types:
+#   profile-traits  — 1 GET; counts top-level entity fields (excluding segmentMembership)
+#   profile-events  — N GET calls (one per identity in identities[]); each compared to identity.expected
+#   batch-profiles  — 1 POST with batch identities; counts entities found without error
+#   lookup-entity   — 1 GET; checks sources.length (1 = entity exists with data)
+
+checks:
+  - label: "<Profile traits label>"     # REQUIRED — shown in CLI output
+    type: profile-traits                 # REQUIRED
+    entityId: "<identity-value>"         # REQUIRED — identity value from sample data
+    entityIdNS: customerID              # REQUIRED — identity namespace code
+    expected: 0                          # REQUIRED — count of top-level entity fields expected
+
+  - label: "<Event count label>"
+    type: profile-events                 # one GET per identity; each compared to identity.expected
+    identities:                          # REQUIRED — list all linked identities for this profile
+      - entityId: "<email>"
+        entityIdNS: Email
+        expected: 0                      # REQUIRED — event count expected for this identity
+      - entityId: "<ecid>"
+        entityIdNS: ECID
+        expected: 0                      # REQUIRED — event count expected for this identity
+
+  - label: "<Lookup entity label>"
+    type: lookup-entity                  # validates a specific lookup record exists
+    schemaName: "_xdm.classes.<name>"   # use when meta:altId is known (standard AEP classes)
+    # schemaRef: <schema-key>           # use instead when meta:altId unknown (custom class)
+    entityId: "1"
+    entityIdNS: planID
+    expected: 1
+
+  - label: "<Batch profiles label>"
+    type: batch-profiles                 # POST batch lookup; counts profiles found
+    entityIdNS: customerID
+    entityIds:
+      - "<id-1>"
+      - "<id-2>"
+    expected: 2

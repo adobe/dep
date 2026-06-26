@@ -1,0 +1,11 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "order_product_id", "destination": "order_product_id" },
+    { "sourceType": "ATTRIBUTE", "source": "order_id", "destination": "order_id" },
+    { "sourceType": "ATTRIBUTE", "source": "product_id", "destination": "product_id" },
+    { "sourceType": "ATTRIBUTE", "source": "quantity", "destination": "quantity" },
+    { "sourceType": "ATTRIBUTE", "source": "total", "destination": "total" },
+    { "sourceType": "ATTRIBUTE", "source": "currency", "destination": "currency" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

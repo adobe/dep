@@ -1,8 +1,19 @@
-# local testing
-deploy/ek-env.json
-deploy/ek-ajo-camp-env.json
+# ignore all personal env files
+envFiles/*
 
-#in-development
-connection5g-sample-data/relational/*
-deploy/*
-lab-packs/ajo-campaigns/*
+#do not ignore sample-env file
+!envFiles/sample-env.json
+lib/env/session.json
+
+# node modules
+node_modules
+
+#nodemon
+nodemon.json
+
+#misc
+
+# Claude Code: ignore everything by default, then re-include project knowledge
+.claude/*
+!.claude/docs/
+!.claude/rules/
