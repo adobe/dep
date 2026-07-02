@@ -1,0 +1,14 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "store_id", "destination": "store_id" },
+    { "sourceType": "ATTRIBUTE", "source": "store_name", "destination": "store_name" },
+    { "sourceType": "EXPRESSION", "source": "date(store_inaguration_date,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "store_inaguration_date" },
+    { "sourceType": "ATTRIBUTE", "source": "store_open_time", "destination": "store_open_time" },
+    { "sourceType": "ATTRIBUTE", "source": "store_close_time", "destination": "store_close_time" },
+    { "sourceType": "ATTRIBUTE", "source": "store_street", "destination": "store_address.street" },
+    { "sourceType": "ATTRIBUTE", "source": "store_city", "destination": "store_address.city" },
+    { "sourceType": "ATTRIBUTE", "source": "store_state", "destination": "store_address.state" },
+    { "sourceType": "ATTRIBUTE", "source": "store_zip_code", "destination": "store_address.postal_code" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

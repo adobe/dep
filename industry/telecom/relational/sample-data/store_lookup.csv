@@ -1,0 +1,6 @@
+store_id,store_name,store_inaguration_date,store_street,store_city,store_state,store_open_time,store_close_time,store_zip_code,last_modified,_change_request_type
+1,Cell4U,1985-04-01T12:00:00Z,29 Milwaukee Place,Albany,NY,9AM,10PM,12227,2025-10-12 12:37:52,u
+2,Phone Stop,1990-04-01T12:00:00Z,475 Center Place,Atlanta,GA,9AM,10PM,30301,2025-08-06 00:13:46,u
+3,Data Hog,1995-04-01T12:00:00Z,6 Twin Pines Circle,Arlington,VA,9AM,10PM,22234,2025-04-03 05:54:38,u
+4,No Reception,2000-04-01T12:00:00Z,35901 Anniversary Parkway,Tulsa,OK,9AM,10PM,74116,2025-08-29 19:12:54,u
+5,Web Channel,2005-04-01T12:00:00Z,7 Tennyson Park,Houston,TX,9AM,10PM,77206,2024-11-22 11:14:35,u

@@ -1,0 +1,23 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "webDetailsEE": {
+        "title": "Web Details EE",
+        "description": "",
+        "type": "object",
+        "isRequired": false,
+        "required": [],
+        "properties": {
+          "customTag": {
+            "title": "Custom Tag",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string"
+          }
+        }
+      }
+    }
+  }
+}

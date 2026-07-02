@@ -1,0 +1,126 @@
+{
+    "_id": "order-02",
+    "eventType": "orders.pickedUp",
+    "timestamp": "{{order2}}",
+    "_dxp": {
+        "customerID": "266242885",
+        "personalEmail": "depeche.mode@emailsim.io"
+    },
+    "order": {
+        "orderID": "a73f6f98-4a1b-468b-a1cf-e034a7d668bc",
+        "orderDate": "{{order2}}",
+        "priceTotal": 849.99,
+        "payment": {
+            "paymentType": "credit",
+            "paymentAmount": 799.99,
+            "currencyCode": "USD",
+            "transactionID": "1031a207-ba8c-4ec0-8078-86f125639dbc"
+        },
+        "_dxp": {
+            "plan": {
+                "planID": "3"
+            }
+        }
+    },
+    "store": {
+        "storeID": "2"
+    },
+    "shipping": {
+        "address": {
+            "street1": "101 Basildon Boulevard",
+            "city": "New York City",
+            "state": "NY",
+            "postalCode": "10001"
+        },
+        "shippingMethod": "standard",
+        "shippingAmount": 0,
+        "shippingDestination": "store"
+    },
+    "billing": {
+        "address": {
+            "street1": "101 Basildon Boulevard",
+            "city": "New York City",
+            "state": "NY",
+            "postalCode": "10001"
+        }
+    },
+    "productListItems": [
+        {
+            "_id": "2",
+            "SKU": "2",
+            "quantity": 1,
+            "priceTotal": 799.99,
+            "currencyCode": "USD",
+            "_dxp": {
+                "make": "Apple",
+                "model": "iPhone 14 Plus"
+            }
+        }
+    ]
+},
+{
+    "_id": "order-01",
+    "eventType": "orders.placed",
+    "timestamp": "{{order1}}",
+    "_dxp": {
+        "customerID": "266242885",
+        "personalEmail": "dave.gahan@emailsim.io"
+    },
+    "order": {
+        "orderID": "a73f6f98-4a1b-468b-a1cf-e034a7d6682d",
+        "orderDate": "{{order1}}",
+        "priceTotal": 1699.98,
+        "payment": {
+            "paymentType": "credit",
+            "paymentAmount": 1699.98,
+            "currencyCode": "USD",
+            "transactionID": "1031a207-ba8c-4ec0-8078-86f125639d2d"
+        }
+    },
+    "store": {
+        "storeID": "2"
+    },
+    "shipping": {
+        "address": {
+            "street1": "101 Basildon Boulevard",
+            "city": "New York City",
+            "state": "NY",
+            "postalCode": "10001"
+        },
+        "shippingMethod": "standard",
+        "shippingAmount": 0,
+        "shippingDestination": "store"
+    },
+    "billing": {
+        "address": {
+            "street1": "101 Basildon Boulevard",
+            "city": "New York City",
+            "state": "NY",
+            "postalCode": "10001"
+        }
+    },
+    "productListItems": [
+        {
+            "_id": "2",
+            "SKU": "2",
+            "quantity": 1,
+            "priceTotal": 799.99,
+            "currencyCode": "USD",
+            "_dxp": {
+                "make": "Apple",
+                "model": "iPhone 14 Plus"
+            }
+        },
+        {
+            "_id": "6",
+            "SKU": "6",
+            "quantity": 1,
+            "priceTotal": 899.99,
+            "currencyCode": "USD",
+            "_dxp": {
+                "make": "Google",
+                "model": "Pixel 7 Pro"
+            }
+        }
+    ]
+}

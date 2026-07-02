@@ -1,0 +1,48 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "productType": {
+        "title": "Product Type",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string",
+        "enum": [
+          "phone"
+        ],
+        "meta:enum": {
+          "phone": "Phone"
+        }
+      },
+      "make": {
+        "title": "Product Make",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string"
+      },
+      "model": {
+        "title": "Product Model",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string"
+      },
+      "releaseYear": {
+        "title": "Product Release Year",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string"
+      },
+      "fivegCompatible": {
+        "title": "Product 5gCompatible Flag",
+        "description": "",
+        "type": "boolean",
+        "required": [],
+        "meta:xdmType": "boolean"
+      }
+    }
+  }
+}

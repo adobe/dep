@@ -1,0 +1,160 @@
+{
+  "order_id": {
+    "type": "integer",
+    "title": "Order ID"
+  },
+  "customer_id": {
+    "type": "string",
+    "title": "Customer ID"
+  },
+  "order_date": {
+    "type": "string",
+    "format": "date-time",
+    "title": "Order Date"
+  },
+  "order_status": {
+    "type": "string",
+    "title": "Order Status",
+    "enum": [
+      "placed",
+      "cancelled",
+      "ready-for-pickup",
+      "picked-up",
+      "shipped",
+      "delivered"
+    ],
+    "meta:enum": {
+      "placed": "Placed",
+      "cancelled": "Cancelled",
+      "ready-for-pickup": "Ready for Pickup",
+      "picked-up": "Picked Up",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    }
+  },
+  "last_order_status_update": {
+    "type": "string",
+    "format": "date-time",
+    "title": "Last Status Update"
+  },
+  "payment_type": {
+    "type": "string",
+    "title": "Payment Type",
+    "enum": [
+      "credit",
+      "debit",
+      "gift-card",
+      "cash"
+    ],
+    "meta:enum": {
+      "credit": "Credit",
+      "debit": "Debit",
+      "gift-card": "Gift Card",
+      "cash": "Cash"
+    }
+  },
+  "payment_currency_code": {
+    "type": "string",
+    "title": "Currency Code"
+  },
+  "payment_transaction_id": {
+    "type": "string",
+    "title": "Transaction ID"
+  },
+  "email": {
+    "type": "string",
+    "format": "email",
+    "title": "Customer Email"
+  },
+  "shipping_method": {
+    "type": "string",
+    "title": "Shipping Method",
+    "enum": [
+      "standard",
+      "expedited",
+      "overnight"
+    ],
+    "meta:enum": {
+      "standard": "Standard",
+      "expedited": "Expedited",
+      "overnight": "Overnight"
+    }
+  },
+  "shipping_destination": {
+    "type": "string",
+    "title": "Shipping Destination",
+    "enum": [
+      "home",
+      "store"
+    ],
+    "meta:enum": {
+      "home": "Home",
+      "store": "Store"
+    }
+  },
+  "shipping_address": {
+    "type": "object",
+    "title": "Shipping Address",
+    "properties": {
+      "street": {
+        "type": "string",
+        "title": "Street"
+      },
+      "city": {
+        "type": "string",
+        "title": "City"
+      },
+      "state": {
+        "type": "string",
+        "title": "State"
+      },
+      "postal_code": {
+        "type": "string",
+        "title": "Postal Code"
+      }
+    }
+  },
+  "billing_address": {
+    "type": "object",
+    "title": "Billing Address",
+    "properties": {
+      "street": {
+        "type": "string",
+        "title": "Street"
+      },
+      "city": {
+        "type": "string",
+        "title": "City"
+      },
+      "state": {
+        "type": "string",
+        "title": "State"
+      },
+      "postal_code": {
+        "type": "string",
+        "title": "Postal Code"
+      }
+    }
+  },
+  "store_id": {
+    "type": "integer",
+    "title": "Store ID"
+  },
+  "plan_id": {
+    "type": "integer",
+    "title": "Plan ID"
+  },
+  "order_total": {
+    "type": "number",
+    "title": "Order Total"
+  },
+  "payment_amount": {
+    "type": "number",
+    "title": "Payment Amount"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

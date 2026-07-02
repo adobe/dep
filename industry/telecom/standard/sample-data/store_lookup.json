@@ -1,0 +1,75 @@
+{
+    "tenant": {
+        "storeID": "1",
+        "name": "Cell4U",
+        "inagurationDate": "1985-04-01T12:00:00Z",
+        "openTime": "9AM",
+        "closeTime": "10PM",
+        "address": {
+            "street1": "29 Milwaukee Place",
+            "city": "Albany",
+            "state": "New York",
+            "postalCode": 12227
+        }
+    }
+},
+{
+    "tenant": {
+        "storeID": "2",
+        "name": "Phone Stop",
+        "inagurationDate": "1990-04-01T12:00:00Z",
+        "openTime": "9AM",
+        "closeTime": "10PM",
+        "address": {
+            "street1": "475 Center Place",
+            "city": "Atlanta",
+            "state": "Georgia",
+            "postalCode": 30301
+        }
+    }
+},
+{
+    "tenant": {
+        "storeID": "3",
+        "name": "Data Hog",
+        "inagurationDate": "1995-04-01T12:00:00Z",
+        "openTime": "9AM",
+        "closeTime": "10PM",
+        "address": {
+            "street1": "6 Twin Pines Circle",
+            "city": "Arlington",
+            "state": "Virginia",
+            "postalCode": 22234
+        }
+    }
+},
+{
+    "tenant": {
+        "storeID": "4",
+        "name": "No Reception",
+        "inagurationDate": "2000-04-01T12:00:00Z",
+        "openTime": "9AM",
+        "closeTime": "10PM",
+        "address": {
+            "street1": "35901 Anniversary Parkway",
+            "city": "Tulsa",
+            "state": "Oklahoma",
+            "postalCode": 74116
+        }
+    }
+},
+{
+    "tenant": {
+        "storeID": "5",
+        "name": "Web Channel",
+        "inagurationDate": "2005-04-01T12:00:00Z",
+        "openTime": "9AM",
+        "closeTime": "10PM",
+        "address": {
+            "street1": "7 Tennyson Park",
+            "city": "Houston",
+            "state": "Texas",
+            "postalCode": 77206
+        }
+    }
+}

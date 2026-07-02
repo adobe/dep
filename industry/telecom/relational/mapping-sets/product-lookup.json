@@ -1,0 +1,12 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "product_type_id", "destination": "product_type_id" },
+    { "sourceType": "ATTRIBUTE", "source": "product_id", "destination": "product_id" },
+    { "sourceType": "ATTRIBUTE", "source": "model", "destination": "model" },
+    { "sourceType": "ATTRIBUTE", "source": "make", "destination": "make" },
+    { "sourceType": "ATTRIBUTE", "source": "release_year", "destination": "release_year" },
+    { "sourceType": "ATTRIBUTE", "source": "five_g_compatible", "destination": "five_g_compatible" },
+    { "sourceType": "ATTRIBUTE", "source": "price", "destination": "price" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

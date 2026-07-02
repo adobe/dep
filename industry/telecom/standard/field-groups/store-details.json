@@ -1,0 +1,50 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "storeID": {
+        "title": "Store ID",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string"
+      },
+      "name": {
+        "title": "Store Name",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string"
+      },
+      "openTime": {
+        "title": "Store Open Date",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string"
+      },
+      "closeTime": {
+        "title": "Store Close Date",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "meta:xdmType": "string"
+      },
+      "inagurationDate": {
+        "title": "Inaguration Date",
+        "description": "",
+        "type": "string",
+        "required": [],
+        "format": "date-time",
+        "meta:xdmType": "date-time"
+      },
+      "address": {
+        "$ref": "https://ns.adobe.com/xdm/common/address",
+        "required": [],
+        "type": "object",
+        "title": "address",
+        "meta:xdmType": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "order_id", "destination": "order_id" },
+    { "sourceType": "ATTRIBUTE", "source": "customer_id", "destination": "customer_id" },
+    { "sourceType": "EXPRESSION", "source": "date(order_date,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "order_date" },
+    { "sourceType": "EXPRESSION", "source": "iif(order_status == \"placed\", \"placed\", iif(order_status == \"cancelled\", \"cancelled\", iif(order_status == \"ready for pickup\", \"ready-for-pickup\", iif(order_status == \"picked up\", \"picked-up\", iif(order_status == \"shipped\", \"shipped\", iif(order_status == \"delivered\", \"delivered\",''))))))", "destination": "order_status" },
+    { "sourceType": "EXPRESSION", "source": "date(last_order_status_update,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_order_status_update" },
+    { "sourceType": "EXPRESSION", "source": "iif(payment_type == \"credit\", \"credit\", iif(payment_type == \"debit\", \"debit\", iif(payment_type == \"gift\", \"gift-card\", iif(payment_type == \"cash\", \"cash\", null))))", "destination": "payment_type" },
+    { "sourceType": "ATTRIBUTE", "source": "payment_currency_code", "destination": "payment_currency_code" },
+    { "sourceType": "ATTRIBUTE", "source": "payment_transaction_id", "destination": "payment_transaction_id" },
+    { "sourceType": "ATTRIBUTE", "source": "email", "destination": "email" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_method", "destination": "shipping_method" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_destination", "destination": "shipping_destination" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_street_address", "destination": "shipping_address.street" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_city", "destination": "shipping_address.city" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_state", "destination": "shipping_address.state" },
+    { "sourceType": "ATTRIBUTE", "source": "shipping_zip", "destination": "shipping_address.postal_code" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_street_address", "destination": "billing_address.street" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_city", "destination": "billing_address.city" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_state", "destination": "billing_address.state" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_zip", "destination": "billing_address.postal_code" },
+    { "sourceType": "ATTRIBUTE", "source": "store_id", "destination": "store_id" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_id", "destination": "plan_id" },
+    { "sourceType": "ATTRIBUTE", "source": "order_total", "destination": "order_total" },
+    { "sourceType": "ATTRIBUTE", "source": "payment_amount", "destination": "payment_amount" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

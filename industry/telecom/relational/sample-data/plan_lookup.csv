@@ -1,0 +1,4 @@
+plan_id,plan_name,plan_type,monthly_line_cost,unlimited_talk,unlimited_text,unlimited_data,monthly_data_allowance,last_modified,_change_request_type
+1,basic,mobile,25,TRUE,FALSE,FALSE,5,2025-09-22 16:00:10,u
+2,pro,mobile,40,TRUE,TRUE,FALSE,20,2024-12-08 08:30:10,u
+3,ultimate,mobile,50,TRUE,TRUE,TRUE,100,2025-05-04 20:36:37,u

@@ -1,0 +1,15 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "statement_id", "destination": "statement_id" },
+    { "sourceType": "ATTRIBUTE", "source": "customer_id", "destination": "customer_id" },
+    { "sourceType": "ATTRIBUTE", "source": "statement_date", "destination": "statement_date" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_period_start", "destination": "billing_period_start" },
+    { "sourceType": "ATTRIBUTE", "source": "billing_period_end", "destination": "billing_period_end" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_type", "destination": "plan_type" },
+    { "sourceType": "ATTRIBUTE", "source": "data_usage", "destination": "data_usage" },
+    { "sourceType": "ATTRIBUTE", "source": "data_allowance", "destination": "data_allowance" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_id", "destination": "plan_id" },
+    { "sourceType": "ATTRIBUTE", "source": "bill_total", "destination": "bill_total" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

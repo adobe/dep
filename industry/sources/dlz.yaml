@@ -1,0 +1,74 @@
+# Adobe Data Landing Zone (DLZ) batch source — used by relational data loads to push CSVs into
+# AEP via Azure Blob Storage and a DLZ → dataset flow.
+#
+# Data load entry format for relational/data-load.yaml when using this source:
+#
+#   schemas:
+#     <schema_key>:
+#       localPath: "industry/<vertical>/relational/sample-data/<file>.csv"  # repo-root-relative source CSV
+#       targetPath: "dlz-user-container/<prefix>/ajo-campaigns/<file>.csv"  # DLZ blob destination (literal path)
+#       type: "file"
+#       dataFormat: "delimited"
+#       columnDelimiter: ","
+#       encoding: "utf-8"
+#       compressionType: ""   # leave blank for uncompressed
+
+# ---------------------------------------------------------------------------
+# SOURCE CONNECTOR  (required) — DLZ blob → Flow Service source connection
+# ---------------------------------------------------------------------------
+sourceConnConfig:
+  name: ""                   # populated at runtime from per-schema config
+  description: ""            # populated at runtime
+  baseConnectionId: ""       # populated at runtime — DLZ base connection created per sandbox
+  data:
+    format: ""               # REQUIRED — set from the per-schema dataFormat (e.g. "delimited")
+    properties:
+      columnDelimiter: ""    # set from per-schema entry (typically ",")
+      encoding: ""           # set from per-schema entry (typically "utf-8")
+      compressionType: ""    # set from per-schema entry — "" for uncompressed
+  params:
+    path: "dlz-user-container/"  # DLZ root; the per-schema targetPath is appended in createSourceConn
+    type: ""                 # set from per-schema type (typically "file")
+    cdcEnabled: true         # always true — enables incremental change-data-capture ingestion
+  connectionSpec:
+    id: "26f526f2-58f4-4712-961d-e41bf1ccc0e8"  # Adobe Flow Service connectionSpec — DLZ source
+    version: "1.0"
+
+# ---------------------------------------------------------------------------
+# TARGET CONNECTOR  (required) — Platform Storage (the destination dataset)
+# ---------------------------------------------------------------------------
+targetConnConfig:
+  name: ""                   # populated at runtime
+  description: ""            # populated at runtime
+  data:
+    format: "parquet_xdm"    # always "parquet_xdm" for DLZ batch ingestion into AEP datasets
+    schema:
+      id: ""                 # populated at runtime — destination XDM schema $id
+      version: "application/vnd.adobe.xed-full+json;version=1"
+  params:
+    dataSetId: ""            # populated at runtime — destination dataset ID
+  connectionSpec:
+    id: "c604ff05-7f1a-43c0-8e18-33bf874cb11c"  # Adobe Flow Service connectionSpec — Platform Storage
+    version: "1.0"
+
+# ---------------------------------------------------------------------------
+# FLOW  (required) — wires the source connection to the target via a mapping
+# ---------------------------------------------------------------------------
+flowConfig:
+  name: ""                   # populated at runtime
+  description: ""            # populated at runtime
+  flowSpec:
+    id: "9753525b-82c7-4dce-8a9b-5ccfce2b9876"  # Adobe Flow Service flowSpec — DLZ → Platform Storage
+    version: "1.0"
+  sourceConnectionIds: []    # populated at runtime — IDs of the source connections created above
+  targetConnectionIds: []    # populated at runtime — IDs of the target connections created above
+  transformations:
+    - name: "Mapping"        # always "Mapping" — applies a DataPrep mapping set to incoming records
+      params:
+        mappingVersion: "0"
+        mappingId: ""        # populated at runtime — ID of the mapping set created from JSON
+  scheduleParams:
+    startTime: ""            # populated at runtime — flow start timestamp (epoch seconds)
+    frequency: "once"        # always "once" for batch ingestion of static CSVs
+    #interval: ""            # omit when frequency is "once"
+    #backfill:               # omit when frequency is "once"

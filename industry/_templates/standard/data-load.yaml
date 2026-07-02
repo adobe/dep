@@ -1,0 +1,21 @@
+source: http-api             # REQUIRED — references industry/sources/http-api.yaml
+
+# Catalog of available sample-data entries. lab-packs/*/deploy.yaml dataLoad: lines
+# reference entries here as "<schema-key>:<id>". Each (schema, id) pair must resolve
+# to exactly one entry. ids are unique per schema, not globally.
+
+schemas:                     # REQUIRED — one key per schema with data to load
+  <schema-key>:              # REQUIRED — must match a key in standard/schemas.yaml; value is an array
+    - id: <id>               # REQUIRED — stable name for THIS entry (e.g. depeche-mode, stranger-things, lookup)
+                             #   Referenced from deploy.yaml as "<schema-key>:<id>".
+                             #   Name the content of the file, not the consumer pack.
+      mode: single           # REQUIRED — single (one JSON object) | multi (JSON array or comma-separated records)
+      file: industry/<vertical>/standard/sample-data/<file>.json       # REQUIRED — repo-root-relative path
+      mappingSet: industry/<vertical>/standard/mapping-sets/<file>.json  # REQUIRED — repo-root-relative path
+
+    # Additional entries stream more files into the SAME schema. Each needs its own unique id.
+    # A consumer pack opts into each entry explicitly by listing it in its deploy.yaml dataLoad:
+    # - id: <other-id>
+    #   mode: multi
+    #   file: industry/<vertical>/standard/sample-data/<other-file>.json
+    #   mappingSet: industry/<vertical>/standard/mapping-sets/<file>.json

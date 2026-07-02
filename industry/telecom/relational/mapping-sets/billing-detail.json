@@ -1,0 +1,11 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "detail_statement_id", "destination": "detail_statement_id" },
+    { "sourceType": "ATTRIBUTE", "source": "statement_id", "destination": "statement_id" },
+    { "sourceType": "ATTRIBUTE", "source": "customer_line_id", "destination": "customer_line_id" },
+    { "sourceType": "ATTRIBUTE", "source": "statement_date", "destination": "statement_date" },
+    { "sourceType": "ATTRIBUTE", "source": "amount_charged", "destination": "amount_charged" },
+    { "sourceType": "ATTRIBUTE", "source": "phone_number", "destination": "phone_number" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}
