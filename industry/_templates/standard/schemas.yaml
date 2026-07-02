@@ -1,0 +1,70 @@
+# ============================================================
+# CUSTOM COMPONENTS
+# Custom-built XDM assets created before schema deployment.
+# Classes: no body file — payload fully hardcoded at runtime.
+# Field groups: body file contains field definitions only
+#   (definitions.customFields.properties content — no structural wrapper).
+# name and description are in the YAML; {PREFIX_NAME} substituted at
+# runtime (default: dep).
+# ============================================================
+
+identityNamespaces:          # REQUIRED if using custom identity namespaces
+  - code: <namespace-code>   # REQUIRED — unique code used in descriptors (e.g., customerID)
+    name: <namespace-name>   # REQUIRED — display name (same as code for simple namespaces)
+    description: <desc>      # OPTIONAL
+    idType: Cross_device     # REQUIRED — Cross_device | Cookie | Phone | Email | Non_people
+
+classes:                     # OPTIONAL — omit if all schemas use standard AEP classes
+  - key: <class-key>         # REQUIRED — kebab-case key (e.g., store-lookup)
+    name: "{PREFIX_NAME} <Class Display Name>"  # REQUIRED — display title in AEP; {PREFIX_NAME} substituted at runtime
+    description: "<description>"                 # OPTIONAL
+    # no file — payload fully hardcoded at runtime (all custom classes extend xdm/data/record)
+
+fieldGroups:                 # REQUIRED — list all custom field groups
+  - key: <fg-key>            # REQUIRED — kebab-case key used in schema fieldGroups.custom[]
+    name: "{PREFIX_NAME} <Field Group Display Name>"  # REQUIRED — display title in AEP; {PREFIX_NAME} substituted at runtime
+    description: "<description>"                       # OPTIONAL
+    file: industry/<vertical>/standard/field-groups/<file>.json  # REQUIRED — field definitions only
+    intendedToExtend: "https://ns.adobe.com/xdm/..."  # REQUIRED — class this FG applies to;
+                                                        # full URL for standard AEP classes,
+                                                        # registry key (no "://") for custom classes
+    # extends: "<ootb-fg-url>"  # OPTIONAL — Pattern B extended FGs only; signals two-entry allOf
+    #                             + meta:extends/extensible/abstract at runtime
+
+# ============================================================
+# SCHEMAS
+# XDM schemas composed from custom components above and
+# out-of-the-box AEP classes and field groups,
+# including all associated descriptors.
+# ============================================================
+
+schemas:
+  # name = schema display title in AEP + dataset name.
+  # description = dataset description.
+  # No separate JSON body file for standard schemas — payload built dynamically from class + fieldGroups.
+  - key: <schema-key>        # REQUIRED — kebab-case key used in deploy.yaml
+    name: "{PREFIX_NAME} <Schema Display Name>"   # REQUIRED — schema title in AEP + dataset name; {PREFIX_NAME} substituted at runtime
+    description: "<description of this schema>"    # REQUIRED — dataset description
+    class: "<aep-class-url>"  # REQUIRED — standard AEP class URL, or custom class key (no "://")
+    fieldGroups:
+      ootb:                   # OPTIONAL — standard AEP field group URLs (not the class URL)
+        - "https://ns.adobe.com/xdm/..."
+      custom:                 # OPTIONAL — keys from fieldGroups section above
+        - <fg-key>
+    identityDescriptors:      # OPTIONAL — one entry per identity field
+      - sourceProperty: "/{tenantId}/<field>"  # REQUIRED — JSON Pointer path
+        namespace: <namespace-code>            # REQUIRED — identity namespace code
+        isPrimary: true                        # REQUIRED — true for primary identity only
+    relationshipDescriptors:  # OPTIONAL — always on source schema (the one holding the FK field)
+      - sourceProperty: "/<field>"
+        destinationSchema: <schema-key>
+        destinationProperty: "/<field>"
+    referenceIdentityDescriptors:  # OPTIONAL — one entry per reference identity field
+      - sourceProperty: "/{tenantId}/<field>"
+        namespace: <namespace-code>
+    friendlyNameDescriptors:  # OPTIONAL — one entry per field needing a display override
+      - sourceProperty: "/<field>"
+        title: "<display name>"
+        description: "<description>"
+        metaEnum:             # OPTIONAL — enum value display labels
+          "<value>": "<label>"

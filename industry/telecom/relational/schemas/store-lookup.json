@@ -1,0 +1,50 @@
+{
+  "store_id": {
+    "type": "integer",
+    "title": "Store ID"
+  },
+  "store_name": {
+    "type": "string",
+    "title": "Store Name"
+  },
+  "store_inaguration_date": {
+    "type": "string",
+    "format": "date-time",
+    "title": "Inauguration Date"
+  },
+  "store_open_time": {
+    "type": "string",
+    "title": "Open Time"
+  },
+  "store_close_time": {
+    "type": "string",
+    "title": "Close Time"
+  },
+  "store_address": {
+    "type": "object",
+    "title": "Store Address",
+    "properties": {
+      "street": {
+        "type": "string",
+        "title": "Street"
+      },
+      "city": {
+        "type": "string",
+        "title": "City"
+      },
+      "state": {
+        "type": "string",
+        "title": "State"
+      },
+      "postal_code": {
+        "type": "string",
+        "title": "Postal Code"
+      }
+    }
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

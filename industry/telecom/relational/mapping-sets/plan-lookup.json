@@ -1,0 +1,13 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "plan_id", "destination": "plan_id" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_name", "destination": "plan_name" },
+    { "sourceType": "ATTRIBUTE", "source": "plan_type", "destination": "plan_type" },
+    { "sourceType": "ATTRIBUTE", "source": "monthly_line_cost", "destination": "monthly_line_cost" },
+    { "sourceType": "ATTRIBUTE", "source": "unlimited_talk", "destination": "unlimited_talk" },
+    { "sourceType": "ATTRIBUTE", "source": "unlimited_text", "destination": "unlimited_text" },
+    { "sourceType": "ATTRIBUTE", "source": "unlimited_data", "destination": "unlimited_data" },
+    { "sourceType": "ATTRIBUTE", "source": "monthly_data_allowance", "destination": "monthly_data_allowance" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" }
+  ]
+}

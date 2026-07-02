@@ -1,0 +1,43 @@
+{
+  "customer_line_id": {
+    "type": "string",
+    "title": "Customer Line ID"
+  },
+  "customer_id": {
+    "type": "string",
+    "title": "Customer ID"
+  },
+  "product_id": {
+    "type": "integer",
+    "title": "Product ID"
+  },
+  "primary_line_indicator": {
+    "type": "boolean",
+    "title": "Primary Line"
+  },
+  "active_indicator": {
+    "type": "boolean",
+    "title": "Active Line"
+  },
+  "mobile_phone": {
+    "type": "string",
+    "title": "Mobile Phone"
+  },
+  "sms_optin": {
+    "type": "boolean",
+    "title": "SMS Opt-In"
+  },
+  "email_address": {
+    "type": "string",
+    "title": "Email Address"
+  },
+  "email_optin": {
+    "type": "boolean",
+    "title": "Email Opt-In"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

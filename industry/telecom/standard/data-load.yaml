@@ -1,0 +1,74 @@
+source: http-api           # references industry/sources/http-api.yaml
+
+# Lookup table sync: store-lookup, product-lookup, and plan-lookup have JSON sample data
+# here AND CSV files in relational/sample-data/. Relational CSVs are source of truth.
+# When updating lookup data, update both files.
+
+schemas:
+  customer-account:
+    - id: depeche-mode
+      mode: single
+      file: industry/telecom/standard/sample-data/depeche-mode-profile/customer_account.json
+      mappingSet: industry/telecom/standard/mapping-sets/customer-account.json
+    - id: stranger-things
+      mode: multi
+      file: industry/telecom/standard/sample-data/stranger-things-profiles/sample-profiles.json
+      mappingSet: industry/telecom/standard/mapping-sets/customer-account.json
+    - id: decisioning
+      mode: multi
+      file: industry/telecom/standard/sample-data/decisioning-profiles/sample-profiles.json
+      mappingSet: industry/telecom/standard/mapping-sets/customer-account.json
+
+  customer-active-lines:
+    - id: depeche-mode
+      mode: single
+      file: industry/telecom/standard/sample-data/depeche-mode-profile/customer_active_lines.json
+      mappingSet: industry/telecom/standard/mapping-sets/customer-active-lines.json
+
+  customer-aggregates:
+    - id: depeche-mode
+      mode: single
+      file: industry/telecom/standard/sample-data/depeche-mode-profile/customer_aggregates.json
+      mappingSet: industry/telecom/standard/mapping-sets/customer-aggregates.json
+
+  billing:
+    - id: depeche-mode
+      mode: multi
+      file: industry/telecom/standard/sample-data/depeche-mode-profile/billing.json
+      mappingSet: industry/telecom/standard/mapping-sets/billing.json
+
+  orders:
+    - id: depeche-mode
+      mode: multi
+      file: industry/telecom/standard/sample-data/depeche-mode-profile/orders.json
+      mappingSet: industry/telecom/standard/mapping-sets/orders.json
+
+  ecommerce:
+    - id: depeche-mode
+      mode: single
+      file: industry/telecom/standard/sample-data/depeche-mode-profile/ecommerce.json
+      mappingSet: industry/telecom/standard/mapping-sets/ecommerce.json
+
+  web:
+    - id: depeche-mode
+      mode: multi
+      file: industry/telecom/standard/sample-data/depeche-mode-profile/web.json
+      mappingSet: industry/telecom/standard/mapping-sets/web.json
+
+  store-lookup:
+    - id: lookup
+      mode: multi
+      file: industry/telecom/standard/sample-data/store_lookup.json
+      mappingSet: industry/telecom/standard/mapping-sets/store-lookup.json
+
+  product-lookup:
+    - id: lookup
+      mode: multi
+      file: industry/telecom/standard/sample-data/product_lookup.json
+      mappingSet: industry/telecom/standard/mapping-sets/product-lookup.json
+
+  plan-lookup:
+    - id: lookup
+      mode: multi
+      file: industry/telecom/standard/sample-data/plan_lookup.json
+      mappingSet: industry/telecom/standard/mapping-sets/plan-lookup.json

@@ -1,0 +1,72 @@
+{
+  "customer_id": {
+    "type": "string",
+    "title": "Customer ID"
+  },
+  "first_name": {
+    "type": "string",
+    "title": "First Name"
+  },
+  "last_name": {
+    "type": "string",
+    "title": "Last Name"
+  },
+  "email": {
+    "type": "string",
+    "format": "email",
+    "title": "Email"
+  },
+  "mobile_phone": {
+    "type": "string",
+    "title": "Mobile Phone"
+  },
+  "birth_Date": {
+    "type": "string",
+    "format": "date",
+    "title": "Birth Date"
+  },
+  "email_optin": {
+    "type": "boolean",
+    "title": "Email Opt-In"
+  },
+  "sms_optin": {
+    "type": "boolean",
+    "title": "SMS Opt-In"
+  },
+  "plan_id": {
+    "type": "integer",
+    "title": "Plan ID"
+  },
+  "create_date": {
+    "type": "string",
+    "format": "date-time",
+    "title": "Create Date"
+  },
+  "modify_date": {
+    "type": "string",
+    "format": "date-time",
+    "title": "Modify Date"
+  },
+  "source": {
+    "type": "string",
+    "title": "Source",
+    "enum": [
+      "web",
+      "in-store"
+    ],
+    "meta:enum": {
+      "web": "Online",
+      "in-store": "In Store"
+    }
+  },
+  "account_create_date": {
+    "type": "string",
+    "format": "date-time",
+    "title": "Account Create Date"
+  },
+  "account_end_date": {
+    "type": "string",
+    "format": "date-time",
+    "title": "Account End Date"
+  }
+}

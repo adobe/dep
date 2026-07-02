@@ -1,0 +1,51 @@
+mergePolicies:
+  default:
+    isActiveOnEdge: true    # patches the existing default merge policy (reserved key — not created)
+  no-stitch:
+    name: "{PREFIX_NAME} No Stitch"
+    identityGraph: none
+    attributeMerge: timestampOrdered
+    isActiveOnEdge: false
+
+dailySegmentJob:
+  name: "{PREFIX_NAME} profile-default"
+  type: batch_segmentation
+  state: active
+  cronExpression: "0 11 * * * ?"   # daily at 11 AM UTC — overridden at runtime by user prompt
+  segments: "*"
+
+audiences:
+  any-event-streaming:
+    name: "{PREFIX_NAME} Any Event Streaming (within the hour)"
+    description: "{PREFIX_NAME} Any Event Streaming (within the hour)"
+    evaluationMode: continuous
+    file: "industry/telecom/standard/audiences/any-event-streaming.json"
+    editableInUi: true
+
+  any-event-edge:
+    name: "{PREFIX_NAME} Any Event Edge (within the hour)"
+    description: "{PREFIX_NAME} Any Event Edge (within the hour)"
+    evaluationMode: synchronous
+    file: "industry/telecom/standard/audiences/any-event-edge.json"
+    editableInUi: true
+
+  any-event-batch:
+    name: "{PREFIX_NAME} Any Event Batch (within the day)"
+    description: "{PREFIX_NAME} Any Event Batch (within the day)"
+    evaluationMode: batch
+    file: "industry/telecom/standard/audiences/any-event-batch.json"
+    editableInUi: true
+
+  interested-in-iphone-17:
+    name: "{PREFIX_NAME} Interested in iPhone 17"
+    description: "{PREFIX_NAME} Interested in iPhone 17"
+    evaluationMode: continuous
+    file: "industry/telecom/standard/audiences/interested-in-iphone-17.json"
+    editableInUi: true   # requires ansibleDataModel in body file — pre-flight validation will enforce
+
+  basic-plan-members:
+    name: "{PREFIX_NAME} Basic Plan Members"
+    description: "{PREFIX_NAME} Basic Plan Members"
+    evaluationMode: batch
+    file: "industry/telecom/standard/audiences/basic-plan-members.json"
+    editableInUi: true   # requires ansibleDataModel in body file — pre-flight validation will enforce

@@ -1,0 +1,60 @@
+{
+	"id": "8ad36983-e578-458f-beef-c6312f02b89e",
+	"name": "Sample Env File",
+	"values": [
+		{
+			"key": "CLIENT_SECRET",
+			"value": "",
+			"type": "text",
+			"enabled": true
+		},
+		{
+			"key": "API_KEY",
+			"value": "",
+			"type": "text",
+			"enabled": true
+		},
+		{
+			"key": "ACCESS_TOKEN",
+			"value": "",
+			"type": "text",
+			"enabled": true
+		},
+		{
+			"key": "IMS",
+			"value": "ims-na1.adobelogin.com",
+			"type": "text",
+			"enabled": true
+		},
+		{
+			"key": "IMS_ORG",
+			"value": "",
+			"type": "text",
+			"enabled": true
+		},
+		{
+			"key": "SANDBOX_NAME",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ADOBE_IO_ENV",
+			"value": "platform.adobe.io",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "STREAMING_INGESTION_HOST",
+			"value": "dcs.adobedc.net",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "SCOPES",
+			"value": "openid, AdobeID, read_organizations, additional_info.projectedProductContext, session",
+			"type": "any",
+			"enabled": true
+		}
+	]
+}

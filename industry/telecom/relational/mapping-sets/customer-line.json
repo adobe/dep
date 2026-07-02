@@ -1,0 +1,14 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "customer_line_id", "destination": "customer_line_id" },
+    { "sourceType": "ATTRIBUTE", "source": "customer_id", "destination": "customer_id" },
+    { "sourceType": "ATTRIBUTE", "source": "product_id", "destination": "product_id" },
+    { "sourceType": "ATTRIBUTE", "source": "primary_line_indicator", "destination": "primary_line_indicator" },
+    { "sourceType": "ATTRIBUTE", "source": "active_indicator", "destination": "active_indicator" },
+    { "sourceType": "ATTRIBUTE", "source": "mobile_phone", "destination": "mobile_phone" },
+    { "sourceType": "EXPRESSION", "source": "date(last_modified,'yyyy-MM-dd\"T\"HH:mm:ss\"Z\"')", "destination": "last_modified" },
+    { "sourceType": "ATTRIBUTE", "source": "sms_optin", "destination": "sms_optin" },
+    { "sourceType": "ATTRIBUTE", "source": "email", "destination": "email_address" },
+    { "sourceType": "ATTRIBUTE", "source": "email_optin", "destination": "email_optin" }
+  ]
+}

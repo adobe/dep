@@ -1,0 +1,5 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "_dxp", "destination": "{tenantId}" }
+  ]
+}

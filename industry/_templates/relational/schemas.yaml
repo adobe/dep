@@ -1,0 +1,32 @@
+# ============================================================
+# CUSTOM COMPONENTS
+# Custom identity namespaces created before schema deployment.
+# Standard namespaces (Email, ECID, Phone) are pre-existing — do not list them here.
+# ============================================================
+
+identityNamespaces:          # OPTIONAL — only if relational schemas need custom identity joins
+  - name: <namespace-name>
+    code: <namespace-code>
+    idType: Cross_device     # Cookie | Cross_device | Device | Email | Mobile | Non_people | Phone
+
+# ============================================================
+# SCHEMAS
+# Relational table definitions with primary keys, version fields,
+# and foreign key relationships to other schemas in this catalog.
+# ============================================================
+
+schemas:
+  - key: <schema_key>        # REQUIRED — snake_case key matching CSV file basename
+    name: "{PREFIX_NAME} <Schema Display Name>"  # REQUIRED — schema title in AEP + dataset name; deploy code substitutes `dep-rel:` automatically for relational
+    description: "<description of this table>"        # REQUIRED — dataset description
+    file: industry/<vertical>/relational/schemas/<file>.json  # REQUIRED — field-definitions-only JSON
+                             # (properties only — title/description/type/required/allOf assembled at runtime)
+    primaryKey: <column>     # REQUIRED — primary key column name; added to schema required[]
+    versionField: <column>   # REQUIRED — version/timestamp column; added to schema required[]
+    foreignKeys:             # OPTIONAL — omit for schemas with no FK relationships
+      - sourceProperty: <fk-column>       # REQUIRED — column in this schema
+        destinationSchema: <schema_key>   # REQUIRED — key of the referenced schema in this file
+        destinationProperty: <pk-column>  # REQUIRED — column in the referenced schema
+        cardinality: "M:1"               # REQUIRED — M:1 | M:0
+        # sourceToDestinationTitle and destinationToSourceTitle are NOT in YAML —
+        # derived at runtime from the destination and source schema name fields

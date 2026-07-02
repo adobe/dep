@@ -1,0 +1,32 @@
+{
+  "detail_statement_id": {
+    "type": "integer",
+    "title": "Detail Statement ID"
+  },
+  "statement_id": {
+    "type": "integer",
+    "title": "Statement ID"
+  },
+  "customer_line_id": {
+    "type": "string",
+    "title": "Customer Line ID"
+  },
+  "statement_date": {
+    "type": "string",
+    "format": "date",
+    "title": "Statement Date"
+  },
+  "amount_charged": {
+    "type": "number",
+    "title": "Amount Charged (USD)"
+  },
+  "phone_number": {
+    "type": "string",
+    "title": "Phone Number"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

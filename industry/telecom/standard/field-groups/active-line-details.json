@@ -1,0 +1,48 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "activeProducts": {
+        "required": [],
+        "type": "array",
+        "description": "",
+        "meta:xdmType": "array",
+        "items": {
+          "required": [],
+          "type": "object",
+          "meta:xdmType": "object",
+          "properties": {
+            "make": {
+              "title": "Make",
+              "description": "",
+              "type": "string",
+              "required": [],
+              "meta:xdmType": "string"
+            },
+            "model": {
+              "title": "Model",
+              "description": "",
+              "type": "string",
+              "required": [],
+              "meta:xdmType": "string"
+            },
+            "productID": {
+              "title": "Product ID",
+              "description": "",
+              "type": "string",
+              "required": [],
+              "meta:xdmType": "string"
+            },
+            "customerLineID": {
+              "title": "Customer Line ID",
+              "description": "",
+              "type": "string",
+              "required": [],
+              "meta:xdmType": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "plan_id": {
+    "type": "integer",
+    "title": "Plan ID"
+  },
+  "plan_name": {
+    "type": "string",
+    "title": "Plan Name",
+    "enum": [
+      "basic",
+      "ultimate",
+      "pro"
+    ],
+    "meta:enum": {
+      "basic": "Basic",
+      "ultimate": "Ultimate",
+      "pro": "Pro"
+    }
+  },
+  "plan_type": {
+    "type": "string",
+    "title": "Plan Type",
+    "enum": [
+      "mobile"
+    ],
+    "meta:enum": {
+      "mobile": "Mobile"
+    }
+  },
+  "monthly_line_cost": {
+    "type": "number",
+    "title": "Monthly Line Cost"
+  },
+  "unlimited_talk": {
+    "type": "boolean",
+    "title": "Unlimited Talk"
+  },
+  "unlimited_text": {
+    "type": "boolean",
+    "title": "Unlimited Text"
+  },
+  "unlimited_data": {
+    "type": "boolean",
+    "title": "Unlimited Data"
+  },
+  "monthly_data_allowance": {
+    "type": "integer",
+    "title": "Monthly Data Allowance (GB)"
+  },
+  "last_modified": {
+    "type": "string",
+    "title": "Last Modified",
+    "format": "date-time"
+  }
+}

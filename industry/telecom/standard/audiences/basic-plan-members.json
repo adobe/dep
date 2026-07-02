@@ -1,0 +1,44 @@
+{
+  "expression": {
+    "format": "pql/json",
+    "value": "{\"nodeType\":\"fnApply\",\"fnName\":\"in\",\"params\":[{\"nodeType\":\"fieldLookup\",\"fieldName\":\"name\",\"object\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"plan\",\"object\":{\"nodeType\":\"fieldLookup\",\"fieldName\":\"_dep\",\"object\":{\"nodeType\":\"parameterReference\",\"position\":1}}}},{\"nodeType\":\"literal\",\"literalType\":\"List\",\"value\":[\"basic\"]}]}"
+  },
+  "ansibleDataModel": {
+    "dataModel": {
+      "expression": {
+        "isValid": true,
+        "itemType": "segmentDefinition",
+        "logicalOperator": "and",
+        "xEventAttributesContainer": {
+          "items": [],
+          "exclude": false,
+          "itemType": "eventTypeCardContainer",
+          "logicalOperator": "then"
+        },
+        "profileAttributesContainer": {
+          "items": [
+            {
+              "value": [
+                "basic"
+              ],
+              "itemType": "segmentRule",
+              "component": {
+                "id": "profile._dep.plan.name",
+                "type": "rE",
+                "__entity__": true
+              },
+              "isPlaceholder": false,
+              "comparisonType": "in",
+              "isCaseSensitive": false,
+              "originalLocation": []
+            }
+          ],
+          "exclude": false,
+          "itemType": "segmentContainer",
+          "logicalOperator": "and"
+        }
+      }
+    },
+    "version": "1.0.0"
+  }
+}

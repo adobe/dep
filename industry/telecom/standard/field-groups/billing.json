@@ -1,0 +1,122 @@
+{
+  "{tenantId}": {
+    "type": "object",
+    "properties": {
+      "billing": {
+        "title": "Billing Details",
+        "description": "",
+        "type": "object",
+        "isRequired": false,
+        "required": [],
+        "properties": {
+          "billingID": {
+            "title": "Billing ID",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string"
+          },
+          "planID": {
+            "title": "Plan ID",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string"
+          },
+          "periodStart": {
+            "title": "Billing Period Start",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "format": "date-time",
+            "meta:xdmType": "date-time"
+          },
+          "periodEnd": {
+            "title": "Billing Period End",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "format": "date-time",
+            "meta:xdmType": "date-time"
+          },
+          "type": {
+            "title": "Billing Type",
+            "description": "",
+            "type": "string",
+            "required": [],
+            "meta:xdmType": "string",
+            "enum": [
+              "phone"
+            ],
+            "meta:enum": {
+              "phone": "Phone"
+            }
+          },
+          "dataAllowance": {
+            "title": "Billing Data Allowance",
+            "description": "",
+            "type": "number",
+            "required": [],
+            "meta:xdmType": "number"
+          },
+          "dataUsage": {
+            "title": "Billing Data Usage",
+            "description": "",
+            "type": "number",
+            "required": [],
+            "meta:xdmType": "number"
+          },
+          "total": {
+            "title": "Billing Amount Total",
+            "description": "",
+            "type": "number",
+            "required": [],
+            "meta:xdmType": "number"
+          },
+          "billingDetails": {
+            "required": [],
+            "type": "array",
+            "description": "",
+            "title": "Billing Specific Details",
+            "meta:xdmType": "array",
+            "items": {
+              "required": [],
+              "type": "object",
+              "meta:xdmType": "object",
+              "properties": {
+                "amountCharged": {
+                  "required": [],
+                  "type": "number",
+                  "description": "",
+                  "title": "Billing Specific Amount Charged",
+                  "meta:xdmType": "number"
+                },
+                "phoneNumber": {
+                  "required": [],
+                  "type": "string",
+                  "description": "",
+                  "title": "Billing Specific Phone Number",
+                  "meta:xdmType": "string"
+                },
+                "customerLineID": {
+                  "required": [],
+                  "type": "string",
+                  "description": "",
+                  "title": "Billing Specific Customer Line ID",
+                  "meta:xdmType": "string"
+                },
+                "detailStatementID": {
+                  "required": [],
+                  "type": "string",
+                  "description": "",
+                  "title": "Billing Specific Statement ID",
+                  "meta:xdmType": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

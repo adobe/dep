@@ -1,0 +1,7 @@
+{
+  "mappings": [
+    { "sourceType": "ATTRIBUTE", "source": "tenant", "destination": "{tenantId}" },
+    { "sourceType": "ATTRIBUTE", "source": "planName", "destination": "planName" },
+    { "sourceType": "ATTRIBUTE", "source": "planID", "destination": "planID" }
+  ]
+}

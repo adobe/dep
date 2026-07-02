@@ -1,0 +1,30 @@
+mergePolicies:               # OPTIONAL — keyed map of merge policies
+  default:                   # RESERVED — patches the existing default merge policy (never created)
+    isActiveOnEdge: true     # REQUIRED — must be true for AJO edge segmentation
+  <policy-key>:              # OPTIONAL — key used in deploy.yaml standard.mergePolicies[]; creates a new policy
+    name: "{PREFIX_NAME} <Policy Name>"   # REQUIRED — {PREFIX_NAME} substituted at runtime
+    identityGraph: none      # REQUIRED — none | pdg (Private Device Graph)
+    attributeMerge: timestampOrdered       # REQUIRED — timestampOrdered | dataSetPrecedence
+    isActiveOnEdge: false    # REQUIRED — false unless edge segmentation needed for this policy
+
+dailySegmentJob:             # OPTIONAL — omit if sandbox already has a segment schedule
+  name: "{PREFIX_NAME} profile-default"
+  type: batch_segmentation   # always batch_segmentation
+  state: active
+  cronExpression: "0 11 * * * ?"  # daily at 11 AM UTC — runtime prompts user to select time
+  segments: "*"              # always "*" to run all segments
+
+audiences:                   # REQUIRED — one entry per available audience
+  <audience-key>:            # REQUIRED — key used in deploy.yaml standard.audiences[]
+    name: "{PREFIX_NAME} <Audience Display Name>"  # REQUIRED — {PREFIX_NAME} substituted at runtime
+    description: "{PREFIX_NAME} <description>"     # OPTIONAL
+    evaluationMode: continuous   # REQUIRED — continuous | synchronous | batch
+    file: "industry/{vertical}/standard/audiences/<file>.json"  # REQUIRED — repo-root-relative path to body file
+    editableInUi: true       # OPTIONAL — set true if editable in AEP UI segment builder;
+                             #   body file MUST include ansibleDataModel when true
+  # Multiple entries may reference the same body file when only name/evaluationMode differ:
+  # <audience-key-2>:
+  #   name: "{PREFIX_NAME} <Another Name>"
+  #   evaluationMode: batch
+  #   file: "audiences/<same-file>.json"
+  #   editableInUi: false
