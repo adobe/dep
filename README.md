@@ -40,13 +40,15 @@ For installation, environment setup, step-by-step instructions, deployment timel
 
 ## Lab Packs
 
-### [AEP Foundations](/industry/telecom/lab-packs/aep-foundations/)
+A **lab pack** is a bundled set of AEP/AJO content -- schemas, datasets, identity
+configurations, and sample data -- that the CLI deploys to a sandbox to stand up the
+environment for a specific hands-on lab. Lab packs are organized by industry vertical;
+today there is one vertical (`telecom`) providing two lab packs:
 
-A complete set of hands-on exercises that you can complete at your own pace, teaching the foundational building blocks of Adobe Experience Platform.
-
-### [AJO Architectural Foundations](/industry/telecom/lab-packs/ajo-foundations/)
-
-A simplified set of schemas, datasets, and data that can be easily deployed to a sandbox to jump-start your learning. Works in conjunction with the AEP Foundations lab pack.
+- **AEP Foundations** -- deploy with the AEP foundations menu, then work through the
+  [AEP Foundations bootcamp labs](https://www.dep-labs.com/aep-foundations-bootcamp)
+- **AJO Architectural Foundations** -- deploy with the AJO arch foundations menu, then
+  work through the [AJO Architectural Foundations bootcamp labs](https://www.dep-labs.com/ajo-arch-foundations-bootcamp)
 
 <br>
 
