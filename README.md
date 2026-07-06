@@ -29,7 +29,7 @@ For installation, environment setup, step-by-step instructions, deployment timel
 
 - **[Installation](https://github.com/OneAdobe/dep-cli/wiki/Installation)** -- clone, install dependencies, and start the CLI (includes updating an existing install)
 - **[Environment Setup](https://github.com/OneAdobe/dep-cli/wiki/Environment-Setup)** -- create and configure your environment file
-- **[Node.js Setup (Windows)](https://github.com/OneAdobe/dep-cli/wiki/Nodejs-Setup-Windows)** -- install Node.js on Windows via nvm-windows
+- **[Node.js Setup](https://github.com/OneAdobe/dep-cli/wiki/Nodejs-Setup-Windows)** -- install Node.js on Windows (nvm-windows) or macOS (nvm)
 - **[AEP Foundations Menu](https://github.com/OneAdobe/dep-cli/wiki/AEP-Foundations-Menu)** -- creates the profile base, loads profile data, and validates via health check (~2h 33min end-to-end)
 - **[AJO Architectural Foundations Menu](https://github.com/OneAdobe/dep-cli/wiki/AJO-Architectural-Foundations-Menu)** -- covers both the profile and relational tracks (~3h 30min end-to-end)
 - **[Sandbox Management Menu](https://github.com/OneAdobe/dep-cli/wiki/Sandbox-Management-Menu)** -- resets a sandbox (destructive; requires explicit confirmation of the target sandbox name)
