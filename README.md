@@ -25,14 +25,14 @@ Main Menu
   4) Exit
 ```
 
-For installation, environment setup, step-by-step instructions, deployment timelines, and troubleshooting, see the **[wiki](https://github.com/OneAdobe/dep-cli/wiki)**:
+For installation, environment setup, step-by-step instructions, deployment timelines, and troubleshooting, see the **[wiki](https://github.com/adobe/dep-cli/wiki)**:
 
-- **[Installation](https://github.com/OneAdobe/dep-cli/wiki/Installation)** -- clone, install dependencies, and start the CLI (includes updating an existing install)
-- **[Environment Setup](https://github.com/OneAdobe/dep-cli/wiki/Environment-Setup)** -- create and configure your environment file
-- **[Node.js Setup (Windows)](https://github.com/OneAdobe/dep-cli/wiki/Nodejs-Setup-Windows)** -- install Node.js on Windows via nvm-windows
-- **[AEP Foundations Menu](https://github.com/OneAdobe/dep-cli/wiki/AEP-Foundations-Menu)** -- creates the profile base, loads profile data, and validates via health check (~2h 33min end-to-end)
-- **[AJO Architectural Foundations Menu](https://github.com/OneAdobe/dep-cli/wiki/AJO-Architectural-Foundations-Menu)** -- covers both the profile and relational tracks (~3h 30min end-to-end)
-- **[Sandbox Management Menu](https://github.com/OneAdobe/dep-cli/wiki/Sandbox-Management-Menu)** -- resets a sandbox (destructive; requires explicit confirmation of the target sandbox name)
+- **[Installation](https://github.com/adobe/dep-cli/wiki/Installation)** -- clone, install dependencies, and start the CLI (includes updating an existing install)
+- **[Environment Setup](https://github.com/adobe/dep-cli/wiki/Environment-Setup)** -- create and configure your environment file
+- **[Node.js Setup](https://github.com/adobe/dep-cli/wiki/Nodejs-Setup-Windows)** -- install Node.js on Windows (nvm-windows) or macOS (nvm)
+- **[AEP Foundations Menu](https://github.com/adobe/dep-cli/wiki/AEP-Foundations-Menu)** -- creates the profile base, loads profile data, and validates via health check (~2h 33min end-to-end)
+- **[AJO Architectural Foundations Menu](https://github.com/adobe/dep-cli/wiki/AJO-Architectural-Foundations-Menu)** -- covers both the profile and relational tracks (~3h 30min end-to-end)
+- **[Sandbox Management Menu](https://github.com/adobe/dep-cli/wiki/Sandbox-Management-Menu)** -- resets a sandbox (destructive; requires explicit confirmation of the target sandbox name)
 
 <br>
 
@@ -40,13 +40,15 @@ For installation, environment setup, step-by-step instructions, deployment timel
 
 ## Lab Packs
 
-### [AEP Foundations](/industry/telecom/lab-packs/aep-foundations/)
+A **lab pack** is a bundled set of AEP/AJO content -- schemas, datasets, identity
+configurations, and sample data -- that the CLI deploys to a sandbox to stand up the
+environment for a specific hands-on lab. Lab packs are organized by industry vertical;
+today there is one vertical (`telecom`) providing two lab packs:
 
-A complete set of hands-on exercises that you can complete at your own pace, teaching the foundational building blocks of Adobe Experience Platform.
-
-### [AJO Architectural Foundations](/industry/telecom/lab-packs/ajo-foundations/)
-
-A simplified set of schemas, datasets, and data that can be easily deployed to a sandbox to jump-start your learning. Works in conjunction with the AEP Foundations lab pack.
+- **AEP Foundations** -- deploy with the AEP foundations menu, then work through the
+  [AEP Foundations bootcamp labs](https://www.dep-labs.com/aep-foundations-bootcamp)
+- **AJO Architectural Foundations** -- deploy with the AJO arch foundations menu, then
+  work through the [AJO Architectural Foundations bootcamp labs](https://www.dep-labs.com/ajo-arch-foundations-bootcamp)
 
 <br>
 
@@ -78,4 +80,4 @@ The baseline data model used for creating any of the lab packs, inclusive of sam
 
 ## Feedback
 
-Find an issue or want an enhancement? File an issue [here](https://github.com/OneAdobe/dep-cli/issues).
+Find an issue or want an enhancement? File an issue [here](https://github.com/adobe/dep-cli/issues).
